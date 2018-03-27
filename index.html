@@ -347,7 +347,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  664
+                  665
                 </span>
               
 
@@ -385,7 +385,9 @@
 
       
         
-          <p> <strong>this的绑定规则</strong></p>
+          <p><strong>this的绑定规则</strong></p>
+<!-- toc -->
+<!-- tocstop -->
 <p>1.&ensp;默认绑定<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.a);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a=<span class="number">2</span>;</span><br><span class="line">foo();<span class="comment">//2</span></span><br></pre></td></tr></table></figure></p>
 <p>2.&ensp;隐式绑定<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.a);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj1=&#123;</span><br><span class="line">    a:<span class="number">2</span>,</span><br><span class="line">    foo:foo,</span><br><span class="line">    obj2:obj2</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> obj2=&#123;</span><br><span class="line">    a:<span class="number">42</span>,</span><br><span class="line">    foo:foo</span><br><span class="line">&#125;;</span><br><span class="line">obj1.foo();<span class="comment">//2</span></span><br><span class="line">obj1.obj2.foo();<span class="comment">//42</span></span><br></pre></td></tr></table></figure></p>
           <!--noindex-->
@@ -572,7 +574,7 @@
 <ul>
 <li><strong>面试被血虐</strong> </li>
 </ul>
-<p>&emsp;&emsp;前两天的腾讯实习生面试加笔试，把我虐的一塌糊涂。尽管我知道我自己菜，但没想到面完之后感觉自己也太菜了吧。很多问题其实都是平时遇到过的，只不过自己没有独立思考过原理和本质，回答的太不顺利。所以想通过博客这一平台，总结自己学习的知识，来检验自己是否真的掌握了。<br></p>
+<p>&emsp;&emsp;前两天的腾讯实习生面试加笔试，把我虐的一塌糊涂。尽管我知道我自己菜，但没想到面完之后感觉自己也太菜了吧。很多问题其实都是平时遇到过的，只不过自己没有独立思考过原理和本质，回答的太不顺利。所以想通过博客这一平台，总结自己学习的知识，来检验自己是否真的掌握了。<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/03/25/我为什么写博客/#more" rel="contents">
