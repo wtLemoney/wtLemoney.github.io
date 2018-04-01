@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="wtLemoney">
 <meta property="og:description" content="1. 什么是闭包？&amp;emsp;&amp;emsp;OK,来看下面一段能清晰展示闭包的代码：123456789function foo()&amp;#123;var a=2;function bar()&amp;#123;    console.log(a);&amp;#125;return bar;&amp;#125;var baz=foo();baz();//2 &amp;emsp;&amp;emsp;闭包使得函数bar()可以继续访问定义时的词法作">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-30T12:59:55.561Z">
+<meta property="og:updated_time" content="2018-03-31T01:38:38.525Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="作用域闭包">
 <meta name="twitter:description" content="1. 什么是闭包？&amp;emsp;&amp;emsp;OK,来看下面一段能清晰展示闭包的代码：123456789function foo()&amp;#123;var a=2;function bar()&amp;#123;    console.log(a);&amp;#125;return bar;&amp;#125;var baz=foo();baz();//2 &amp;emsp;&amp;emsp;闭包使得函数bar()可以继续访问定义时的词法作">
@@ -395,7 +395,15 @@
 
       
         <h4><span id="1-什么是闭包">1. 什么是闭包？</span></h4><p>&emsp;&emsp;OK,来看下面一段能清晰展示闭包的代码：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="keyword">var</span> a=<span class="number">2</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> bar;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> baz=foo();</span><br><span class="line">baz();<span class="comment">//2</span></span><br></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;闭包使得函数bar()可以继续访问定义时的词法作用域。函数能被外部调用到，则该作用域链上的所有变量都会被保存下来。<br>&emsp;&emsp;定义：包就是能够读取其他函数内部变量的函数。由于在JavaScript语言中，只有函数内部的子函数才能读取局部变量，因此可以把闭包简单理解为“定义在一个函数内部的函数”。<br>&emsp;&emsp;本质：闭包是将函数内部和外部连接起来的桥梁。<br>&emsp;&emsp;用处：一是可以读取函数内部的变量；二是让这些变量的值始终保持在内存中。<br>&emsp;&emsp;注意点：<a id="more"></a><br>&emsp;&emsp;&emsp;&emsp;1）不能滥用闭包<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;由于闭包会使得函数中的变量都被保存在内存中，内存消耗很大，所以不能滥用闭包，否则会造成网页的性能问题，在IE中可能会导致内存泄漏。<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;解决方法：在退出函数之前，将不使用的局部变量全部删除。<br>&emsp;&emsp;&emsp;&emsp;2）不要随便改变父函数内部变量的值。<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;把父函数当作对象使用，闭包当作它的公有方法，内部变量当作它的私有属性，闭包会在父函数外部，改变父函数变量的值，所以要注意。</p>
+<p>&emsp;&emsp;闭包使得函数bar()可以继续访问定义时的词法作用域。函数能被外部调用到，则该作用域链上的所有变量都会被保存下来。  </p>
+<blockquote>
+<ul>
+<li>定义：包就是能够读取其他函数内部变量的函数。由于在JavaScript语言中，只有函数内部的子函数才能读取局部变量，因此可以把闭包简单理解为“定义在一个函数内部的函数”。</li>
+<li>本质：闭包是将函数内部和外部连接起来的桥梁。</li>
+<li>用处：一是可以读取函数内部的变量；二是让这些变量的值始终保持在内存中。</li>
+<li>注意点：<a id="more"></a><br>&emsp;&emsp;&emsp;1）不能滥用闭包<br>&emsp;&emsp;由于闭包会使得函数中的变量都被保存在内存中，内存消耗很大，所以不能滥用闭包，否则会造成网页的性能问题，在IE中可能会导致内存泄漏。<br>&emsp;&emsp;解决方法：在退出函数之前，将不使用的局部变量全部删除。<br>&emsp;&emsp;&emsp;2）不要随便改变父函数内部变量的值。<br>&emsp;&emsp;把父函数当作对象使用，闭包当作它的公有方法，内部变量当作它的私有属性，闭包会在父函数外部，改变父函数变量的值，所以要注意。  </li>
+</ul>
+</blockquote>
 <h4><span id="2-循环和闭包">2. 循环和闭包</span></h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">1</span>;i&lt;=<span class="number">5</span>;i++)&#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span> <span class="title">timer</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(i);</span><br><span class="line">    &#125;,i*<span class="number">1000</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>&emsp;&emsp;正常情况下，这段代码预期会分别输出数字1-5，每秒一次，每次一个(注意是i*1000,不是1000)。但实际上，这段代码会以每秒一次的频率输出五次6(如果是1000，五个6会同一时间输出)！这是因为：循环的终止条件是i=6，而延迟函数的回调会在循坏结束时在执行。<br>&emsp;&emsp;试一下这样可以输出预期的1-5吗：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">1</span>;i&lt;=<span class="number">5</span>;i++)&#123;</span><br><span class="line">      (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	setTimeout(<span class="function"><span class="keyword">function</span> <span class="title">timer</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">          	<span class="built_in">console</span>.log(i);</span><br><span class="line">      	&#125;,i*<span class="number">1000</span>);</span><br><span class="line">&#125;)();</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
 <p>&emsp;&emsp;答案是不行！这样每个延迟函数确实将立即执行函数在每次迭代中创建的作用域封闭起来，但是作用域是空的，所以它需要有自己的变量，用来在迭代中储存i的值。像下面这样：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">1</span>;i&lt;=<span class="number">5</span>;i++)&#123;</span><br><span class="line">      (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> j=i;</span><br><span class="line">	setTimeout(<span class="function"><span class="keyword">function</span> <span class="title">timer</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">          	<span class="built_in">console</span>.log(j);</span><br><span class="line">      	&#125;,j*<span class="number">1000</span>);</span><br><span class="line">&#125;)();</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
@@ -460,6 +468,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/02/数组/" rel="prev" title="那些你常常会忘的处理数组的函数">
+                那些你常常会忘的处理数组的函数 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -564,7 +576,7 @@ var jiathis_config={
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -575,7 +587,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -586,7 +598,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -681,7 +693,7 @@ var jiathis_config={
     </span>
     <div class="theme-info">
       <div class="powered-by"></div>
-      <span class="post-count">博客全站共2.6k字</span>
+      <span class="post-count">博客全站共2.9k字</span>
     </div>
 
   
