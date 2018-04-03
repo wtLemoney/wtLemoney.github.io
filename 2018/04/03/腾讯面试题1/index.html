@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="blogs,interview," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="&amp;emsp;&amp;emsp;这些面试题是我之前参加腾讯前端训练营的时候，每天的一些面试题作业。最近自己参加暑期实习生面试的时候，也被问到过一些类似的问题。所以我整理总结了以前的面试题，通过自己搜索资料学习总结。答案有些是结合自己的理解，有些是网络上一些回答的比较好的答案，仅供参考。 1.什么是盒子模型？两种：IE盒子模型、标准W3C盒子模型，包括content、padding、margin、borde">
+<meta name="keywords" content="blogs,interview">
+<meta property="og:type" content="article">
+<meta property="og:title" content="腾讯IMWeb前端训练营作业——经典面试题1">
+<meta property="og:url" content="https://wtlemoney.github.io/2018/04/03/腾讯面试题1/index.html">
+<meta property="og:site_name" content="wtLemoney">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;这些面试题是我之前参加腾讯前端训练营的时候，每天的一些面试题作业。最近自己参加暑期实习生面试的时候，也被问到过一些类似的问题。所以我整理总结了以前的面试题，通过自己搜索资料学习总结。答案有些是结合自己的理解，有些是网络上一些回答的比较好的答案，仅供参考。 1.什么是盒子模型？两种：IE盒子模型、标准W3C盒子模型，包括content、padding、margin、borde">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-04-03T14:18:10.382Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="腾讯IMWeb前端训练营作业——经典面试题1">
+<meta name="twitter:description" content="&amp;emsp;&amp;emsp;这些面试题是我之前参加腾讯前端训练营的时候，每天的一些面试题作业。最近自己参加暑期实习生面试的时候，也被问到过一些类似的问题。所以我整理总结了以前的面试题，通过自己搜索资料学习总结。答案有些是结合自己的理解，有些是网络上一些回答的比较好的答案，仅供参考。 1.什么是盒子模型？两种：IE盒子模型、标准W3C盒子模型，包括content、padding、margin、borde">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://wtlemoney.github.io/2018/04/03/腾讯面试题1/"/>
+
+
+
+
+
+  <title>腾讯IMWeb前端训练营作业——经典面试题1 | wtLemoney</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/wtLemoney" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">wtLemoney</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">To be a happy&lovely programmer...</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://wtlemoney.github.io/2018/04/03/腾讯面试题1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wtLemoney">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/my_files/photo.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wtLemoney">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">腾讯IMWeb前端训练营作业——经典面试题1</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-03T22:05:53+08:00">
+                2018-04-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/腾讯训练营/" itemprop="url" rel="index">
+                    <span itemprop="name">腾讯训练营</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/腾讯训练营/面试/" itemprop="url" rel="index">
+                    <span itemprop="name">面试</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/腾讯训练营/面试/总结/" itemprop="url" rel="index">
+                    <span itemprop="name">总结</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  3,622
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  13
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>&emsp;&emsp;这些面试题是我之前参加腾讯前端训练营的时候，每天的一些面试题作业。最近自己参加暑期实习生面试的时候，也被问到过一些类似的问题。所以我整理总结了以前的面试题，通过自己搜索资料学习总结。答案有些是结合自己的理解，有些是网络上一些回答的比较好的答案，仅供参考。</p>
+<h4><span id="1什么是盒子模型">1.什么是盒子模型？</span></h4><p>两种：IE盒子模型、标准W3C盒子模型，包括content、padding、margin、border。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">IE8的width=border-left+padding-left+内容宽度+padding-right+border-right;  </span><br><span class="line">IE8的height=border-top+padding-top+内容高度+padding-bottom+border-bottom; </span><br><span class="line">w3c规定的width=内容宽度; </span><br><span class="line">w3c规定的height=内容高度;</span><br></pre></td></tr></table></figure></p>
+<p>这样有可能导致不同浏览器下获取的width或height的值不同,幸好jquery提供了另外两个方法:<a id="more"></a><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">innerWidth():padding-left+内容宽度+padding-right; </span><br><span class="line">outerWidth():border-left+padding-left+内容宽度+padding-right+border-right; </span><br><span class="line">outerWidth(<span class="literal">true</span>):margin-left+border-left+padding-left+内容宽度+padding-right+border-right+margin-right;</span><br></pre></td></tr></table></figure></p>
+<h4><span id="2简述一下src与href的区别">2.简述一下src与href的区别？</span></h4><p>src指向外部资源的位置，指向的内容将会嵌入到文档中当前标签所在位置；在请求src资源时会将其指向的资源下载并应用到文档内，例如js脚本，img图片和frame等元素。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src =<span class="string">"js.js"</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<p>当浏览器解析到该元素时，会暂停其他资源的下载和处理，直到将该资源加载、编译、执行完毕，图片和框架等元素也如此，类似于将所指向资源嵌入当前标签内。这也是为什么将js脚本放在底部而不是头部。<br>href指向网络资源所在位置，建立和当前元素（锚点）或当前文档（链接）之间的链接，如果我们在文档中添加<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;link href=<span class="string">"common.css"</span> rel=<span class="string">"stylesheet"</span>/&gt;</span><br></pre></td></tr></table></figure></p>
+<p>那么浏览器会识别该文档为css文件，就会并行下载资源并且不会停止对当前文档的处理。这也是为什么建议使用link方式来加载css，而不是使用@import方式。</p>
+<h4><span id="3怎样添加-移除-移动-复制-创建和查找节点">3.怎样添加、移除、移动、复制、创建和查找节点？</span></h4><p>&emsp;1）创建新节点<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">createDocumentFragment() <span class="comment">//创建一个DOM片段</span></span><br><span class="line">createElement() <span class="comment">//创建一个具体的元素</span></span><br><span class="line">createTextNode() <span class="comment">//创建一个文本节点</span></span><br></pre></td></tr></table></figure></p>
+<p>&emsp;2）添加、移除、替换、插入<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">appendChild() <span class="comment">//添加</span></span><br><span class="line">removeChild() <span class="comment">//移除</span></span><br><span class="line">replaceChild() <span class="comment">//替换</span></span><br><span class="line">insertBefore() <span class="comment">//之前插入</span></span><br><span class="line">insertAfter() <span class="comment">//之后插入</span></span><br><span class="line">cloneNode() <span class="comment">//复制</span></span><br></pre></td></tr></table></figure></p>
+<p>&emsp;3）查找<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">getElementsByTagName() <span class="comment">//通过标签名称</span></span><br><span class="line">getElementsByName() <span class="comment">//通过元素的Name属性的值</span></span><br><span class="line">getElementById() <span class="comment">//通过元素Id，唯一性</span></span><br><span class="line"><span class="built_in">document</span>.getElementsByClassName(<span class="string">""</span>)  <span class="comment">//通过类查找</span></span><br><span class="line"><span class="built_in">document</span>.querySelector(<span class="string">""</span>)</span><br></pre></td></tr></table></figure></p>
+<h4><span id="4一次完整的http事务是怎样的一个过程">4.一次完整的HTTP事务是怎样的一个过程？</span></h4><p>&emsp;&emsp;当我们在浏览器的地址栏输入URL ，然后回车，回车这一瞬间到看到页面到底发生了什么呢？<br>&emsp;&emsp;域名解析 –&gt; 发起TCP的3次握手 –&gt; 建立TCP连接后发起http请求 –&gt; 服务器响应http请求，浏览器得到html代码 –&gt; 浏览器解析html代码，并请求html代码中的资源（如js、css、图片等） –&gt; 浏览器对页面进行渲染呈现给用户  </p>
+<h4><span id="5你所了解的web攻击技术">5.你所了解的web攻击技术？</span></h4><p>&emsp;&emsp;XSS：跨站脚本攻击（Cross Site Scripting）<br>攻击者通过注入非法的html标签或者javascript代码，从而当用户浏览该网页时，控制用户浏览器。本质：内容没有过滤导致浏览器将攻击者的输入当代码执行。<br>&emsp;&emsp;CSRF：跨站点请求伪造（Cross-Site Request Forgeries）<br>冒充用户发起请求，完成一些违背用户意愿的事情（如修改用户信息，删除评论等）。本质：浏览器在发送HTTP请求时自动带上cookie，而一般网站的session都存在cookie里面。防御：get/post、验证码、请求来源限制、token等。<br>&emsp;&emsp;clickjacking：点击劫持<br>利用透明的按钮或连接做成陷阱，覆盖在Web网页之上。防御：X-FRAME-OPTIONS(用来给浏览器指示允许一个页面可否在<code>&lt;frame&gt;、&lt;object&gt;</code>等中展现的标记。网站可使用此功能，确保自己网站没有被嵌到别人网站中去)</p>
+<h4><span id="6ajax是什么ajax的交互原理同步和异步的区别">6.ajax是什么？ajax的交互原理？同步和异步的区别？</span></h4><p>&emsp;&emsp;AJAX = 异步 JavaScript 和 XML，是一种用于创建快速动态网页的技术。通过在后台与服务器进行少量数据交换，AJAX 可以使网页实现异步更新。这意味着可以在不重新加载整个网页的情况下，对网页的某部分进行更新。<br>&emsp;&emsp;缺点：ajax用XHR对象做出的请求不会记录在浏览器的历史中。如果你的用户习惯使用浏览器的”后退”按钮在web应用中进行导航，就可能会产生问题。另外，ajax也难以避免一些已知的安全弱点，诸如跨站点脚步攻击、SQL注入攻击和基于credentials的安全漏洞等。</p>
+<p>&emsp;&emsp;交互原理：通过XmlHttpRequest对象来向服务器发异步请求，从服务器获得数据，然后用javascript来操作DOM而更新页面。XMLHttpRequest这个对象的属性：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">onreadystatechange 每次状态改变所触发事件的事件处理程序。</span><br><span class="line">  　　responseText       从服务器进程返回数据的字符串形式。</span><br><span class="line">  　　responseXML        从服务器进程返回的DOM兼容的文档数据对象。</span><br><span class="line">  　　status             从服务器返回的数字代码，比如常见的<span class="number">404</span>（未找到）和<span class="number">200</span>（已就绪）</span><br><span class="line">  　　status Text        伴随状态码的字符串信息</span><br><span class="line">  　　readyState         对象状态值</span><br><span class="line">　　　　<span class="number">0</span> (未初始化)      对象已建立，但是尚未初始化（尚未调用open方法）</span><br><span class="line">　　　　<span class="number">1</span> (初始化)        对象已建立，尚未调用send方法</span><br><span class="line">　　　　<span class="number">2</span> (发送数据) 	    send方法已调用，但是当前的状态及http头未知</span><br><span class="line">　　　　<span class="number">3</span> (数据传送中)    已接收部分数据，因为响应及http头不全，这时通过responseBody和responseText获取部分数据会出现错误</span><br><span class="line">　　　　<span class="number">4</span> (完成)         数据接收完毕,此时可以通过通过responseXml和responseText获取完整的回应数据</span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;异步传输：是面向字符的传输，它的单位是字符；异步传输是将比特分成小组来进行传送。一般每个小组是一个8位字符，在每个小组的头部和尾部都有一个开始位和一个停止位，它在传送过程中接收方和发送方的时钟不要求一致，也就是说，发送方可以在任何时刻发送这些小组，而接收方并不知道它什么时候到达。<br>&emsp;&emsp;同步传输：是面向比特的传输，它的单位是桢，它传输的时候要求接受方和发送方的时钟是保持一致的。同步传输的比特分组要大得多。它不是独立地发送每个字符，每个字符都有自己的开始位和停止位，而是把它们组合起来一起发送。同步传输通常要比异步传输快速得多。接收方不必对每个字符进行开始和停止的操作。一旦检测到帧同步字符，它就在接下来的数据到达时接收它们。另外，同步传输的开销也比较少。   </p>
+<h4><span id="4什么叫优雅降级和渐进增强">4.什么叫优雅降级和渐进增强？</span></h4><p>&emsp;&emsp;优雅降级：Web站点在所有新式浏览器中都能正常工作，如果用户使用的是老式浏览器，则代码会检查以确认它们是否能正常工作。由于IE独特的盒模型布局问题，针对不同版本的IE的hack实践过优雅降级了,为那些无法支持功能的浏览器增加候选方案，使之在旧式浏览器上以某种形式降级体验却不至于完全失效.<br>&emsp;&emsp;渐进增强：从被所有浏览器支持的基本功能开始，逐步地添加那些只有新式浏览器才支持的功能,向页面增加无害于基础浏览器的额外样式和功能的。当浏览器支持时，它们会自动地呈现出来并发挥作用。</p>
+<h4><span id="5在javascript中什么是伪数组如何将伪数组转化为标准数组">5.在JavaScript中什么是伪数组？如何将伪数组转化为标准数组？</span></h4><p>&emsp;&emsp;伪数组（类数组）：无法直接调用数组方法或期望length属性有什么特殊的行为，但仍可以用真正数组的遍历方法遍历它们。典型的是函数的argument参数，还有像调用<code>getElementByTagName</code>,<code>document.childNodes</code>之类的，它们都返回NodeList对象都属于伪数组。<br>&emsp;&emsp;可以通过Array.prototype.slice.call(fakeArray)将伪数组转化为真正的Array对象。</p>
+<h4><span id="6浏览器本地储存">6.浏览器本地储存？</span></h4><p>&emsp;&emsp;在 HTML5 中提供了 sessionStorage 和 localStorage 。<br>&emsp;&emsp;sessionStorage：用于本地存储一个会话（ session ）中的数据，这些数据只有在同一个会话中的页面才能访问，会话结束后数据随之销毁。因此它不是一种持久化的本地存储，仅仅是会话级别的存储。<br>&emsp;&emsp;localStorage：用于持久化的本地存储，除非主动删除数据，否则数据是永远不会过期的。IE8及以上都兼容。<br>&emsp;&emsp;cookie：当用户访问了某个网站（网页）时，我们就可通过cookie来向访问者电脑上存储数据。或者，某些网站为了辨别用户身份，进行session跟踪而存储在用户本地终端上的数据（加密）。cookie值既可以设置，也可以读取。如何工作：1）当网页要发http请求时，浏览器会先检查是否有相应的cookie，有则自动添加在request header中的字段中。2）对于那种设置“每次请求都要携带的信息”（最典型：身份认证信息）特别适合放在cookie中，其他类型的数据就不适合了。</p>
+<h4><span id="7线程和进程的区别">7.线程和进程的区别？</span></h4><p>&emsp;&emsp;进程有独立的地址空间，一个进程崩溃后，在保护模式下不会对其它进程产生影响，而线程只是一个进程中的不同执行路径。以多进程形式，允许多个任务同时运行；以多线程形式，允许单个任务分成不同的部分运行；</p>
+<h4><span id="8请说出三种减少页面加载时间的方法">8.请说出三种减少页面加载时间的方法？</span></h4><p>&emsp;&emsp;1）优化图片<br>&emsp;&emsp;2）图像格式的选择（GIF：提供的颜色较少，可用在一些对颜色要求不高的地方）<br>&emsp;&emsp;3）优化CSS（压缩合并css，如 margin-top, margin-left…)<br>&emsp;&emsp;4）网址后加斜杠（如<a href="http://www.campr.com/目录，会判断这个目录是什么文件类型，或者是目录。）" target="_blank" rel="noopener">www.campr.com/目录，会判断这个目录是什么文件类型，或者是目录。）</a><br>&emsp;&emsp;5）标明高度和宽度（如果浏览器没有找到这两个参数，它需要一边下载图片一边计算大小，如果图片很多，浏览器需要不断地调整页面。这不但影响速度，也影响浏览体验。当浏览器知道了高度和宽度参数后，即使图片暂时无法显示，页面上也会腾出图片的空位，然后继续加载后面的内容。从而加载时间快了，浏览体验也更好了）<br>&emsp;&emsp;6）减少http请求（合并文件，合并图片）CSS精灵，将JS代码写在body后面</p>
+<h4><span id="9http状态码">9.HTTP状态码？</span></h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>xx: 信息性状态码，表示服务器接收到请求正在处理。</span><br><span class="line"><span class="number">2</span>xx: 成功状态码，表示服务器正确处理完请求。</span><br><span class="line"><span class="number">3</span>xx: 重定向状态码，表示请求的资源位置发生改变，需要重新请求。<span class="number">301</span>永久重定向，<span class="number">302</span>临时重定向。</span><br><span class="line"><span class="number">4</span>xx: 客户端错误状态码，服务器无法处理该请求。 <span class="number">404</span> not found</span><br><span class="line"><span class="number">5</span>xx: 服务器错误状态码，服务器处理请求出错。</span><br><span class="line"></span><br><span class="line"><span class="number">100</span> Continue 继续，一般在发送post请求时，已发送了http header之后服务端将返回此信息，表示确认，之后发送具体参数信息</span><br><span class="line"><span class="number">200</span> OK 正常返回信息</span><br><span class="line"><span class="number">201</span> Created 请求成功并且服务器创建了新的资源</span><br><span class="line"><span class="number">202</span> Accepted 服务器已接受请求，但尚未处理</span><br><span class="line"><span class="number">301</span> Moved Permanently 请求的网页已永久移动到新位置</span><br><span class="line"><span class="number">302</span> Found 临时性重定向</span><br><span class="line"><span class="number">303</span> See Other 临时性重定向，且总是使用 GET 请求新的 URI</span><br><span class="line"><span class="number">304</span> Not Modified 自从上次请求后，请求的网页未修改过</span><br><span class="line"><span class="number">400</span> Bad Request 服务器无法理解请求的格式，客户端不应当尝试再次使用相同的内容发起请求</span><br><span class="line"><span class="number">401</span> Unauthorized 请求未授权</span><br><span class="line"><span class="number">403</span> Forbidden 禁止访问</span><br><span class="line"><span class="number">404</span> Not Found 找不到如何与 URI 相匹配的资源</span><br><span class="line"><span class="number">500</span> Internal Server <span class="built_in">Error</span> 最常见的服务器端错误</span><br><span class="line"><span class="number">503</span> Service Unavailable 服务器端暂时无法处理请求（可能是过载或维护）</span><br></pre></td></tr></table></figure>
+<h4><span id="10请解释javascript的同源策略">10.请解释JavaScript的同源策略？</span></h4><p>&emsp;&emsp;同源策略是客户端脚本（尤其是Javascript）的重要的安全度量标准，目的是防止某个文档或脚本从多个不同源装载。同源策略：协议，域名，端口相同，它是一种安全协议，指一段脚本只能读取来自同一来源的窗口和文档的属性，无法访问其它域的资源。</p>
+<h4><span id="11get和post的区别何时使用post">11.get和post的区别，何时使用post？</span></h4><p>&emsp;&emsp;GET：一般用于信息获取，使用URL传递参数，对所发送信息的数量也有限制，一般在2000个字符<br>&emsp;&emsp;POST：一般用于修改服务器上的资源，对所发送的信息没有限制<br>&emsp;&emsp;HTTP中的GET，POST，PUT，DELETE就对应着对这个资源的查，改，增，删4个操作。GET一般用于获取/查询资源信息，而POST一般用于更新资源信息。<br>&emsp;&emsp;在以下情况中，请使用 POST 请求：<br>&emsp;&emsp;1）无法使用缓存文件（更新服务器上的文件或数据库）<br>&emsp;&emsp;2）向服务器发送大量数据（POST 没有数据量限制）<br>&emsp;&emsp;3）发送包含未知字符的用户输入时，POST 比 GET 更稳定也更可靠<br>&emsp;&emsp;安全性：<br>&emsp;&emsp;1）GET不会修改服务端数据，POST可以修改数据<br>&emsp;&emsp;2）URL方式发起GET请求，参数会明文暴露<br>&emsp;&emsp;3）使用GET提交数据还可能会造成Cross-site request forgery攻击<br>&emsp;&emsp;4）本质上安全性无区别</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+      <div>
+        
+          <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">
+            -------------本文结束
+            <i class="fa fa-paw"></i>
+            感谢您的阅读-------------
+        </div>
+    
+</div>
+        
+      </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/blogs/" rel="tag"><i class="fa fa-tag"></i> blogs</a>
+          
+            <a href="/tags/interview/" rel="tag"><i class="fa fa-tag"></i> interview</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/02/数组/" rel="next" title="那些你常常会忘的处理数组的函数">
+                <i class="fa fa-chevron-left"></i> 那些你常常会忘的处理数组的函数
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/my_files/photo.jpeg"
+                alt="wtLemoney" />
+            
+              <p class="site-author-name" itemprop="name">wtLemoney</p>
+              <p class="site-description motion-element" itemprop="description">越努力越幸运</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/wtLemoney" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:anne_wting@163.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://juejin.im/timeline" target="_blank" title="掘 金">
+                      
+                        <i class="fa fa-fw fa-book"></i>掘 金</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/u/3100327901" target="_blank" title="微 博">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>微 博</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-text">1.什么是盒子模型？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-text">2.简述一下src与href的区别？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-text">3.怎样添加、移除、移动、复制、创建和查找节点？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-text">4.一次完整的HTTP事务是怎样的一个过程？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-text">5.你所了解的web攻击技术？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-text">6.ajax是什么？ajax的交互原理？同步和异步的区别？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-text">4.什么叫优雅降级和渐进增强？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-text">5.在JavaScript中什么是伪数组？如何将伪数组转化为标准数组？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-text">6.浏览器本地储存？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-text">7.线程和进程的区别？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-text">8.请说出三种减少页面加载时间的方法？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-text">9.HTTP状态码？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-text">10.请解释JavaScript的同源策略？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-text">11.get和post的区别，何时使用post？</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">wtLemoney</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <div class="theme-info">
+      <div class="powered-by"></div>
+      <span class="post-count">博客全站共6.5k字</span>
+    </div>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+      <div class="powered-by">
+    <i class="fa fa-user-md"></i><span id="busuanzi_container_site_pv">
+      本站访客数:<span id="busuanzi_value_site_pv"></span>
+    </span>
+    </div>
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
