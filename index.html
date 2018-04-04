@@ -98,7 +98,7 @@
     root: '/',
     scheme: 'Gemini',
     version: '5.1.4',
-    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":true,"scrollpercent":false,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -369,7 +369,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  3,622
+                  3,801
                 </span>
               
 
@@ -385,7 +385,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  13
+                  14
                 </span>
               
             </div>
@@ -408,6 +408,24 @@
       
         
           <p>&emsp;&emsp;这些面试题是我之前参加腾讯前端训练营的时候，每天的一些面试题作业。最近自己参加暑期实习生面试的时候，也被问到过一些类似的问题。所以我整理总结了以前的面试题，通过自己搜索资料学习总结。答案有些是结合自己的理解，有些是网络上一些回答的比较好的答案，仅供参考。</p>
+<!-- toc -->
+<ul>
+<li><a href="#1什么是盒子模型">1.什么是盒子模型？</a></li>
+<li><a href="#2简述一下src与href的区别">2.简述一下src与href的区别？</a></li>
+<li><a href="#3怎样添加-移除-移动-复制-创建和查找节点">3.怎样添加、移除、移动、复制、创建和查找节点？</a></li>
+<li><a href="#4一次完整的http事务是怎样的一个过程">4.一次完整的HTTP事务是怎样的一个过程？</a></li>
+<li><a href="#5你所了解的web攻击技术">5.你所了解的web攻击技术？</a></li>
+<li><a href="#6ajax是什么ajax的交互原理同步和异步的区别">6.ajax是什么？ajax的交互原理？同步和异步的区别？</a></li>
+<li><a href="#4什么叫优雅降级和渐进增强">4.什么叫优雅降级和渐进增强？</a></li>
+<li><a href="#5在javascript中什么是伪数组如何将伪数组转化为标准数组">5.在JavaScript中什么是伪数组？如何将伪数组转化为标准数组？</a></li>
+<li><a href="#6浏览器本地储存">6.浏览器本地储存？</a></li>
+<li><a href="#7线程和进程的区别">7.线程和进程的区别？</a></li>
+<li><a href="#8请说出三种减少页面加载时间的方法">8.请说出三种减少页面加载时间的方法？</a></li>
+<li><a href="#9http状态码">9.HTTP状态码？</a></li>
+<li><a href="#10请解释javascript的同源策略">10.请解释JavaScript的同源策略？</a></li>
+<li><a href="#11get和post的区别何时使用post">11.get和post的区别，何时使用post？</a></li>
+</ul>
+<!-- tocstop -->
 <h4 id="1-什么是盒子模型？"><a href="#1-什么是盒子模型？" class="headerlink" title="1.什么是盒子模型？"></a>1.什么是盒子模型？</h4><p>两种：IE盒子模型、标准W3C盒子模型，包括content、padding、margin、border。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">IE8的width=border-left+padding-left+内容宽度+padding-right+border-right;  </span><br><span class="line">IE8的height=border-top+padding-top+内容高度+padding-bottom+border-bottom; </span><br><span class="line">w3c规定的width=内容宽度; </span><br><span class="line">w3c规定的height=内容高度;</span><br></pre></td></tr></table></figure></p>
 <p>这样有可能导致不同浏览器下获取的width或height的值不同,幸好jquery提供了另外两个方法:
           <!--noindex-->
@@ -1534,6 +1552,11 @@
       
 
       
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
 
     </div>
   </aside>
@@ -1559,7 +1582,7 @@
     </span>
     <div class="theme-info">
       <div class="powered-by"></div>
-      <span class="post-count">博客全站共6.5k字</span>
+      <span class="post-count">博客全站共6.7k字</span>
     </div>
 
   
@@ -1598,11 +1621,6 @@
       </div>
     </footer>
 
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
     
 
     
@@ -1741,6 +1759,21 @@
   
 
   
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
 
   
   
