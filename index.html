@@ -581,7 +581,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  334
+                  348
                 </span>
               
 
@@ -620,6 +620,17 @@
       
         
           <p>&emsp;&emsp;哈哈，看似是些简单的处理数组的函数，但是由于平时码的少，实习生笔试的时候走了弯路吃了亏啊，写的很慢呀。。。有些是忘记了，有些是参数和返回值记忆模糊了，所以多码码，总结总结。持续更新中…</p>
+<!-- toc -->
+<ul>
+<li><a href="#1-splice">1. splice()</a></li>
+<li><a href="#2-slice">2. slice()</a></li>
+<li><a href="#3-filter">3. filter()</a></li>
+<li><a href="#4-map">4. map()</a></li>
+<li><a href="#5-reduce">5. reduce()</a></li>
+<li><a href="#6-every">6. every()</a></li>
+<li><a href="#7-some">7. some()</a></li>
+</ul>
+<!-- tocstop -->
 <h4 id="1-splice"><a href="#1-splice" class="headerlink" title="1. splice()"></a>1. splice()</h4><p>返回值为被删除的元素数组，原数组会改变<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr=[<span class="string">'a'</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="string">'d'</span>];</span><br><span class="line">arr.splice(<span class="number">1</span>,<span class="number">2</span>,<span class="string">'b'</span>,<span class="string">'c'</span>);<span class="comment">//[4,5]</span></span><br><span class="line"><span class="built_in">console</span>.log(arr);<span class="comment">//["a", "b", "c", "d"]</span></span><br></pre></td></tr></table></figure></p>
 <h4 id="2-slice"><a href="#2-slice" class="headerlink" title="2. slice()"></a>2. slice()</h4><p>可从已有的数组中返回选定的元素,并不会修改数组。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr=[<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>];</span><br><span class="line">arr.slice(<span class="number">1</span>,<span class="number">2</span>);<span class="comment">//['a','c','d']</span></span><br><span class="line"><span class="built_in">console</span>.log(arr);<span class="comment">//["a", "b", "c", "d"]</span></span><br></pre></td></tr></table></figure></p>
           <!--noindex-->
@@ -775,7 +786,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  884
+                  928
                 </span>
               
 
@@ -813,7 +824,19 @@
 
       
         
-          <h4 id="1-什么是闭包？"><a href="#1-什么是闭包？" class="headerlink" title="1. 什么是闭包？"></a>1. 什么是闭包？</h4><p>&emsp;&emsp;OK,来看下面一段能清晰展示闭包的代码：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="keyword">var</span> a=<span class="number">2</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> bar;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> baz=foo();</span><br><span class="line">baz();<span class="comment">//2</span></span><br></pre></td></tr></table></figure></p>
+          <!-- toc -->
+<ul>
+<li><a href="#1-什么是闭包">1. 什么是闭包？</a></li>
+<li><a href="#2-循环和闭包">2. 循环和闭包</a></li>
+<li><a href="#3-闭包的好处">3. 闭包的好处</a><ul>
+<li><a href="#31-减少局部变量">3.1 减少局部变量</a></li>
+<li><a href="#32-减少传递给函数的参数变量">3.2 减少传递给函数的参数变量</a></li>
+<li><a href="#33-封装">3.3 封装</a></li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+<h4 id="1-什么是闭包？"><a href="#1-什么是闭包？" class="headerlink" title="1. 什么是闭包？"></a>1. 什么是闭包？</h4><p>&emsp;&emsp;OK,来看下面一段能清晰展示闭包的代码：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="keyword">var</span> a=<span class="number">2</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> bar;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> baz=foo();</span><br><span class="line">baz();<span class="comment">//2</span></span><br></pre></td></tr></table></figure></p>
 <p>&emsp;&emsp;闭包使得函数bar()可以继续访问定义时的词法作用域。函数能被外部调用到，则该作用域链上的所有变量都会被保存下来。  </p>
 <blockquote>
 <ul>
@@ -974,7 +997,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  437
+                  451
                 </span>
               
 
@@ -1012,7 +1035,13 @@
 
       
         
-          <h4 id="1-先有鸡还是先有蛋"><a href="#1-先有鸡还是先有蛋" class="headerlink" title="1. 先有鸡还是先有蛋"></a>1. 先有鸡还是先有蛋</h4><p>&emsp;&emsp;来看下面两段代码<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="number">2</span>;</span><br><span class="line"><span class="keyword">var</span> a;</span><br><span class="line"><span class="built_in">console</span>.log(a);<span class="comment">//2</span></span><br></pre></td></tr></table></figure></p>
+          <!-- toc -->
+<ul>
+<li><a href="#1-先有鸡还是先有蛋">1. 先有鸡还是先有蛋</a></li>
+<li><a href="#2-函数优先">2. 函数优先</a></li>
+</ul>
+<!-- tocstop -->
+<h4 id="1-先有鸡还是先有蛋"><a href="#1-先有鸡还是先有蛋" class="headerlink" title="1. 先有鸡还是先有蛋"></a>1. 先有鸡还是先有蛋</h4><p>&emsp;&emsp;来看下面两段代码<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="number">2</span>;</span><br><span class="line"><span class="keyword">var</span> a;</span><br><span class="line"><span class="built_in">console</span>.log(a);<span class="comment">//2</span></span><br></pre></td></tr></table></figure></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a);</span><br><span class="line"><span class="keyword">var</span> a=<span class="number">2</span>;<span class="comment">//undefined,不是ReferenceError!</span></span><br></pre></td></tr></table></figure>
 <p>&emsp;&emsp;实际上，包括变量和函数在内的所有声明都会在任何代码被执行前首先被处理。所以，先有蛋（声明）后有鸡（赋值）。只有声明本身会提升，而赋值或其他运行逻辑会留在原地。<br><br>&emsp;&emsp;注意：函数声明会被提升，但是函数表达式不会提升。看下面：
           <!--noindex-->
@@ -1157,7 +1186,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  652
+                  747
                 </span>
               
 
@@ -1173,7 +1202,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  4
                 </span>
               
             </div>
@@ -1195,8 +1224,31 @@
 
       
         
-          <h4 id="1-this的绑定规则"><a href="#1-this的绑定规则" class="headerlink" title="1. this的绑定规则"></a>1. this的绑定规则</h4><h4 id="ensp-1-1-ensp-默认绑定"><a href="#ensp-1-1-ensp-默认绑定" class="headerlink" title="&ensp;1.1&ensp;默认绑定"></a>&ensp;1.1&ensp;默认绑定</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.a);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a=<span class="number">2</span>;</span><br><span class="line">foo();<span class="comment">//2</span></span><br></pre></td></tr></table></figure>
-<h4 id="ensp-1-2-ensp-隐式绑定"><a href="#ensp-1-2-ensp-隐式绑定" class="headerlink" title="&ensp;1.2&ensp;隐式绑定"></a>&ensp;1.2&ensp;隐式绑定</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.a);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj1=&#123;</span><br><span class="line">    a:<span class="number">2</span>,</span><br><span class="line">    foo:foo,</span><br><span class="line">    obj2:obj2</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> obj2=&#123;</span><br><span class="line">    a:<span class="number">42</span>,</span><br><span class="line">    foo:foo</span><br><span class="line">&#125;;</span><br><span class="line">obj1.foo();<span class="comment">//2</span></span><br><span class="line">obj1.obj2.foo();<span class="comment">//42</span></span><br></pre></td></tr></table></figure>
+          <!-- toc -->
+<ul>
+<li><a href="#1-this的绑定规则">1. this的绑定规则</a><ul>
+<li><a href="#11-默认绑定">1.1 默认绑定</a></li>
+<li><a href="#12-隐式绑定">1.2 隐式绑定</a><ul>
+<li><a href="#121-隐式丢失常见">1.2.1 隐式丢失（常见）</a></li>
+<li><a href="#122-隐式丢失传入回调函数时">1.2.2 隐式丢失（传入回调函数时）</a></li>
+</ul>
+</li>
+<li><a href="#13显示绑定">1.3显示绑定</a><ul>
+<li><a href="#131-硬绑定">1.3.1 硬绑定</a></li>
+<li><a href="#132-api调用的上下文">1.3.2 API调用的上下文</a></li>
+</ul>
+</li>
+<li><a href="#14-new绑定">1.4 new绑定</a></li>
+</ul>
+</li>
+<li><a href="#2-回调函数里的this常见">2. 回调函数里的this（常见）</a><ul>
+<li><a href="#21-箭头函数的另一个经典例子">2.1 箭头函数的另一个经典例子</a></li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+<h4 id="1-this的绑定规则"><a href="#1-this的绑定规则" class="headerlink" title="1. this的绑定规则"></a>1. this的绑定规则</h4><h5 id="1-1-默认绑定"><a href="#1-1-默认绑定" class="headerlink" title="1.1 默认绑定"></a>1.1 默认绑定</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.a);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a=<span class="number">2</span>;</span><br><span class="line">foo();<span class="comment">//2</span></span><br></pre></td></tr></table></figure>
+<h5 id="1-2-隐式绑定"><a href="#1-2-隐式绑定" class="headerlink" title="1.2 隐式绑定"></a>1.2 隐式绑定</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.a);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj1=&#123;</span><br><span class="line">    a:<span class="number">2</span>,</span><br><span class="line">    foo:foo,</span><br><span class="line">    obj2:obj2</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> obj2=&#123;</span><br><span class="line">    a:<span class="number">42</span>,</span><br><span class="line">    foo:foo</span><br><span class="line">&#125;;</span><br><span class="line">obj1.foo();<span class="comment">//2</span></span><br><span class="line">obj1.obj2.foo();<span class="comment">//42</span></span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/03/27/this的指向/#more" rel="contents">
@@ -1582,7 +1634,7 @@
     </span>
     <div class="theme-info">
       <div class="powered-by"></div>
-      <span class="post-count">博客全站共6.7k字</span>
+      <span class="post-count">博客全站共6.9k字</span>
     </div>
 
   

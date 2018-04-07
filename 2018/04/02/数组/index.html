@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="&amp;emsp;&amp;emsp;哈哈，看似是些简单的处理数组的函数，但是由于平时码的少，实习生笔试的时候走了弯路吃了亏啊，写的很慢呀。。。有些是忘记了，有些是参数和返回值记忆模糊了，所以多码码，总结总结。持续更新中… 1. splice()返回值为被删除的元素数组，原数组会改变123var arr=[&apos;a&apos;,4,5,&apos;d&apos;];arr.splice(1,2,&apos;b&apos;,&apos;c&apos;);//[4,5]console.l">
+<meta name="description" content="&amp;emsp;&amp;emsp;哈哈，看似是些简单的处理数组的函数，但是由于平时码的少，实习生笔试的时候走了弯路吃了亏啊，写的很慢呀。。。有些是忘记了，有些是参数和返回值记忆模糊了，所以多码码，总结总结。持续更新中…   1. splice() 2. slice() 3. filter() 4. map() 5. reduce() 6. every() 7. some()   1. splice()返回值">
 <meta name="keywords" content="blogs,JavaScript,array">
 <meta property="og:type" content="article">
 <meta property="og:title" content="那些你常常会忘的处理数组的函数">
 <meta property="og:url" content="https://wtlemoney.github.io/2018/04/02/数组/index.html">
 <meta property="og:site_name" content="wtLemoney">
-<meta property="og:description" content="&amp;emsp;&amp;emsp;哈哈，看似是些简单的处理数组的函数，但是由于平时码的少，实习生笔试的时候走了弯路吃了亏啊，写的很慢呀。。。有些是忘记了，有些是参数和返回值记忆模糊了，所以多码码，总结总结。持续更新中… 1. splice()返回值为被删除的元素数组，原数组会改变123var arr=[&apos;a&apos;,4,5,&apos;d&apos;];arr.splice(1,2,&apos;b&apos;,&apos;c&apos;);//[4,5]console.l">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;哈哈，看似是些简单的处理数组的函数，但是由于平时码的少，实习生笔试的时候走了弯路吃了亏啊，写的很慢呀。。。有些是忘记了，有些是参数和返回值记忆模糊了，所以多码码，总结总结。持续更新中…   1. splice() 2. slice() 3. filter() 4. map() 5. reduce() 6. every() 7. some()   1. splice()返回值">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-01T16:52:14.591Z">
+<meta property="og:updated_time" content="2018-04-07T08:40:55.283Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="那些你常常会忘的处理数组的函数">
-<meta name="twitter:description" content="&amp;emsp;&amp;emsp;哈哈，看似是些简单的处理数组的函数，但是由于平时码的少，实习生笔试的时候走了弯路吃了亏啊，写的很慢呀。。。有些是忘记了，有些是参数和返回值记忆模糊了，所以多码码，总结总结。持续更新中… 1. splice()返回值为被删除的元素数组，原数组会改变123var arr=[&apos;a&apos;,4,5,&apos;d&apos;];arr.splice(1,2,&apos;b&apos;,&apos;c&apos;);//[4,5]console.l">
+<meta name="twitter:description" content="&amp;emsp;&amp;emsp;哈哈，看似是些简单的处理数组的函数，但是由于平时码的少，实习生笔试的时候走了弯路吃了亏啊，写的很慢呀。。。有些是忘记了，有些是参数和返回值记忆模糊了，所以多码码，总结总结。持续更新中…   1. splice() 2. slice() 3. filter() 4. map() 5. reduce() 6. every() 7. some()   1. splice()返回值">
 
 
 
@@ -357,7 +357,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  334
+                  348
                 </span>
               
 
@@ -395,6 +395,17 @@
 
       
         <p>&emsp;&emsp;哈哈，看似是些简单的处理数组的函数，但是由于平时码的少，实习生笔试的时候走了弯路吃了亏啊，写的很慢呀。。。有些是忘记了，有些是参数和返回值记忆模糊了，所以多码码，总结总结。持续更新中…</p>
+<!-- toc -->
+<ul>
+<li><a href="#1-splice">1. splice()</a></li>
+<li><a href="#2-slice">2. slice()</a></li>
+<li><a href="#3-filter">3. filter()</a></li>
+<li><a href="#4-map">4. map()</a></li>
+<li><a href="#5-reduce">5. reduce()</a></li>
+<li><a href="#6-every">6. every()</a></li>
+<li><a href="#7-some">7. some()</a></li>
+</ul>
+<!-- tocstop -->
 <h4><span id="1-splice">1. splice()</span></h4><p>返回值为被删除的元素数组，原数组会改变<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr=[<span class="string">'a'</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="string">'d'</span>];</span><br><span class="line">arr.splice(<span class="number">1</span>,<span class="number">2</span>,<span class="string">'b'</span>,<span class="string">'c'</span>);<span class="comment">//[4,5]</span></span><br><span class="line"><span class="built_in">console</span>.log(arr);<span class="comment">//["a", "b", "c", "d"]</span></span><br></pre></td></tr></table></figure></p>
 <h4><span id="2-slice">2. slice()</span></h4><p>可从已有的数组中返回选定的元素,并不会修改数组。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr=[<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>];</span><br><span class="line">arr.slice(<span class="number">1</span>,<span class="number">2</span>);<span class="comment">//['a','c','d']</span></span><br><span class="line"><span class="built_in">console</span>.log(arr);<span class="comment">//["a", "b", "c", "d"]</span></span><br></pre></td></tr></table></figure></p>
 <a id="more"></a>    
@@ -665,7 +676,7 @@ var jiathis_config={
     </span>
     <div class="theme-info">
       <div class="powered-by"></div>
-      <span class="post-count">博客全站共6.7k字</span>
+      <span class="post-count">博客全站共6.9k字</span>
     </div>
 
   
