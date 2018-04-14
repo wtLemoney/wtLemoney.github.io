@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wtlemoney.github.io/"/>
-  <updated>2018-04-07T13:13:18.102Z</updated>
+  <updated>2018-04-14T15:57:53.053Z</updated>
   <id>https://wtlemoney.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>令人迷惑的“构造函数”</title>
+    <link href="https://wtlemoney.github.io/2018/04/14/%E5%8E%9F%E5%9E%8B/"/>
+    <id>https://wtlemoney.github.io/2018/04/14/原型/</id>
+    <published>2018-04-14T15:55:54.000Z</published>
+    <updated>2018-04-14T15:57:53.053Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="comment">//...</span></span><br><span class="line">        &#125;</span><br><span class="line">   Foo.prototype.constructor === Foo;<span class="comment">//true</span></span><br><span class="line"></span><br><span class="line">   <span class="keyword">var</span> a=<span class="keyword">new</span> Foo();</span><br><span class="line">   a.constructor === Foo;<span class="comment">//true</span></span><br></pre></td></tr></table></figure><p>&emsp;&emsp;Foo.prototype默认有一个公有并且不可枚举的属性.constructor,但a.constructor === Foo不意味着a有一个指向Foo的.constructor属性。实际上,.constructor引用同样被委托给了Foo.prototype,而Foo.prototype.constructor默认指向Foo。<br>&emsp;&emsp;如果创建了一个新对象并替换了函数默认的.prototype对象引用,那么新对象并不会自动获得.constructor属性：<a id="more"></a><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params"></span>)</span>&#123;<span class="comment">/* .. */</span>&#125;</span><br><span class="line">Foo.prototype =&#123;<span class="comment">/* .. */</span>&#125;<span class="comment">//创建一个新原型对象。丢失了.constructor属性</span></span><br><span class="line">Foo.prototype.constructor === Foo;<span class="comment">//false</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a1=<span class="keyword">new</span> Foo();</span><br><span class="line">a1.constructor === Foo;<span class="comment">//false</span></span><br><span class="line">a1.constructor === <span class="built_in">Object</span>;<span class="comment">//true</span></span><br></pre></td></tr></table></figure></p><p>&emsp;&emsp;可以手动添加一个符合正常行为的不可枚举属性.constructor,修复.constructor需要很多收到操作，所有这些都源于把“constructor”错误地理解为“有……构造”。手动添加.constructor属性：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params"></span>)</span>&#123;<span class="comment">/* .. */</span>&#125;</span><br><span class="line">Foo.prototype =&#123;<span class="comment">/* .. */</span>&#125;<span class="comment">//创建一个新原型对象。丢失了.constructor属性</span></span><br><span class="line"><span class="comment">//需要在Foo.prototype“修复”丢失的.constructor属性</span></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(Foo.prototype,<span class="string">"constructor"</span>,&#123;</span><br><span class="line">    enumerable:<span class="literal">false</span>,</span><br><span class="line">    writable:<span class="literal">true</span>,</span><br><span class="line">    configurable:<span class="literal">true</span>,</span><br><span class="line">    value:Foo <span class="comment">//让.constructor指向Foo</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Foo&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;comment&quot;&gt;//...&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   Foo.prototype.constructor === Foo;&lt;span class=&quot;comment&quot;&gt;//true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; a=&lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; Foo();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   a.constructor === Foo;&lt;span class=&quot;comment&quot;&gt;//true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;Foo.prototype默认有一个公有并且不可枚举的属性.constructor,但a.constructor === Foo不意味着a有一个指向Foo的.constructor属性。实际上,.constructor引用同样被委托给了Foo.prototype,而Foo.prototype.constructor默认指向Foo。&lt;br&gt;&amp;emsp;&amp;emsp;如果创建了一个新对象并替换了函数默认的.prototype对象引用,那么新对象并不会自动获得.constructor属性：
+    
+    </summary>
+    
+      <category term="构造函数" scheme="https://wtlemoney.github.io/categories/%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0/"/>
+    
+      <category term="你不知道的JavaScript" scheme="https://wtlemoney.github.io/categories/%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84JavaScript/"/>
+    
+    
+      <category term="blogs" scheme="https://wtlemoney.github.io/tags/blogs/"/>
+    
+      <category term="JavaScript" scheme="https://wtlemoney.github.io/tags/JavaScript/"/>
+    
+      <category term="原型" scheme="https://wtlemoney.github.io/tags/%E5%8E%9F%E5%9E%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>腾讯IMWeb前端训练营作业——经典面试题2</title>
