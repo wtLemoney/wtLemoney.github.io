@@ -407,11 +407,13 @@
 
       
         
-          
-          1.onload和onreadychange的不同首先需要知道几个状态码的小知识。&emsp;&emsp;readyState 状态码：
-&emsp;&emsp;&emsp;&emsp;0:请求未初始化。还没有调用open方法
-&emsp;&emsp;&emsp;&emsp;1:服务器连接已建立。o
-          ...
+          <h4 id="1-onload和onreadychange的不同"><a href="#1-onload和onreadychange的不同" class="headerlink" title="1.onload和onreadychange的不同"></a>1.onload和onreadychange的不同</h4><p>首先需要知道几个状态码的小知识。<br>&emsp;&emsp;readyState 状态码：</p>
+<p>&emsp;&emsp;&emsp;&emsp;0:请求未初始化。还没有调用open方法</p>
+<p>&emsp;&emsp;&emsp;&emsp;1:服务器连接已建立。open方法已被调用，但send方法还没有被调用</p>
+<p>&emsp;&emsp;&emsp;&emsp;2:请求已接受。send方法以及被调用</p>
+<p>&emsp;&emsp;&emsp;&emsp;3:请求处理中。服务器正在发送响应</p>
+<p>&emsp;&emsp;&emsp;&emsp;4:请求已完成，响应发送完毕</p>
+<p>&emsp;&emsp;HTTP 状态码(status)：
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/04/15/ajax/#more" rel="contents">
