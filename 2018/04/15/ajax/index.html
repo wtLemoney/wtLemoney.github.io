@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="blogs,JavaScript,闭包," />
+  <meta name="keywords" content="blogs,JavaScript,ajax," />
 
 
 
@@ -79,18 +79,24 @@
 
 
 
-<meta name="description" content="1. 什么是闭包？ 2. 循环和闭包 3. 闭包的好处 3.1 减少局部变量 3.2 减少传递给函数的参数变量 3.3 封装     1. 什么是闭包？&amp;emsp;&amp;emsp;OK,来看下面一段能清晰展示闭包的代码：123456789function foo()&amp;#123;var a=2;function bar()&amp;#123;    console.log(a);&amp;#125;return b">
-<meta name="keywords" content="blogs,JavaScript,闭包">
+<meta name="description" content="1.onload和onreadychange的不同首先需要知道几个状态码的小知识。&amp;emsp;&amp;emsp;readyState 状态码： &amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;0:请求未初始化。还没有调用open方法 &amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;1:服务器连接已建立。open方法已被调用，但send方法还没有被调用 &amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;2:">
+<meta name="keywords" content="blogs,JavaScript,ajax">
 <meta property="og:type" content="article">
-<meta property="og:title" content="作用域闭包">
-<meta property="og:url" content="https://wtlemoney.github.io/2018/03/30/闭包/index.html">
+<meta property="og:title" content="ajax解析">
+<meta property="og:url" content="https://wtlemoney.github.io/2018/04/15/ajax/index.html">
 <meta property="og:site_name" content="wtLemoney">
-<meta property="og:description" content="1. 什么是闭包？ 2. 循环和闭包 3. 闭包的好处 3.1 减少局部变量 3.2 减少传递给函数的参数变量 3.3 封装     1. 什么是闭包？&amp;emsp;&amp;emsp;OK,来看下面一段能清晰展示闭包的代码：123456789function foo()&amp;#123;var a=2;function bar()&amp;#123;    console.log(a);&amp;#125;return b">
+<meta property="og:description" content="1.onload和onreadychange的不同首先需要知道几个状态码的小知识。&amp;emsp;&amp;emsp;readyState 状态码： &amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;0:请求未初始化。还没有调用open方法 &amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;1:服务器连接已建立。open方法已被调用，但send方法还没有被调用 &amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;2:">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-07T08:42:27.083Z">
+<meta property="og:image" content="https://wtlemoney.github.io/2018/04/15/ajax/ajax/11.png">
+<meta property="og:image" content="https://wtlemoney.github.io/2018/04/15/ajax/ajax/2.png">
+<meta property="og:image" content="https://wtlemoney.github.io/2018/04/15/ajax/ajax/3.png">
+<meta property="og:image" content="https://wtlemoney.github.io/2018/04/15/ajax/ajax/4.png">
+<meta property="og:image" content="https://wtlemoney.github.io/2018/04/15/ajax/ajax/5.png">
+<meta property="og:updated_time" content="2018-04-15T15:15:43.407Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="作用域闭包">
-<meta name="twitter:description" content="1. 什么是闭包？ 2. 循环和闭包 3. 闭包的好处 3.1 减少局部变量 3.2 减少传递给函数的参数变量 3.3 封装     1. 什么是闭包？&amp;emsp;&amp;emsp;OK,来看下面一段能清晰展示闭包的代码：123456789function foo()&amp;#123;var a=2;function bar()&amp;#123;    console.log(a);&amp;#125;return b">
+<meta name="twitter:title" content="ajax解析">
+<meta name="twitter:description" content="1.onload和onreadychange的不同首先需要知道几个状态码的小知识。&amp;emsp;&amp;emsp;readyState 状态码： &amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;0:请求未初始化。还没有调用open方法 &amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;1:服务器连接已建立。open方法已被调用，但send方法还没有被调用 &amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;2:">
+<meta name="twitter:image" content="https://wtlemoney.github.io/2018/04/15/ajax/ajax/11.png">
 
 
 
@@ -120,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="https://wtlemoney.github.io/2018/03/30/闭包/"/>
+  <link rel="canonical" href="https://wtlemoney.github.io/2018/04/15/ajax/"/>
 
 
 
 
 
-  <title>作用域闭包 | wtLemoney</title>
+  <title>ajax解析 | wtLemoney</title>
   
 
 
@@ -263,7 +269,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://wtlemoney.github.io/2018/03/30/闭包/">
+    <link itemprop="mainEntityOfPage" href="https://wtlemoney.github.io/2018/04/15/ajax/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wtLemoney">
@@ -280,7 +286,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">作用域闭包</h1>
+          <h1 class="post-title" itemprop="name headline">ajax解析</h1>
         
 
         <div class="post-meta">
@@ -292,8 +298,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-30T20:48:11+08:00">
-                2018-03-30
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-15T22:04:38+08:00">
+                2018-04-15
               </time>
             
 
@@ -315,8 +321,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/闭包/" itemprop="url" rel="index">
-                    <span itemprop="name">闭包</span>
+                  <a href="/categories/Ajax请求/" itemprop="url" rel="index">
+                    <span itemprop="name">Ajax请求</span>
                   </a>
                 </span>
 
@@ -326,8 +332,19 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/闭包/你不知道的JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">你不知道的JavaScript</span>
+                  <a href="/categories/Ajax请求/HTTP/" itemprop="url" rel="index">
+                    <span itemprop="name">HTTP</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Ajax请求/HTTP/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
                   </a>
                 </span>
 
@@ -357,7 +374,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  928
+                  1,013
                 </span>
               
 
@@ -394,36 +411,62 @@
       
 
       
-        <!-- toc -->
+        <p>1.onload和onreadychange的不同<br>首先需要知道几个状态码的小知识。<br>&emsp;&emsp;readyState 状态码：</p>
+<p>&emsp;&emsp;&emsp;&emsp;0:请求未初始化。还没有调用open方法</p>
+<p>&emsp;&emsp;&emsp;&emsp;1:服务器连接已建立。open方法已被调用，但send方法还没有被调用</p>
+<p>&emsp;&emsp;&emsp;&emsp;2:请求已接受。send方法以及被调用</p>
+<p>&emsp;&emsp;&emsp;&emsp;3:请求处理中。服务器正在发送响应</p>
+<p>&emsp;&emsp;&emsp;&emsp;4:请求已完成，响应发送完毕</p>
+<p>&emsp;&emsp;HTTP 状态码(status)：</p>
+<p>&emsp;&emsp;&emsp;&emsp;200 - 服务器成功返回网页</p>
+<p>&emsp;&emsp;&emsp;&emsp;304 - 客户端已经执行了GET，但文件未变化。</p>
+<p>&emsp;&emsp;&emsp;&emsp;403 - 禁止访问</p>
+<p>&emsp;&emsp;&emsp;&emsp;404 - 请求的网页不存在</p>
+<p>&emsp;&emsp;&emsp;&emsp;500 - 内部服务器出错</p>
+<p>&emsp;&emsp;&emsp;&emsp;503 - 服务器暂时不可用<br>然后建立一个loadtest.txt文件作为ajax请求的测试url，注意一定要在本地服务器里面打开测试，不然请求文件会报跨域错误。<br>1.1 onload:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;button id=<span class="string">"button"</span>&gt;请求纯文本&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">    &lt;script&gt;</span></span><br><span class="line"><span class="regexp">        document.getElementById('button').addEventListener("click",loadText);</span></span><br><span class="line"><span class="regexp">        function loadText()&#123;</span></span><br><span class="line"><span class="regexp">            var xhr=new XMLHttpRequest();</span></span><br><span class="line"><span class="regexp">            xhr.open('GET',"loadtext.txt",true);</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">            console.log("Readystate：",xhr.readyState);</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">            xhr.onload=function()&#123;/</span><span class="regexp">/readystate==4时才会进入onload,监听不到2和3</span></span><br><span class="line"><span class="regexp">                console.log("Readystate：",xhr.readyState);</span></span><br><span class="line"><span class="regexp">                console.log(this.responseText);</span></span><br><span class="line"><span class="regexp">            &#125;</span></span><br><span class="line"><span class="regexp">            xhr.send();</span></span><br><span class="line"><span class="regexp">        &#125;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>script&gt;</span><br><span class="line">&lt;<span class="regexp">/body&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>测试结果如下：</p>
+<div align="center"><br><img src="ajax/11.png" width="320" height="100" alt="onload状态码结果"><br></div><br>如果要监听readystate的值为3，需要用到onprogress方法<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">"Readystate："</span>,xhr.readyState);</span><br><span class="line">   xhr.onprogress=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="comment">//监听3</span></span><br><span class="line">       <span class="built_in">console</span>.log(<span class="string">"测试Readystate："</span>,xhr.readyState);</span><br><span class="line">   &#125;</span><br><span class="line">   xhr.onload=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="comment">//readystate==4时才会进入onload,监听不到2和3</span></span><br></pre></td></tr></table></figure><br><br>测试结果如下：<br><div align="center"><br><img src="ajax/2.png" width="320" height="100" alt="onload状态码结果"><br></div>
+
+<p>1.2 onreadychange<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">loadText</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> xhr=<span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">    xhr.open(<span class="string">'GET'</span>,<span class="string">"loadtext.txt"</span>,<span class="literal">true</span>);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"Readystate："</span>,xhr.readyState);</span><br><span class="line"></span><br><span class="line">    xhr.onreadystatechange=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="comment">//可以监听到所有的状态码2,3,4</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"Readystate："</span>,xhr.readyState);</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.responseText);<span class="comment">//在readyState=2和3的时候都打印responseText</span></span><br><span class="line">    &#125;</span><br><span class="line">    xhr.send();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>测试结果：</p>
+<p><div align="center"><br><img src="ajax/3.png" width="320" height="150" alt="onreadystate状态码结果"><br></div><br>看出onreadychange和onload方法的区别了昂。想要在readyState==4的时候再打印responseText，可以加一个条件判断：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">xhr.onreadystatechange=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="comment">//可以监听到所有的状态码2,3,4</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"Readystate："</span>,xhr.readyState);</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">this</span>.status==<span class="number">200</span>&amp;&amp;<span class="keyword">this</span>.readyState==<span class="number">4</span>)&#123;<span class="comment">//监听到4时再执行</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.responseText);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>测试结果：</p>
+<p><div align="center"><br><img src="ajax/4.png" width="320" height="125" alt="onreadystate状态码结果"><br></div><br>一般在用ajax请求数据时，还会设置返回失败时的值。这时候把loadtest.txt改为loadtest1.txt，然后<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="keyword">this</span>.status==<span class="number">200</span>&amp;&amp;<span class="keyword">this</span>.readyState==<span class="number">4</span>)&#123;<span class="comment">//监听4时再执行</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.responseText);</span><br><span class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>(<span class="keyword">this</span>.status==<span class="number">404</span>)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"请求的网页不存在"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>测试结果：</p>
+<p><div align="center"><br><img src="ajax/5.png" width="320" height="180" alt="404结果"><br></div><br>注意：如果用POST请求向服务器发送数据，需要将“Content-type”的首部设置为“application/x-www-form-urlencoded”,它会告知服务器正在发送数据，并且数据已经符合URL编码了。<br>即：<code>xhr.setRequestHeader(&quot;Content-type&quot;,&quot;application/x-www-form-urlencoded&quot;)</code>,该方法必须在open()之后才能调用。</p>
+<p>2.服务器返回的数据类型对比</p>
+<p>HTML片段：</p>
 <ul>
-<li><a href="#1-什么是闭包">1. 什么是闭包？</a></li>
-<li><a href="#2-循环和闭包">2. 循环和闭包</a></li>
-<li><a href="#3-闭包的好处">3. 闭包的好处</a><ul>
-<li><a href="#31-减少局部变量">3.1 减少局部变量</a></li>
-<li><a href="#32-减少传递给函数的参数变量">3.2 减少传递给函数的参数变量</a></li>
-<li><a href="#33-封装">3.3 封装</a></li>
+<li>从服务器端发送的HTML代码在浏览器端不需要用JavaScript进行解析</li>
+<li>HTML可读性好</li>
+<li>HTML代码块与innerHTML属性搭配，效率高</li>
 </ul>
-</li>
-</ul>
-<!-- tocstop -->
-<h4><span id="1-什么是闭包">1. 什么是闭包？</span></h4><p>&emsp;&emsp;OK,来看下面一段能清晰展示闭包的代码：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="keyword">var</span> a=<span class="number">2</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> bar;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> baz=foo();</span><br><span class="line">baz();<span class="comment">//2</span></span><br></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;闭包使得函数bar()可以继续访问定义时的词法作用域。函数能被外部调用到，则该作用域链上的所有变量都会被保存下来。  </p>
-<blockquote>
 <ul>
-<li>定义：包就是能够读取其他函数内部变量的函数。由于在JavaScript语言中，只有函数内部的子函数才能读取局部变量，因此可以把闭包简单理解为“定义在一个函数内部的函数”。</li>
-<li>本质：闭包是将函数内部和外部连接起来的桥梁。</li>
-<li>用处：一是可以读取函数内部的变量；二是让这些变量的值始终保持在内存中。</li>
-<li>注意点：<a id="more"></a><br>&emsp;&emsp;&emsp;1）不能滥用闭包<br>&emsp;&emsp;由于闭包会使得函数中的变量都被保存在内存中，内存消耗很大，所以不能滥用闭包，否则会造成网页的性能问题，在IE中可能会导致内存泄漏。<br>&emsp;&emsp;解决方法：在退出函数之前，将不使用的局部变量全部删除。<br>&emsp;&emsp;&emsp;2）不要随便改变父函数内部变量的值。<br>&emsp;&emsp;把父函数当作对象使用，闭包当作它的公有方法，内部变量当作它的私有属性，闭包会在父函数外部，改变父函数变量的值，所以要注意。  </li>
+<li>若需要通过ajax更新一篇文档的多个部分，HTML不合适，可重用性低</li>
+<li>innerHTML并非DOM标准</li>
 </ul>
-</blockquote>
-<h4><span id="2-循环和闭包">2. 循环和闭包</span></h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">1</span>;i&lt;=<span class="number">5</span>;i++)&#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span> <span class="title">timer</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(i);</span><br><span class="line">    &#125;,i*<span class="number">1000</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;正常情况下，这段代码预期会分别输出数字1-5，每秒一次，每次一个(注意是i*1000,不是1000)。但实际上，这段代码会以每秒一次的频率输出五次6(如果是1000，五个6会同一时间输出)！这是因为：循环的终止条件是i=6，而延迟函数的回调会在循坏结束时在执行。<br>&emsp;&emsp;试一下这样可以输出预期的1-5吗：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">1</span>;i&lt;=<span class="number">5</span>;i++)&#123;</span><br><span class="line">      (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	setTimeout(<span class="function"><span class="keyword">function</span> <span class="title">timer</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">          	<span class="built_in">console</span>.log(i);</span><br><span class="line">      	&#125;,i*<span class="number">1000</span>);</span><br><span class="line">&#125;)();</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;答案是不行！这样每个延迟函数确实将立即执行函数在每次迭代中创建的作用域封闭起来，但是作用域是空的，所以它需要有自己的变量，用来在迭代中储存i的值。像下面这样：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">1</span>;i&lt;=<span class="number">5</span>;i++)&#123;</span><br><span class="line">      (<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> j=i;</span><br><span class="line">	setTimeout(<span class="function"><span class="keyword">function</span> <span class="title">timer</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">          	<span class="built_in">console</span>.log(j);</span><br><span class="line">      	&#125;,j*<span class="number">1000</span>);</span><br><span class="line">&#125;)();</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;可以对上面的代码进行改进：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">1</span>;i&lt;=<span class="number">5</span>;i++)&#123;</span><br><span class="line">      (<span class="function"><span class="keyword">function</span>(<span class="params">j</span>)</span>&#123;<span class="comment">//将i传递进来，将变量名定为j，当然也可以还叫作i</span></span><br><span class="line">	setTimeout(<span class="function"><span class="keyword">function</span> <span class="title">timer</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">          	<span class="built_in">console</span>.log(j);</span><br><span class="line">      	&#125;,j*<span class="number">1000</span>);</span><br><span class="line">&#125;)(i);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;块作用域和闭包联手，听说天下无敌，不信你看：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">   <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">1</span>;i&lt;=<span class="number">5</span>;i++)&#123;</span><br><span class="line">	setTimeout(<span class="function"><span class="keyword">function</span> <span class="title">timer</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">       	<span class="built_in">console</span>.log(j);</span><br><span class="line">   	&#125;,j*<span class="number">1000</span>);<span class="comment">//程序员的快乐</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h4><span id="3-闭包的好处">3. 闭包的好处</span></h4><h5><span id="31-减少局部变量">3.1 减少局部变量</span></h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> a=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;a++;alert(a);&#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> result=f();</span><br><span class="line">result();<span class="comment">//1</span></span><br><span class="line">result();<span class="comment">//2</span></span><br></pre></td></tr></table></figure>
-<h5><span id="32-减少传递给函数的参数变量">3.2 减少传递给函数的参数变量</span></h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">calFactory</span>(<span class="params">base</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">max</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> total=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">1</span>;i&lt;=max;i++)&#123;</span><br><span class="line">            total+=i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> total+base;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> adder=calFactory(<span class="number">2</span>);</span><br><span class="line">adder(<span class="number">3</span>);<span class="comment">//8</span></span><br></pre></td></tr></table></figure>
-<h5><span id="33-封装">3.3 封装</span></h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> m=<span class="number">0</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">getM</span>(<span class="params"></span>)</span>&#123;<span class="keyword">return</span> m;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">setM</span>(<span class="params">val</span>)</span>&#123;m=val;&#125;</span><br><span class="line">    <span class="built_in">window</span>.g=getM;</span><br><span class="line">    <span class="built_in">window</span>.f=setM;</span><br><span class="line">&#125;)();</span><br><span class="line">f(<span class="number">12</span>);</span><br><span class="line">alert(g());<span class="comment">//12</span></span><br></pre></td></tr></table></figure>
+<p>XML文档：</p>
+<ul>
+<li>可移植性是其他数据格式无法比拟的，重用性高</li>
+</ul>
+<ul>
+<li>实现过程较HTML片段要复杂许多</li>
+<li>XML文件体积大。</li>
+</ul>
+<p>JSON文件：</p>
+<ul>
+<li>作为一种数据传输格式，JSON与XML相似，但是JSON更加灵巧</li>
+<li>可重用</li>
+<li>JSON不需要从服务器端发送含有特定内容类型的首部信息</li>
+</ul>
+<ul>
+<li>语法国语严谨</li>
+<li>代码不易读</li>
+<li>eval函数存在风险</li>
+</ul>
+<p>对比：<br>若应用程序不需要与其他应用程序共享数据的时候，使用HTML片段来返回数据时是最简单的<br>如果数据需要重用，JSON文件是个不错的选择，它在性能和文件大小方面有有事<br>当远程应用程序未知时，XML文档是首选，因为听说XML是“世界语”</p>
+<p>3.把字符串转化为JSON对象<br>4.ajax代码段<br>下面这段代码是我做项目写ajax请求时，常使用的代码段。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+
       
     </div>
     
@@ -458,7 +501,7 @@
           
             <a href="/tags/JavaScript/" rel="tag"><i class="fa fa-tag"></i> JavaScript</a>
           
-            <a href="/tags/闭包/" rel="tag"><i class="fa fa-tag"></i> 闭包</a>
+            <a href="/tags/ajax/" rel="tag"><i class="fa fa-tag"></i> ajax</a>
           
         </div>
       
@@ -471,8 +514,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/29/变量提升/" rel="next" title="变量提升">
-                <i class="fa fa-chevron-left"></i> 变量提升
+              <a href="/2018/04/14/原型/" rel="next" title="令人迷惑的“构造函数”">
+                <i class="fa fa-chevron-left"></i> 令人迷惑的“构造函数”
               </a>
             
           </div>
@@ -480,10 +523,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/04/02/数组/" rel="prev" title="那些你常常会忘的处理数组的函数">
-                那些你常常会忘的处理数组的函数 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
