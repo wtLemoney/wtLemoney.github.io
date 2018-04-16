@@ -410,8 +410,8 @@
           <!-- toc -->
 <ul>
 <li><a href="#1onload和onreadychange的不同">1.onload和onreadychange的不同</a></li>
-<li><a href="#11-onload">1.1 onload</a></li>
-<li><a href="#12-onreadychange">1.2 onreadychange</a></li>
+<li><a href="#emspemsp11-onload">&emsp;&emsp;1.1 onload</a></li>
+<li><a href="#emspemsp12-onreadychange">&emsp;&emsp;1.2 onreadychange</a></li>
 <li><a href="#2服务器返回的数据类型对比">2.服务器返回的数据类型对比</a></li>
 <li><a href="#3把字符串转化为json对象">3.把字符串转化为JSON对象</a></li>
 <li><a href="#4原生js实现ajax">4.原生JS实现ajax</a></li>
@@ -616,7 +616,7 @@
       
         
           <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="comment">//...</span></span><br><span class="line">        &#125;</span><br><span class="line">   Foo.prototype.constructor === Foo;<span class="comment">//true</span></span><br><span class="line"></span><br><span class="line">   <span class="keyword">var</span> a=<span class="keyword">new</span> Foo();</span><br><span class="line">   a.constructor === Foo;<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;Foo.prototype默认有一个公有并且不可枚举的属性.constructor,但a.constructor === Foo不意味着a有一个指向Foo的.constructor属性。实际上,.constructor引用同样被委托给了Foo.prototype,而Foo.prototype.constructor默认指向Foo。<br>&emsp;&emsp;如果创建了一个新对象并替换了函数默认的.prototype对象引用,那么新对象并不会自动获得.constructor属性：
+<p>&emsp;&emsp;Foo.prototype默认有一个公有并且不可枚举的属性.constructor,但a.constructor === Foo不意味着a有一个指向Foo的.constructor属性。实际上,.constructor引用同样被委托给了Foo.prototype,而Foo.prototype.constructor默认指向Foo。<br>&emsp;&emsp;如果创建了一个新对象并替换了函数默认的.prototype对象引用,那么新对象并不会自动获得.constructor属性：</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/04/14/原型/#more" rel="contents">
@@ -850,7 +850,7 @@
 </ul>
 <p><strong>border-box</strong></p>
 <ul>
-<li>在CSS中微元素设定的宽度和高度就决定了元素的边框盒
+<li>在CSS中微元素设定的宽度和高度就决定了元素的边框盒</li></ul>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/04/07/腾讯面试题2/#more" rel="contents">
@@ -1074,7 +1074,7 @@
 </ul>
 <!-- tocstop -->
 <h4 id="1-什么是盒子模型？"><a href="#1-什么是盒子模型？" class="headerlink" title="1.什么是盒子模型？"></a>1.什么是盒子模型？</h4><p><strong>两种</strong>：IE盒子模型、标准W3C盒子模型，包括content、padding、margin、border。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">IE8的width=border-left+padding-left+内容宽度+padding-right+border-right;  </span><br><span class="line">IE8的height=border-top+padding-top+内容高度+padding-bottom+border-bottom; </span><br><span class="line">w3c规定的width=内容宽度; </span><br><span class="line">w3c规定的height=内容高度;</span><br></pre></td></tr></table></figure></p>
-<p>这样有可能导致不同浏览器下获取的width或height的值不同,幸好jquery提供了另外两个方法:
+<p>这样有可能导致不同浏览器下获取的width或height的值不同,幸好jquery提供了另外两个方法:</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/04/03/腾讯面试题1/#more" rel="contents">
@@ -1490,7 +1490,7 @@
 <li>定义：包就是能够读取其他函数内部变量的函数。由于在JavaScript语言中，只有函数内部的子函数才能读取局部变量，因此可以把闭包简单理解为“定义在一个函数内部的函数”。</li>
 <li>本质：闭包是将函数内部和外部连接起来的桥梁。</li>
 <li>用处：一是可以读取函数内部的变量；二是让这些变量的值始终保持在内存中。</li>
-<li>注意点：
+<li>注意点：</li></ul></blockquote>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/03/30/闭包/#more" rel="contents">
@@ -1690,7 +1690,7 @@
 <!-- tocstop -->
 <h4 id="1-先有鸡还是先有蛋"><a href="#1-先有鸡还是先有蛋" class="headerlink" title="1. 先有鸡还是先有蛋"></a>1. 先有鸡还是先有蛋</h4><p>&emsp;&emsp;来看下面两段代码<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="number">2</span>;</span><br><span class="line"><span class="keyword">var</span> a;</span><br><span class="line"><span class="built_in">console</span>.log(a);<span class="comment">//2</span></span><br></pre></td></tr></table></figure></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a);</span><br><span class="line"><span class="keyword">var</span> a=<span class="number">2</span>;<span class="comment">//undefined,不是ReferenceError!</span></span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;实际上，包括变量和函数在内的所有声明都会在任何代码被执行前首先被处理。所以，先有蛋（声明）后有鸡（赋值）。只有声明本身会提升，而赋值或其他运行逻辑会留在原地。<br><br>&emsp;&emsp;注意：函数声明会被提升，但是函数表达式不会提升。看下面：
+<p>&emsp;&emsp;实际上，包括变量和函数在内的所有声明都会在任何代码被执行前首先被处理。所以，先有蛋（声明）后有鸡（赋值）。只有声明本身会提升，而赋值或其他运行逻辑会留在原地。<br><br>&emsp;&emsp;注意：函数声明会被提升，但是函数表达式不会提升。看下面：</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/03/29/变量提升/#more" rel="contents">
