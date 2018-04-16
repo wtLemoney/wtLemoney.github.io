@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="blogs,JavaScript,ajax,SON," />
+  <meta name="keywords" content="blogs,JavaScript,ajax,JSON,XML," />
 
 
 
@@ -80,7 +80,7 @@
 
 
 <meta name="description" content="1.onload和onreadychange的不同 1.1 onload 1.2 onreadychange   2.服务器返回的数据类型对比 3.把字符串转化为JSON对象 4.原生JS实现ajax 5.jQuery中的ajax 5.1 load方法 5.2 get/post方法 5.3 getJSON方法     1.onload和onreadychange的不同首先需要知道几个状态码的小">
-<meta name="keywords" content="blogs,JavaScript,ajax,SON">
+<meta name="keywords" content="blogs,JavaScript,ajax,JSON,XML">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ajax知识总结">
 <meta property="og:url" content="https://wtlemoney.github.io/2018/04/15/ajax/index.html">
@@ -93,7 +93,7 @@
 <meta property="og:image" content="https://wtlemoney.github.io/2018/04/15/ajax/4.png">
 <meta property="og:image" content="https://wtlemoney.github.io/2018/04/15/ajax/5.png">
 <meta property="og:image" content="https://wtlemoney.github.io/2018/04/15/ajax/6.png">
-<meta property="og:updated_time" content="2018-04-16T07:53:55.874Z">
+<meta property="og:updated_time" content="2018-04-16T07:57:49.801Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ajax知识总结">
 <meta name="twitter:description" content="1.onload和onreadychange的不同 1.1 onload 1.2 onreadychange   2.服务器返回的数据类型对比 3.把字符串转化为JSON对象 4.原生JS实现ajax 5.jQuery中的ajax 5.1 load方法 5.2 get/post方法 5.3 getJSON方法     1.onload和onreadychange的不同首先需要知道几个状态码的小">
@@ -513,7 +513,7 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$.post(url,args,<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> name=$(data).find(<span class="string">"name"</span>).text();</span><br><span class="line">&#125;)</span><br><span class="line">$(<span class="string">"#details"</span>).empty().append(<span class="string">"&lt;h2&gt;"</span>+name+<span class="string">"&lt;/h2&gt;"</span>);</span><br></pre></td></tr></table></figure>
 <h5><span id="53-getjson方法">5.3 getJSON方法</span></h5><p>请求的数据格式为JSON格式。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$.getJSON(url,args,<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> name=data.person.name;<span class="comment">//&#123;"person":&#123;"name":"wt"&#125;&#125;</span></span><br><span class="line">&#125;);</span><br><span class="line">$(<span class="string">"#details"</span>).empty().append(<span class="string">"&lt;h2&gt;"</span>+name+<span class="string">"&lt;/h2&gt;"</span>);</span><br></pre></td></tr></table></figure>
-<p>getJSON如果把写成get,是解析不到数据的，因为我们得告诉jQuery我们请求的数据类型是JSON。可以这样改：<code>$.get(url,args,function(data){...},&quot;JSON&quot;)</code></p>
+<p>如果把getJSON写成get,是解析不到数据的，因为我们得告诉jQuery我们请求的数据类型是JSON。可以这样改：<code>$.get(url,args,function(data){...},&quot;JSON&quot;)</code>。</p>
 
       
     </div>
@@ -551,7 +551,9 @@
           
             <a href="/tags/ajax/" rel="tag"><i class="fa fa-tag"></i> ajax</a>
           
-            <a href="/tags/SON/" rel="tag"><i class="fa fa-tag"></i> SON</a>
+            <a href="/tags/JSON/" rel="tag"><i class="fa fa-tag"></i> JSON</a>
+          
+            <a href="/tags/XML/" rel="tag"><i class="fa fa-tag"></i> XML</a>
           
         </div>
       
@@ -690,7 +692,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
