@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="&amp;emsp;&amp;emsp;哈哈，看似是些简单的处理数组的函数，但是由于平时码的少，实习生笔试的时候走了弯路吃了亏啊，写的很慢呀。。。有些是忘记了，有些是参数和返回值记忆模糊了，所以多码码，总结总结。持续更新中…   1.数组的创建 2.数组的检测 3.数组的方法 splice() slice() filter() map() reduce() reduceRight() every() some()">
+<meta name="description" content="&amp;emsp;&amp;emsp;哈哈，看似是些简单的处理数组的函数，但是由于平时码的少，实习生笔试的时候走了弯路吃了亏啊，写的很慢呀。。。有些是忘记了，有些是参数和返回值记忆模糊了，所以多码码，总结总结。持续更新中…">
 <meta name="keywords" content="JavaScript,array,function">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript之处理数组">
 <meta property="og:url" content="https://wtlemoney.github.io/2018/04/02/数组/index.html">
 <meta property="og:site_name" content="wtLemoney">
-<meta property="og:description" content="&amp;emsp;&amp;emsp;哈哈，看似是些简单的处理数组的函数，但是由于平时码的少，实习生笔试的时候走了弯路吃了亏啊，写的很慢呀。。。有些是忘记了，有些是参数和返回值记忆模糊了，所以多码码，总结总结。持续更新中…   1.数组的创建 2.数组的检测 3.数组的方法 splice() slice() filter() map() reduce() reduceRight() every() some()">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;哈哈，看似是些简单的处理数组的函数，但是由于平时码的少，实习生笔试的时候走了弯路吃了亏啊，写的很慢呀。。。有些是忘记了，有些是参数和返回值记忆模糊了，所以多码码，总结总结。持续更新中…">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-18T06:07:40.504Z">
+<meta property="og:updated_time" content="2018-04-18T06:11:59.555Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript之处理数组">
-<meta name="twitter:description" content="&amp;emsp;&amp;emsp;哈哈，看似是些简单的处理数组的函数，但是由于平时码的少，实习生笔试的时候走了弯路吃了亏啊，写的很慢呀。。。有些是忘记了，有些是参数和返回值记忆模糊了，所以多码码，总结总结。持续更新中…   1.数组的创建 2.数组的检测 3.数组的方法 splice() slice() filter() map() reduce() reduceRight() every() some()">
+<meta name="twitter:description" content="&amp;emsp;&amp;emsp;哈哈，看似是些简单的处理数组的函数，但是由于平时码的少，实习生笔试的时候走了弯路吃了亏啊，写的很慢呀。。。有些是忘记了，有些是参数和返回值记忆模糊了，所以多码码，总结总结。持续更新中…">
 
 
 
@@ -405,7 +405,7 @@
       
 
       
-        <p>&emsp;&emsp;哈哈，看似是些简单的处理数组的函数，但是由于平时码的少，实习生笔试的时候走了弯路吃了亏啊，写的很慢呀。。。有些是忘记了，有些是参数和返回值记忆模糊了，所以多码码，总结总结。持续更新中…</p>
+        <p>&emsp;&emsp;哈哈，看似是些简单的处理数组的函数，但是由于平时码的少，实习生笔试的时候走了弯路吃了亏啊，写的很慢呀。。。有些是忘记了，有些是参数和返回值记忆模糊了，所以多码码，总结总结。持续更新中…<a id="more"></a></p>
 <!-- toc -->
 <ul>
 <li><a href="#1数组的创建">1.数组的创建</a></li>
@@ -449,7 +449,7 @@
 </ul>
 <h3><span id="3数组的方法">3.数组的方法</span></h3><h4><span id="splice">splice()</span></h4><p>返回值：被删除的元素数组<br>原数组是否改变：是<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr=[<span class="string">'a'</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="string">'d'</span>];</span><br><span class="line">arr.splice(<span class="number">1</span>,<span class="number">2</span>,<span class="string">'b'</span>,<span class="string">'c'</span>);<span class="comment">//[4,5]</span></span><br><span class="line"><span class="built_in">console</span>.log(arr);<span class="comment">//["a", "b", "c", "d"]</span></span><br></pre></td></tr></table></figure></p>
 <h4><span id="slice">slice()</span></h4><p>返回值：截取的元素组成的数组<br>原数组是否改变：否<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr=[<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>];</span><br><span class="line">arr.slice(<span class="number">1</span>,<span class="number">2</span>);<span class="comment">//['b']</span></span><br><span class="line"><span class="built_in">console</span>.log(arr);<span class="comment">//["a", "b", "c", "d"]</span></span><br></pre></td></tr></table></figure></p>
-<a id="more"></a>    
+<!-- more -->    
 <h4><span id="filter">filter()</span></h4><p>返回值：新的数组<br>原数组是否改变：否<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isBigEnough</span>(<span class="params">value</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> value&gt;=<span class="number">10</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> arr=[<span class="number">12</span>,<span class="number">5</span>,<span class="number">8</span>,<span class="number">130</span>,<span class="number">44</span>];</span><br><span class="line">arr.filter(isBigEnough);<span class="comment">//[12,130,44]</span></span><br></pre></td></tr></table></figure></p>
 <h4><span id="map">map()</span></h4><p>返回值：新的数组<br>原数组是否改变：否<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line"><span class="keyword">var</span> res=arr.map(<span class="function"><span class="keyword">function</span>(<span class="params">x</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x*x;</span><br><span class="line">&#125;);<span class="comment">//res=[1,4,9]</span></span><br></pre></td></tr></table></figure></p>
 <h4><span id="reduce">reduce()</span></h4><p>原数组是否改变：否<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</span><br><span class="line"><span class="keyword">var</span> res=arr.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a+b;</span><br><span class="line">&#125;);<span class="comment">//res=15</span></span><br></pre></td></tr></table></figure></p>
@@ -638,7 +638,7 @@ var jiathis_config={
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -649,7 +649,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -660,7 +660,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -744,7 +744,7 @@ var jiathis_config={
     </span>
     <div class="theme-info">
       <div class="powered-by"></div>
-      <span class="post-count">博客全站共14.8k字</span>
+      <span class="post-count">博客全站共15.4k字</span>
     </div>
 
   
