@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wtlemoney.github.io/"/>
-  <updated>2018-04-18T10:15:09.425Z</updated>
+  <updated>2018-04-18T10:19:15.048Z</updated>
   <id>https://wtlemoney.github.io/</id>
   
   <author>
@@ -21,19 +21,35 @@
     <link href="https://wtlemoney.github.io/2018/04/18/VScode%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
     <id>https://wtlemoney.github.io/2018/04/18/VScode快捷键/</id>
     <published>2018-04-18T09:11:30.000Z</published>
-    <updated>2018-04-18T10:15:09.425Z</updated>
+    <updated>2018-04-18T10:19:15.048Z</updated>
     
-    <content type="html"><![CDATA[<h3><span id="1编辑器与窗口管理">1.编辑器与窗口管理</span></h3><ul><li>新建文件：<code>Ctrl+N</code></li><li>打开一个新窗口：<code>Ctrl+Shift+N</code></li><li>关闭本窗口所有文件：<code>Ctrl+Shift+W</code></li><li>文件之间切换：<code>Ctrl+Tab</code></li><li>左中右 3 个编辑器的快捷键：<code>Ctrl+1 Ctrl+2 Ctrl+3</code></li><li>编辑器换位置， <code>Ctrl+k</code>然后按 Left或 Right</li></ul><h3><span id="2代码编辑">2.代码编辑</span></h3><h4><span id="格式调整">格式调整</span></h4><ul><li>代码行缩进：<code>Ctrl+[</code>，<code>Ctrl+]</code></li><li>上下移动一行：<code>Alt+Up</code>，<code>Alt+Down</code></li><li>向上向下复制一行： <code>Shift+Alt+Up</code>,<code>Shift+Alt+Down</code></li><li>在当前行下边插入一行 ：<code>Ctrl+Enter</code></li><li>在当前行上方插入一行 ：<code>Ctrl+Shift+Enter</code></li></ul><h4><span id="光标相关">光标相关</span></h4><ul><li>移动到行首：<code>Home</code></li><li>移动到行尾：<code>End</code></li><li>选中当前行：<code>Ctrl+i</code></li><li>删除光标所在行:<code>Ctrl+Shift+K</code></li><li>删除光标右侧的所有字：<code>Ctrl+Delete</code></li><li>移动到文件结尾：<code>Ctrl+End</code></li><li>移动到文件开头：<code>Ctrl+Home</code></li><li>移动到定义处：<code>F12</code></li><li>定义处缩略图：只看一眼而不跳转过去 <code>Alt+F12</code></li><li>跳到匹配的括号：<code>Ctrl+Shift+\</code></li><li>选择从光标到行尾： <code>Shift+End</code></li><li>选择从行首到光标处：<code>Shift+Home</code></li><li>扩展/缩小选取范围： <code>Shift+Alt+Left</code> 和 <code>Shift+Alt+Right</code></li><li>多行编辑(列编辑)：<code>Alt+Shift+鼠标左键</code>，<code>Ctrl+Alt+Down/Up</code></li><li>选择当前字的所有出现：<code>Ctrl + F2</code></li><li>同时选中所有匹配： <code>Ctrl+Shift+L</code></li><li>下一个匹配的也被选中：<code>Ctrl+D</code></li><li>回退上一个光标操作：<code>Ctrl+U</code></li><li>切出块注释<code>/* */</code>：<code>Shift+Alt+A</code></li><li>切出上/下一个操作的文件：<code>Alt + ←/→</code></li></ul><h4><span id="查找替换">查找替换</span></h4><ul><li>查找：<code>Ctrl+F</code></li><li>查找下一个/上一个：<code>F3 / Shift + F3</code></li><li>查找替换：<code>Ctrl+H</code></li><li>整个文件夹中查找：<code>Ctrl+Shift+F</code></li></ul><h4><span id="显示相关">显示相关</span></h4><ul><li>全屏：<code>F11</code></li><li>侧边栏显/隐：<code>Ctrl+B</code></li><li>显示 Debug：<code>Ctrl+Shift+D</code></li><li>显示 Output：<code>Ctrl+Shift+U</code></li></ul><h4><span id="重构代码">重构代码</span></h4><ul><li>找到所有的引用：<code>Shift+F12</code></li><li>同时修改本文件中所有匹配的：<code>Ctrl+F12</code></li><li>重命名：比如要修改一个方法名，可以选中后按 F2，输入新的名字，回车，会发现所有的文件都修改了</li><li>跳转到下一个 Error 或 Warning：<code>F8</code></li><li>跳转到上一个 Error 或 Warning：<code>Shift+F8</code></li><li>查看 diff： 在 explorer 里选择文件右键 Set file to compare，然后需要对比的文件上右键选择 Compare with file_name_you_chose</li></ul>]]></content>
+    <content type="html"><![CDATA[<!-- toc --><ul><li><a href="#1编辑器与窗口管理">1.编辑器与窗口管理</a></li><li><a href="#2代码编辑">2.代码编辑</a><ul><li><a href="#格式调整">格式调整</a></li><li><a href="#光标相关">光标相关</a></li><li><a href="#查找替换">查找替换</a></li><li><a href="#显示相关">显示相关</a></li><li><a href="#重构代码">重构代码</a></li></ul></li></ul><!-- tocstop --><h3><span id="1编辑器与窗口管理">1.编辑器与窗口管理</span></h3><ul><li>新建文件：<code>Ctrl+N</code></li><li>打开一个新窗口：<code>Ctrl+Shift+N</code></li><li>关闭本窗口所有文件：<code>Ctrl+Shift+W</code></li><li>文件之间切换：<code>Ctrl+Tab</code></li><li>拆分编辑器：<code>Ctrl+\</code></li><li>左中右 3 个编辑器的快捷键：<code>Ctrl+1 Ctrl+2 Ctrl+3</code></li><li>编辑器换位置， <code>Ctrl+k</code>然后按 Left或 Right</li></ul><h3><span id="2代码编辑">2.代码编辑</span></h3><a id="more"></a><h4><span id="格式调整">格式调整</span></h4><ul><li>代码行缩进：<code>Ctrl+[</code>，<code>Ctrl+]</code></li><li>上下移动一行：<code>Alt+Up</code>，<code>Alt+Down</code></li><li>向上向下复制一行： <code>Shift+Alt+Up</code>,<code>Shift+Alt+Down</code></li><li>在当前行下边插入一行 ：<code>Ctrl+Enter</code></li><li>在当前行上方插入一行 ：<code>Ctrl+Shift+Enter</code></li></ul><h4><span id="光标相关">光标相关</span></h4><ul><li>移动到行首：<code>Home</code></li><li>移动到行尾：<code>End</code></li><li>选中当前行：<code>Ctrl+i</code></li><li>删除光标所在行:<code>Ctrl+Shift+K</code></li><li>删除光标右侧的所有字：<code>Ctrl+Delete</code></li><li>移动到文件结尾：<code>Ctrl+End</code></li><li>移动到文件开头：<code>Ctrl+Home</code></li><li>移动到定义处：<code>F12</code></li><li>定义处缩略图：只看一眼而不跳转过去 <code>Alt+F12</code></li><li>跳到匹配的括号：<code>Ctrl+Shift+\</code></li><li>选择从光标到行尾： <code>Shift+End</code></li><li>选择从行首到光标处：<code>Shift+Home</code></li><li>扩展/缩小选取范围： <code>Shift+Alt+Left</code> 和 <code>Shift+Alt+Right</code></li><li>多行编辑(列编辑)：<code>Alt+Shift+鼠标左键</code>，<code>Ctrl+Alt+Down/Up</code></li><li>选择当前字的所有出现：<code>Ctrl + F2</code></li><li>同时选中所有匹配： <code>Ctrl+Shift+L</code></li><li>下一个匹配的也被选中：<code>Ctrl+D</code></li><li>回退上一个光标操作：<code>Ctrl+U</code></li><li>切出块注释<code>/* */</code>：<code>Shift+Alt+A</code></li><li>切出上/下一个操作的文件：<code>Alt + ←/→</code></li></ul><h4><span id="查找替换">查找替换</span></h4><ul><li>查找：<code>Ctrl+F</code></li><li>查找下一个/上一个：<code>F3 / Shift + F3</code></li><li>查找替换：<code>Ctrl+H</code></li><li>整个文件夹中查找：<code>Ctrl+Shift+F</code></li></ul><h4><span id="显示相关">显示相关</span></h4><ul><li>全屏：<code>F11</code></li><li>侧边栏显/隐：<code>Ctrl+B</code></li><li>显示 Debug：<code>Ctrl+Shift+D</code></li><li>显示 Output：<code>Ctrl+Shift+U</code></li></ul><h4><span id="重构代码">重构代码</span></h4><ul><li>找到所有的引用：<code>Shift+F12</code></li><li>同时修改本文件中所有匹配的：<code>Ctrl+F12</code></li><li>重命名：比如要修改一个方法名，可以选中后按 F2，输入新的名字，回车，会发现所有的文件都修改了</li><li>跳转到下一个 Error 或 Warning：<code>F8</code></li><li>跳转到上一个 Error 或 Warning：<code>Shift+F8</code></li><li>查看 diff： 在 explorer 里选择文件右键 Set file to compare，然后需要对比的文件上右键选择 Compare with file_name_you_chose</li></ul>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;h3&gt;&lt;span id=&quot;1编辑器与窗口管理&quot;&gt;1.编辑器与窗口管理&lt;/span&gt;&lt;/h3&gt;&lt;ul&gt;
+      &lt;!-- toc --&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#1编辑器与窗口管理&quot;&gt;1.编辑器与窗口管理&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#2代码编辑&quot;&gt;2.代码编辑&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#格式调整&quot;&gt;格式调整&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#光标相关&quot;&gt;光标相关&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#查找替换&quot;&gt;查找替换&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#显示相关&quot;&gt;显示相关&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#重构代码&quot;&gt;重构代码&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- tocstop --&gt;
+&lt;h3 id=&quot;1-编辑器与窗口管理&quot;&gt;&lt;a href=&quot;#1-编辑器与窗口管理&quot; class=&quot;headerlink&quot; title=&quot;1.编辑器与窗口管理&quot;&gt;&lt;/a&gt;1.编辑器与窗口管理&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;新建文件：&lt;code&gt;Ctrl+N&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;打开一个新窗口：&lt;code&gt;Ctrl+Shift+N&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;关闭本窗口所有
-      
+&lt;li&gt;关闭本窗口所有文件：&lt;code&gt;Ctrl+Shift+W&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;文件之间切换：&lt;code&gt;Ctrl+Tab&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;拆分编辑器：&lt;code&gt;Ctrl+\&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;左中右 3 个编辑器的快捷键：&lt;code&gt;Ctrl+1 Ctrl+2 Ctrl+3&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;编辑器换位置， &lt;code&gt;Ctrl+k&lt;/code&gt;然后按 Left或 Right&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;2-代码编辑&quot;&gt;&lt;a href=&quot;#2-代码编辑&quot; class=&quot;headerlink&quot; title=&quot;2.代码编辑&quot;&gt;&lt;/a&gt;2.代码编辑&lt;/h3&gt;
     
     </summary>
     
@@ -42,7 +58,9 @@
     
       <category term="VScode" scheme="https://wtlemoney.github.io/tags/VScode/"/>
     
-      <category term="工具，编辑器" scheme="https://wtlemoney.github.io/tags/%E5%B7%A5%E5%85%B7%EF%BC%8C%E7%BC%96%E8%BE%91%E5%99%A8/"/>
+      <category term="工具" scheme="https://wtlemoney.github.io/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="编辑器" scheme="https://wtlemoney.github.io/tags/%E7%BC%96%E8%BE%91%E5%99%A8/"/>
     
   </entry>
   
