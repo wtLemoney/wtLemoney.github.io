@@ -1170,7 +1170,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/04/02/数组/" itemprop="url">那些你常常会忘的处理数组的函数</a></h1>
+                <a class="post-title-link" href="/2018/04/02/数组/" itemprop="url">JavaScript之处理数组</a></h1>
         
 
         <div class="post-meta">
@@ -1223,6 +1223,17 @@
 
                 
                 
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数组/函数/ES6/" itemprop="url" rel="index">
+                    <span itemprop="name">ES6</span>
+                  </a>
+                </span>
+
+                
+                
               
             </span>
           
@@ -1247,7 +1258,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  348
+                  2,215
                 </span>
               
 
@@ -1263,7 +1274,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  11
                 </span>
               
             </div>
@@ -1288,17 +1299,47 @@
           <p>&emsp;&emsp;哈哈，看似是些简单的处理数组的函数，但是由于平时码的少，实习生笔试的时候走了弯路吃了亏啊，写的很慢呀。。。有些是忘记了，有些是参数和返回值记忆模糊了，所以多码码，总结总结。持续更新中…</p>
 <!-- toc -->
 <ul>
-<li><a href="#1-splice">1. splice()</a></li>
-<li><a href="#2-slice">2. slice()</a></li>
-<li><a href="#3-filter">3. filter()</a></li>
-<li><a href="#4-map">4. map()</a></li>
-<li><a href="#5-reduce">5. reduce()</a></li>
-<li><a href="#6-every">6. every()</a></li>
-<li><a href="#7-some">7. some()</a></li>
+<li><a href="#1数组的创建">1.数组的创建</a></li>
+<li><a href="#2数组的检测">2.数组的检测</a></li>
+<li><a href="#3数组的方法">3.数组的方法</a><ul>
+<li><a href="#splice">splice()</a></li>
+<li><a href="#slice">slice()</a></li>
+<li><a href="#filter">filter()</a></li>
+<li><a href="#map">map()</a></li>
+<li><a href="#reduce">reduce()</a></li>
+<li><a href="#reduceright">reduceRight()</a></li>
+<li><a href="#every">every()</a></li>
+<li><a href="#some">some()</a></li>
+<li><a href="#pop">pop()</a></li>
+<li><a href="#shift">shift()</a></li>
+<li><a href="#unshift">unshift()</a></li>
+<li><a href="#push">push()</a></li>
+<li><a href="#reverse">reverse()</a></li>
+<li><a href="#sort">sort()</a></li>
+<li><a href="#tostring">toString()</a></li>
+<li><a href="#concat">concat()</a></li>
+<li><a href="#join">join()</a></li>
+<li><a href="#indexoflastindexof">indexOf(),lastIndexOf()</a></li>
+<li><a href="#foreach">forEach()</a></li>
+<li><a href="#fill">fill()</a></li>
+<li><a href="#findfindindex">find()/findIndex()</a></li>
+<li><a href="#copywithin">copyWithin()</a></li>
+<li><a href="#includes">includes()</a></li>
+</ul>
+</li>
+<li><a href="#4构造函数的方法">4.构造函数的方法</a><ul>
+<li><a href="#arrayfrom">Array.from()</a></li>
+</ul>
+</li>
 </ul>
 <!-- tocstop -->
-<h4 id="1-splice"><a href="#1-splice" class="headerlink" title="1. splice()"></a>1. splice()</h4><p>返回值为被删除的元素数组，原数组会改变<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr=[<span class="string">'a'</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="string">'d'</span>];</span><br><span class="line">arr.splice(<span class="number">1</span>,<span class="number">2</span>,<span class="string">'b'</span>,<span class="string">'c'</span>);<span class="comment">//[4,5]</span></span><br><span class="line"><span class="built_in">console</span>.log(arr);<span class="comment">//["a", "b", "c", "d"]</span></span><br></pre></td></tr></table></figure></p>
-<h4 id="2-slice"><a href="#2-slice" class="headerlink" title="2. slice()"></a>2. slice()</h4><p>可从已有的数组中返回选定的元素,并不会修改数组。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr=[<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>];</span><br><span class="line">arr.slice(<span class="number">1</span>,<span class="number">2</span>);<span class="comment">//['a','c','d']</span></span><br><span class="line"><span class="built_in">console</span>.log(arr);<span class="comment">//["a", "b", "c", "d"]</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="1-数组的创建"><a href="#1-数组的创建" class="headerlink" title="1.数组的创建"></a>1.数组的创建</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//构造函数方式，new可以省略</span></span><br><span class="line"><span class="keyword">let</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>(); <span class="comment">// 创建空数组</span></span><br><span class="line"><span class="keyword">let</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">10</span>); <span class="comment">// 创建长度为10的数组</span></span><br><span class="line"><span class="keyword">let</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">'a'</span>); <span class="comment">// ['a']</span></span><br><span class="line"><span class="keyword">let</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">10</span>, <span class="string">'a'</span>); <span class="comment">// [10,'a']</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//字面量方式</span></span><br><span class="line"><span class="keyword">let</span> arr = [<span class="number">10</span>, <span class="string">'a'</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//Array.of(),ES6新增</span></span><br><span class="line"><span class="keyword">let</span> arr = <span class="built_in">Array</span>.of(<span class="number">1</span>); <span class="comment">// [1]</span></span><br><span class="line"><span class="keyword">let</span> arr1 = <span class="built_in">Array</span>.of(<span class="number">1</span>, <span class="string">'a'</span>, <span class="literal">true</span>, <span class="literal">null</span>, <span class="literal">undefined</span>, &#123;<span class="attr">name</span>: <span class="string">"zhangsan"</span>&#125;, [<span class="number">45</span>]); <span class="comment">// [ 1, 'a', true, null, undefined, &#123; name: 'zhangsan' &#125;, [ 45 ] ]</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-数组的检测"><a href="#2-数组的检测" class="headerlink" title="2.数组的检测"></a>2.数组的检测</h3><ul>
+<li>toString()<br>  <code>Object.prototype.toString.call([])===&quot;object Array&quot;;//true</code></li>
+<li>Array.isArray()<br>  <code>Array,isArray([1,&#39;a&#39;,null]);//true</code>;</li>
+</ul>
+<h3 id="3-数组的方法"><a href="#3-数组的方法" class="headerlink" title="3.数组的方法"></a>3.数组的方法</h3><h4 id="splice"><a href="#splice" class="headerlink" title="splice()"></a>splice()</h4><p>返回值：被删除的元素数组<br>原数组是否改变：是<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr=[<span class="string">'a'</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="string">'d'</span>];</span><br><span class="line">arr.splice(<span class="number">1</span>,<span class="number">2</span>,<span class="string">'b'</span>,<span class="string">'c'</span>);<span class="comment">//[4,5]</span></span><br><span class="line"><span class="built_in">console</span>.log(arr);<span class="comment">//["a", "b", "c", "d"]</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="slice"><a href="#slice" class="headerlink" title="slice()"></a>slice()</h4><p>返回值：截取的元素组成的数组<br>原数组是否改变：否<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr=[<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>];</span><br><span class="line">arr.slice(<span class="number">1</span>,<span class="number">2</span>);<span class="comment">//['b']</span></span><br><span class="line"><span class="built_in">console</span>.log(arr);<span class="comment">//["a", "b", "c", "d"]</span></span><br></pre></td></tr></table></figure></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/04/02/数组/#more" rel="contents">
@@ -2205,7 +2246,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -2216,7 +2257,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -2300,7 +2341,7 @@
     </span>
     <div class="theme-info">
       <div class="powered-by"></div>
-      <span class="post-count">博客全站共13.0k字</span>
+      <span class="post-count">博客全站共14.8k字</span>
     </div>
 
   
