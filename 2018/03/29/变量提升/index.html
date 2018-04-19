@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="1. 先有鸡还是先有蛋 2. 函数优先   1. 先有鸡还是先有蛋&amp;emsp;&amp;emsp;来看下面两段代码123a=2;var a;console.log(a);//2 12console.log(a);var a=2;//undefined,不是ReferenceError! &amp;emsp;&amp;emsp;实际上，包括变量和函数在内的所有声明都会在任何代码被执行前首先被处理。所以，先有蛋（声明）后">
+<meta name="description" content="1. 先有鸡还是先有蛋 2. 函数优先   1. 先有鸡还是先有蛋&amp;emsp;&amp;emsp;来看下面两段代码123a=2;var a;console.log(a);//2">
 <meta name="keywords" content="blogs,JavaScript,变量">
 <meta property="og:type" content="article">
 <meta property="og:title" content="变量提升">
 <meta property="og:url" content="https://wtlemoney.github.io/2018/03/29/变量提升/index.html">
 <meta property="og:site_name" content="wtLemoney">
-<meta property="og:description" content="1. 先有鸡还是先有蛋 2. 函数优先   1. 先有鸡还是先有蛋&amp;emsp;&amp;emsp;来看下面两段代码123a=2;var a;console.log(a);//2 12console.log(a);var a=2;//undefined,不是ReferenceError! &amp;emsp;&amp;emsp;实际上，包括变量和函数在内的所有声明都会在任何代码被执行前首先被处理。所以，先有蛋（声明）后">
+<meta property="og:description" content="1. 先有鸡还是先有蛋 2. 函数优先   1. 先有鸡还是先有蛋&amp;emsp;&amp;emsp;来看下面两段代码123a=2;var a;console.log(a);//2">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-07T08:40:49.934Z">
+<meta property="og:updated_time" content="2018-04-19T11:33:07.708Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="变量提升">
-<meta name="twitter:description" content="1. 先有鸡还是先有蛋 2. 函数优先   1. 先有鸡还是先有蛋&amp;emsp;&amp;emsp;来看下面两段代码123a=2;var a;console.log(a);//2 12console.log(a);var a=2;//undefined,不是ReferenceError! &amp;emsp;&amp;emsp;实际上，包括变量和函数在内的所有声明都会在任何代码被执行前首先被处理。所以，先有蛋（声明）后">
+<meta name="twitter:description" content="1. 先有鸡还是先有蛋 2. 函数优先   1. 先有鸡还是先有蛋&amp;emsp;&amp;emsp;来看下面两段代码123a=2;var a;console.log(a);//2">
 
 
 
@@ -401,8 +401,9 @@
 </ul>
 <!-- tocstop -->
 <h4><span id="1-先有鸡还是先有蛋">1. 先有鸡还是先有蛋</span></h4><p>&emsp;&emsp;来看下面两段代码<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="number">2</span>;</span><br><span class="line"><span class="keyword">var</span> a;</span><br><span class="line"><span class="built_in">console</span>.log(a);<span class="comment">//2</span></span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a);</span><br><span class="line"><span class="keyword">var</span> a=<span class="number">2</span>;<span class="comment">//undefined,不是ReferenceError!</span></span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;实际上，包括变量和函数在内的所有声明都会在任何代码被执行前首先被处理。所以，先有蛋（声明）后有鸡（赋值）。只有声明本身会提升，而赋值或其他运行逻辑会留在原地。<br><br>&emsp;&emsp;注意：函数声明会被提升，但是函数表达式不会提升。看下面：<a id="more"></a><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">foo();</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a);<span class="comment">//undefined</span></span><br><span class="line">    <span class="keyword">var</span> a=<span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;实际上，包括变量和函数在内的所有声明都会在任何代码被执行前首先被处理。所以，先有蛋（声明）后有鸡（赋值）。只有声明本身会提升，而赋值或其他运行逻辑会留在原地。<br><br>&emsp;&emsp;注意：函数声明会被提升，但是函数表达式不会提升。看下面：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">foo();</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a);<span class="comment">//undefined</span></span><br><span class="line">    <span class="keyword">var</span> a=<span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">foo();<span class="comment">//不是ReferenceError,而是TypeError!</span></span><br><span class="line"><span class="keyword">var</span> foo=<span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>&emsp;&emsp;foo()由于对undefined值进行函数调用而导致非法操作，因此抛出TypeError异常！</p>
 <h4><span id="2-函数优先">2. 函数优先</span></h4><p>&emsp;&emsp;有多个“重复”声明的代码中，函数首先被提升，然后才是变量：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">foo();<span class="comment">//1</span></span><br><span class="line"><span class="keyword">var</span> foo;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line">foo=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">2</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>

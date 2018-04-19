@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="wtLemoney">
 <meta property="og:description" content="1. 什么是闭包？ 2. 循环和闭包 3. 闭包的好处 3.1 减少局部变量 3.2 减少传递给函数的参数变量 3.3 封装     1. 什么是闭包？&amp;emsp;&amp;emsp;OK,来看下面一段能清晰展示闭包的代码：123456789function foo()&amp;#123;var a=2;function bar()&amp;#123;    console.log(a);&amp;#125;return b">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-07T08:42:27.083Z">
+<meta property="og:updated_time" content="2018-04-19T11:33:43.556Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="作用域闭包">
 <meta name="twitter:description" content="1. 什么是闭包？ 2. 循环和闭包 3. 闭包的好处 3.1 减少局部变量 3.2 减少传递给函数的参数变量 3.3 封装     1. 什么是闭包？&amp;emsp;&amp;emsp;OK,来看下面一段能清晰展示闭包的代码：123456789function foo()&amp;#123;var a=2;function bar()&amp;#123;    console.log(a);&amp;#125;return b">
@@ -407,13 +407,14 @@
 </ul>
 <!-- tocstop -->
 <h4><span id="1-什么是闭包">1. 什么是闭包？</span></h4><p>&emsp;&emsp;OK,来看下面一段能清晰展示闭包的代码：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="keyword">var</span> a=<span class="number">2</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> bar;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> baz=foo();</span><br><span class="line">baz();<span class="comment">//2</span></span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
 <p>&emsp;&emsp;闭包使得函数bar()可以继续访问定义时的词法作用域。函数能被外部调用到，则该作用域链上的所有变量都会被保存下来。  </p>
 <blockquote>
 <ul>
 <li>定义：包就是能够读取其他函数内部变量的函数。由于在JavaScript语言中，只有函数内部的子函数才能读取局部变量，因此可以把闭包简单理解为“定义在一个函数内部的函数”。</li>
 <li>本质：闭包是将函数内部和外部连接起来的桥梁。</li>
 <li>用处：一是可以读取函数内部的变量；二是让这些变量的值始终保持在内存中。</li>
-<li>注意点：<a id="more"></a><br>&emsp;&emsp;&emsp;1）不能滥用闭包<br>&emsp;&emsp;由于闭包会使得函数中的变量都被保存在内存中，内存消耗很大，所以不能滥用闭包，否则会造成网页的性能问题，在IE中可能会导致内存泄漏。<br>&emsp;&emsp;解决方法：在退出函数之前，将不使用的局部变量全部删除。<br>&emsp;&emsp;&emsp;2）不要随便改变父函数内部变量的值。<br>&emsp;&emsp;把父函数当作对象使用，闭包当作它的公有方法，内部变量当作它的私有属性，闭包会在父函数外部，改变父函数变量的值，所以要注意。  </li>
+<li>注意点：<br>&emsp;&emsp;&emsp;1）不能滥用闭包<br>&emsp;&emsp;由于闭包会使得函数中的变量都被保存在内存中，内存消耗很大，所以不能滥用闭包，否则会造成网页的性能问题，在IE中可能会导致内存泄漏。<br>&emsp;&emsp;解决方法：在退出函数之前，将不使用的局部变量全部删除。<br>&emsp;&emsp;&emsp;2）不要随便改变父函数内部变量的值。<br>&emsp;&emsp;把父函数当作对象使用，闭包当作它的公有方法，内部变量当作它的私有属性，闭包会在父函数外部，改变父函数变量的值，所以要注意。  </li>
 </ul>
 </blockquote>
 <h4><span id="2-循环和闭包">2. 循环和闭包</span></h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">1</span>;i&lt;=<span class="number">5</span>;i++)&#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span> <span class="title">timer</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(i);</span><br><span class="line">    &#125;,i*<span class="number">1000</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>

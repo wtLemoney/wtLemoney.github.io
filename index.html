@@ -401,13 +401,7 @@
 <h3 id="1-编辑器与窗口管理"><a href="#1-编辑器与窗口管理" class="headerlink" title="1.编辑器与窗口管理"></a>1.编辑器与窗口管理</h3><ul>
 <li>新建文件：<code>Ctrl+N</code></li>
 <li>打开一个新窗口：<code>Ctrl+Shift+N</code></li>
-<li>关闭本窗口所有文件：<code>Ctrl+Shift+W</code></li>
-<li>文件之间切换：<code>Ctrl+Tab</code></li>
-<li>拆分编辑器：<code>Ctrl+\</code></li>
-<li>左中右 3 个编辑器的快捷键：<code>Ctrl+1 Ctrl+2 Ctrl+3</code></li>
-<li>编辑器换位置， <code>Ctrl+k</code>然后按 Left或 Right</li>
-</ul>
-<h3 id="2-代码编辑"><a href="#2-代码编辑" class="headerlink" title="2.代码编辑"></a>2.代码编辑</h3>
+<li>关闭本窗口所有文件：<code>Ctrl+Shift+W</code></li></ul>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/04/18/VScode快捷键/#more" rel="contents">
@@ -643,9 +637,6 @@
 <p>&emsp;&emsp;&emsp;&emsp;0 - 请求未初始化。还没有调用open方法</p>
 <p>&emsp;&emsp;&emsp;&emsp;1 - 服务器连接已建立。open方法已被调用，但send方法还没有被调用</p>
 <p>&emsp;&emsp;&emsp;&emsp;2 - 请求已接受。send方法以及被调用</p>
-<p>&emsp;&emsp;&emsp;&emsp;3 - 请求处理中。服务器正在发送响应</p>
-<p>&emsp;&emsp;&emsp;&emsp;4 - 请求已完成，响应发送完毕</p>
-<p>&emsp;&emsp;HTTP 状态码(status)：</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/04/15/ajax/#more" rel="contents">
@@ -1065,14 +1056,7 @@
 </ul>
 <p><strong>content-box</strong></p>
 <ul>
-<li>这是box-sizing的默认属性值</li>
-<li>是CSS2.1中规定的宽度高度的显示行为</li>
-<li>在CSS中定义的宽度和高度就对应到元素的内容框</li>
-<li>在CSS中定义的宽度和高度之外绘制元素的内边距和边框</li>
-</ul>
-<p><strong>border-box</strong></p>
-<ul>
-<li>在CSS中微元素设定的宽度和高度就决定了元素的边框盒</li></ul>
+<li>这是box-sizing的默认属性值</li></ul>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/04/07/腾讯面试题2/#more" rel="contents">
@@ -1704,13 +1688,6 @@
 </ul>
 <!-- tocstop -->
 <h4 id="1-什么是闭包？"><a href="#1-什么是闭包？" class="headerlink" title="1. 什么是闭包？"></a>1. 什么是闭包？</h4><p>&emsp;&emsp;OK,来看下面一段能清晰展示闭包的代码：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="keyword">var</span> a=<span class="number">2</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> bar;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> baz=foo();</span><br><span class="line">baz();<span class="comment">//2</span></span><br></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;闭包使得函数bar()可以继续访问定义时的词法作用域。函数能被外部调用到，则该作用域链上的所有变量都会被保存下来。  </p>
-<blockquote>
-<ul>
-<li>定义：包就是能够读取其他函数内部变量的函数。由于在JavaScript语言中，只有函数内部的子函数才能读取局部变量，因此可以把闭包简单理解为“定义在一个函数内部的函数”。</li>
-<li>本质：闭包是将函数内部和外部连接起来的桥梁。</li>
-<li>用处：一是可以读取函数内部的变量；二是让这些变量的值始终保持在内存中。</li>
-<li>注意点：</li></ul></blockquote>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/03/30/闭包/#more" rel="contents">
@@ -1909,8 +1886,6 @@
 </ul>
 <!-- tocstop -->
 <h4 id="1-先有鸡还是先有蛋"><a href="#1-先有鸡还是先有蛋" class="headerlink" title="1. 先有鸡还是先有蛋"></a>1. 先有鸡还是先有蛋</h4><p>&emsp;&emsp;来看下面两段代码<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="number">2</span>;</span><br><span class="line"><span class="keyword">var</span> a;</span><br><span class="line"><span class="built_in">console</span>.log(a);<span class="comment">//2</span></span><br></pre></td></tr></table></figure></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a);</span><br><span class="line"><span class="keyword">var</span> a=<span class="number">2</span>;<span class="comment">//undefined,不是ReferenceError!</span></span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;实际上，包括变量和函数在内的所有声明都会在任何代码被执行前首先被处理。所以，先有蛋（声明）后有鸡（赋值）。只有声明本身会提升，而赋值或其他运行逻辑会留在原地。<br><br>&emsp;&emsp;注意：函数声明会被提升，但是函数表达式不会提升。看下面：</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/03/29/变量提升/#more" rel="contents">
@@ -2115,7 +2090,6 @@
 </ul>
 <!-- tocstop -->
 <h4 id="1-this的绑定规则"><a href="#1-this的绑定规则" class="headerlink" title="1. this的绑定规则"></a>1. this的绑定规则</h4><h5 id="1-1-默认绑定"><a href="#1-1-默认绑定" class="headerlink" title="1.1 默认绑定"></a>1.1 默认绑定</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.a);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a=<span class="number">2</span>;</span><br><span class="line">foo();<span class="comment">//2</span></span><br></pre></td></tr></table></figure>
-<h5 id="1-2-隐式绑定"><a href="#1-2-隐式绑定" class="headerlink" title="1.2 隐式绑定"></a>1.2 隐式绑定</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.a);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj1=&#123;</span><br><span class="line">    a:<span class="number">2</span>,</span><br><span class="line">    foo:foo,</span><br><span class="line">    obj2:obj2</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> obj2=&#123;</span><br><span class="line">    a:<span class="number">42</span>,</span><br><span class="line">    foo:foo</span><br><span class="line">&#125;;</span><br><span class="line">obj1.foo();<span class="comment">//2</span></span><br><span class="line">obj1.obj2.foo();<span class="comment">//42</span></span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/03/27/this的指向/#more" rel="contents">
