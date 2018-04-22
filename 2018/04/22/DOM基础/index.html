@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="JavaScript,DOM,节点操作,浏览器兼容," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="&amp;emsp;&amp;emsp;最近自己写项目的时候，DOM操作稍多，但是发现自己不是很熟悉，以前看过的知识不常用就忘了，用的时候也是要经常去官网或网上查找。所以想把DOM的知识点重新回顾一下，以下知识点来自“JavaScript高级程序设计”第10、11、12章节。另外，想自己练习DOM操作相关的题，推荐百度前端技术学院的斌斌学院，上面有很多可操作的题，看的再多不如自己多思考多敲代码，这点我深有体会，可">
+<meta name="keywords" content="JavaScript,DOM,节点操作,浏览器兼容">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DOM基础知识梳理">
+<meta property="og:url" content="https://wtlemoney.github.io/2018/04/22/DOM基础/index.html">
+<meta property="og:site_name" content="wtLemoney">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;最近自己写项目的时候，DOM操作稍多，但是发现自己不是很熟悉，以前看过的知识不常用就忘了，用的时候也是要经常去官网或网上查找。所以想把DOM的知识点重新回顾一下，以下知识点来自“JavaScript高级程序设计”第10、11、12章节。另外，想自己练习DOM操作相关的题，推荐百度前端技术学院的斌斌学院，上面有很多可操作的题，看的再多不如自己多思考多敲代码，这点我深有体会，可">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-04-22T04:32:49.428Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="DOM基础知识梳理">
+<meta name="twitter:description" content="&amp;emsp;&amp;emsp;最近自己写项目的时候，DOM操作稍多，但是发现自己不是很熟悉，以前看过的知识不常用就忘了，用的时候也是要经常去官网或网上查找。所以想把DOM的知识点重新回顾一下，以下知识点来自“JavaScript高级程序设计”第10、11、12章节。另外，想自己练习DOM操作相关的题，推荐百度前端技术学院的斌斌学院，上面有很多可操作的题，看的再多不如自己多思考多敲代码，这点我深有体会，可">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":true,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://wtlemoney.github.io/2018/04/22/DOM基础/"/>
+
+
+
+
+
+  <title>DOM基础知识梳理 | wtLemoney</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/wtLemoney" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">wtLemoney</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">To be a happy&lovely programmer...</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://wtlemoney.github.io/2018/04/22/DOM基础/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wtLemoney">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/my_files/photo.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wtLemoney">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">DOM基础知识梳理</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-22T12:27:39+08:00">
+                2018-04-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/DOM操作，选择器/" itemprop="url" rel="index">
+                    <span itemprop="name">DOM操作，选择器</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2,118
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  9
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>&emsp;&emsp;最近自己写项目的时候，DOM操作稍多，但是发现自己不是很熟悉，以前看过的知识不常用就忘了，用的时候也是要经常去官网或网上查找。所以想把DOM的知识点重新回顾一下，以下知识点来自“JavaScript高级程序设计”第10、11、12章节。另外，想自己练习DOM操作相关的题，推荐<a href="http://ife.baidu.com/college/detail/id/10" target="_blank" rel="noopener">百度前端技术学院</a>的斌斌学院，上面有很多可操作的题，看的再多不如自己多思考多敲代码，这点我深有体会，可是吃了大亏的啊。</p>
+<h3><span id="1dom1">1.DOM1</span></h3><p>1998年10月DOM1级规范成为W3C的推荐标准。</p>
+<h4><span id="11node类型">1.1Node类型</span></h4><ul>
+<li>除了IE，浏览器都可以访问这个类型</li>
+<li>JS中的所有节点类型都继承自Node类型，所有的节点类型都共享着相同的基本属性和方法</li>
+<li>someNode.nodeName保存标签名，someNode.nodeValue===null</li>
+<li>每个节点都有一个nodeType属性，表示节点的类型（共12个数值常量）<br>&emsp;列举3个常用的节点类型数值常量：<br>&emsp;&emsp;&emsp;Node.ELEMENT_NODE(1)<br>&emsp;&emsp;&emsp;Node.ATTRIBUTE_NODE(2)<br>&emsp;&emsp;&emsp;Node.TEXT_NODE(3)<br>&emsp;用法：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(someNode.nodeType == Node.ELEMENT_NODE)&#123;<span class="comment">//在IE中无效</span></span><br><span class="line">    alert(<span class="string">"Node is a an element."</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(someNode.nodeType == <span class="number">1</span>)&#123;<span class="comment">//适用于所有浏览器</span></span><br><span class="line">    alert(<span class="string">"Node is a an element."</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>访问子节点：方括号和item()都可以</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> firstChild = someNode.childNodes[<span class="number">0</span>];</span><br><span class="line"><span class="keyword">var</span> secondChild = someNode.childNodes.item(<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>通过<code>previousSibling</code>和<code>nextSibling</code>访问相邻的兄弟节点 </li>
+<li>插入节点：<code>appendChild(node)</code>和<code>insertBefore(node，参照节点)</code></li>
+<li>替换节点：<code>replaceChild(node，要替换的节点)</code></li>
+<li>移除节点：<code>removeChild(node)</code></li>
+</ul>
+<h4><span id="12document类型">1.2Document类型</span></h4><ul>
+<li>documentElement属性、childNodes[0]、firstChild都指向<code>&lt;html&gt;</code>元素</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> html = <span class="built_in">document</span>.documentElement;<span class="comment">//取得对&lt;html&gt;的引用</span></span><br><span class="line">alert(html ===<span class="built_in">document</span>.childNodes[<span class="number">0</span>]);<span class="comment">//true</span></span><br><span class="line">alert(html === <span class="built_in">document</span>.firstChild);<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>body属性指向<code>&lt;body&gt;</code>元素</li>
+<li>查找元素：<code>getElementById()</code>和<code>getElementsByTagName()</code><br>&emsp;如果页面中多个元素的ID值相同，<code>getElementById()</code>只返回第一次出现的元素</li>
+<li>对<code>&lt;img src=&quot;..&quot; name=&quot;myImage&quot;&gt;</code>取得<img>元素，可以有几种方法：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> images = <span class="built_in">document</span>.getElementsByTagName(<span class="string">"img"</span>);</span><br><span class="line"><span class="keyword">var</span> myImage = images.namedItem(<span class="string">"myImage"</span>);<span class="comment">//方法1</span></span><br><span class="line"><span class="keyword">var</span> myImage = images[<span class="string">"myImage"</span>];<span class="comment">//方法2</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>getElementsByName</code>返回指定name特性的所有元素，常被使用情况：单选按钮</li>
+<li>特殊集合<br>&emsp;document.anchors：包含文档中所有带name特性的<code>&lt;a&gt;</code>元素<br>&emsp;document.forms：所有<code>&lt;form&gt;</code>元素<br>&emsp;document.images：所有<code>&lt;img&gt;</code>元素<br>&emsp;document.links：所有带href特性的<code>&lt;a&gt;</code>元素</li>
+<li>文档写入：write()、writeln()、open()、close()<br>&emsp;write()会原样写入，writeln()会在字符串末尾添加一个换行符<br>&emsp;如果在文档结束后再调用document.write()，那么输出的内容将会重写整个页面</li>
+<li>DOM一致性检测<br>&emsp;<code>var hasXmlDom=document.implementation.hasFeature(&quot;XML&quot;,&quot;1.0&quot;)</code>如果浏览器支持给定名称和版本的功能，返回true。</li>
+</ul>
+<h4><span id="13element类型">1.3Element类型</span></h4><ul>
+<li>操作特性：getAttribute()、setAttribute()、removeAttribute()<br>&emsp;特性的名称不区分大小写，即“ID”和“id”代表同一特性<br>&emsp;根据HTML5规范，自定义特性应该加上data-前缀以便验证</li>
+<li>attributes属性<br>取得元素的id属性，可以使用以下代码：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//取得元素的id属性</span></span><br><span class="line"><span class="keyword">var</span> id=element.attributes.getNamedItem(<span class="string">"id"</span>).nodeValue;<span class="comment">//方法1</span></span><br><span class="line"><span class="keyword">var</span> id=element.attributes[<span class="string">"id"</span>].nodeValue;<span class="comment">//方法2</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//设置id特性的值</span></span><br><span class="line">element.attributes[<span class="string">"id"</span>].nodeValue = <span class="string">"someOtherId"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//删除id特性,removeNamedItem()返回被删除特性的Attr节点，removeAttribute()彻底删除元素的特性</span></span><br><span class="line"><span class="keyword">var</span> oldAttr=element.attributes.removeNamedItem(<span class="string">"id"</span>);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>创建元素</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> div=<span class="built_in">document</span>.createElement(<span class="string">"div"</span>);</span><br><span class="line">div.id=<span class="string">"myNewDiv"</span>;</span><br><span class="line">div.className=<span class="string">"box"</span>;<span class="comment">//class为保留字，所以使用className</span></span><br><span class="line"><span class="built_in">document</span>.body.appendChild(div);<span class="comment">//新创建的元素添加到文档</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>元素的子节点</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul id=<span class="string">"myList"</span>&gt;</span><br><span class="line">    &lt;li&gt;Item <span class="number">1</span>&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">    &lt;li&gt;Item 2&lt;/</span>li&gt;</span><br><span class="line">    &lt;li&gt;Item <span class="number">3</span>&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">&lt;/u</span>l&gt;</span><br><span class="line"><span class="comment">//IE来解析，&lt;ul&gt;会有3个子节点&lt;li&gt;元素</span></span><br><span class="line"><span class="comment">//其他浏览器解析，&lt;ul&gt;会有7个子节点，3个&lt;li&gt;，4个文本节点（空白符）</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//遍历子节点</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>,len=element.childNodes.length;i&lt;len;i++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(element.nodeType==<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="comment">//do something</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//注意：如ul含有更多层次的后代li元素，都会返回</span></span><br><span class="line"><span class="keyword">var</span> ul=<span class="built_in">document</span>.getElementById(<span class="string">"myList"</span>);</span><br><span class="line"><span class="keyword">var</span> items=ul.getElementsByTagName(<span class="string">"li"</span>);</span><br></pre></td></tr></table></figure>
+<h4><span id="14text类型">1.4Text类型</span></h4><ul>
+<li>parentNode是一个Element，nodeValue和data的值都为节点所包含的文本</li>
+<li>操作节点的方法</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">appendDate(text):将text添加到节点的末尾</span><br><span class="line">deleteData(offset,count):从offset指定的位置开始删除count个字符</span><br><span class="line">insertData(offset,text):从offset指定的位置插入text</span><br><span class="line">replaceData(offset,count,text):用text替换从offset指定的位置开始到offset+count为止处的文本</span><br><span class="line">splitText(offset):从offset指定的位置将当前文本节点分成两个文本节点</span><br><span class="line">substringData(offset,sount):提取从offset指定的位置开始到offset+count为止处的字符串</span><br><span class="line">nodeValue.length==data.length:保存文本节点字符的数目</span><br><span class="line"></span><br><span class="line"><span class="comment">//修改文本节点的值</span></span><br><span class="line">div.firstChild.nodeValue=<span class="string">"....."</span>;<span class="comment">//div.childNodes[0].nodeValue="..."</span></span><br><span class="line"><span class="comment">//添加文本</span></span><br><span class="line">div.firstChild.appendData(<span class="string">"...."</span>);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>创建文本节点creatTextNode()</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> element=<span class="built_in">document</span>.createElement(div);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> textNode=<span class="built_in">document</span>.createTextNode(<span class="string">"Hello"</span>);</span><br><span class="line">element.appendChild(textNode);</span><br><span class="line"></span><br><span class="line"><span class="built_in">document</span>.body.appendChild(element);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>DoumentFragment类型<br>&emsp;创建文本片段：<code>document.createDocumentFragment()</code>方法。避免浏览器反复渲染，可以把要创建的项先添加到文本片段，然后再添加至文档中</li>
+</ul>
+<h3><span id="2dom扩展">2.DOM扩展</span></h3><p>对DOM的两个主要扩展是Selectors API和HTML5。</p>
+<ul>
+<li>选择符API:querySelector()和querySelectorAll()<br>&emsp;querySelector()返回与该模式匹配的第一个元素，document.querySelector()会在文档元素的范围内查找，element.querySelector()只会在该元素后代元素的范围内查找。<br>&emsp;querySelectorAll()返回的是所以匹配的元素</li>
+<li>元素遍历<br>利用这些属性不必担心空白文本节点，更方便查找DOM元素</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">childElementCount:返回子元素（不包括文本节点和注释）的注释</span><br><span class="line">firstElementChild:指向第一个子元素；firstChild的元素版</span><br><span class="line">lastElementChild:指向最后一个子元素</span><br><span class="line">previousElementSibling:指向前一个同辈元素</span><br><span class="line">nextElementSibling:指向后一个同辈元素</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>HTML5</p>
+<ul>
+<li>getElementsByClassName()<br>&emsp;<code>document.getElementsByClassName(&quot;className1 className2&quot;)</code>取得所有类中包含“className1”和“className2”的元素</li>
+<li>classList属性<br>&emsp;方法：add(value),contains(value),remove(value),toggle(value)<br>&emsp;如<code>div.classList.remove(&quot;className&quot;)</code></li>
+<li><p>自定义数据属性<br>&emsp;如<code>&lt;div id=&quot;myDiv&quot; data-appId=&quot;123&quot; data-myname=&quot;wt&quot;&gt;&lt;/div&gt;</code>添加了自定义数据属性，可以通过元素的dataset属性来访问自定义属性的值</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//取得自定义属性的值</span></span><br><span class="line"><span class="keyword">var</span> appId=div.dataset.appId;<span class="comment">//要去掉data-</span></span><br><span class="line"><span class="keyword">var</span> myname=div.dataset.myname;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>插入标记<br>&emsp;经常使用的：innerHTML和outerHTML属性(HTML5纳入标准)<br>&emsp;insertAdjacentHTML()方法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"beforebegin"</span>,在当前元素之前插入一个紧邻的同辈元素</span><br><span class="line"><span class="string">"afterbegin"</span>,在当前元素之下插入一个新的子元素（成为当前元素的第一个子元素）</span><br><span class="line"><span class="string">"beforeend"</span>,(成为当前元素的最后一个子元素)</span><br><span class="line"><span class="string">"afterend"</span>,在当前元素之后插入一个紧邻的同辈元素</span><br><span class="line"><span class="comment">//使用</span></span><br><span class="line">element.insertAdjacentElement(<span class="string">"beforebegin"</span>,<span class="string">"&lt;p&gt;text&lt;/p&gt;"</span>);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>专业扩展</p>
+<ul>
+<li>children属性，只包含元素节点，不考虑空白符<code>element.children[0]</code></li>
+<li>contains()判断某个节点是不是另一个节点的后代，如<code>document.documentElement.contains(document.body)</code>返回true</li>
+<li>innerText和outerText（HTML5未纳入标准）<br>&emsp;去掉div中的HTML标签可以：<code>div.innerText = div.innerText</code></li>
+</ul>
+</li>
+</ul>
+<h3><span id="3dom2和dom3">3.DOM2和DOM3</span></h3><p>&emsp;DOM1级主要定义的是HTML和XML文档的底层结构。DOM2和DOM3在于扩展DOM API，以满足操作XML的所有需求，同时提供更好的错误处理及特性检测能力。</p>
+<ul>
+<li>DOM变化<ul>
+<li>针对XML命名空间的变化<br>&emsp;有了XML命名空间，不同XML文档的元素就可以混合在一起。</li>
+<li>创建一个完整的HTML文档：<code>var htmldoc=document.implementation.createHTMLDocument(&quot;New Doc&quot;)</code>,只接受一个参数，为文档的标题。  </li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>样式</p>
+<ul>
+<li>JS访问样式的属性必须转换为驼峰式，如background-image得写成backgroundImage</li>
+<li>float是JS保留字，访问float属性：cssFloat或styleFloat(IE)</li>
+<li>DOM2级样式属性和方法（常用）：<code>cssText</code>,<code>length</code>,<code>item(index)</code>,<code>removeProperty(propertyName)</code><br>有：<code>myDiv.style.style[i]==myDiv.style.item(i)</code></li>
+<li>偏移量：<code>offsetHeight</code>,<code>offsetWidth</code>,<code>offsetLeft</code>,<code>offsetTop</code><br><code>offsetHeight</code>,<code>offsetWidth</code>包括元素、滚动条、边框的高/宽<br>要想知道某个元素在页面上的偏移量，将这个元素的<code>offsetLeft</code>,<code>offsetTop</code>与其<code>offsetParent</code>的相同属性想加，如此循环直至根元素</li>
+<li>客户区大小：<code>clientWidth</code>和<code>clientHeight</code>（内容区+内边距）  </li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>遍历<br>&emsp;完成顺序遍历DOM结构的类型：<code>NodeIterator</code>和<code>TreeWalker</code></li>
+<li>范围<br>&emsp;通过范围可以选择文档中的一个区域，而不必考虑节点的界限。在常规的DOM操作不能更效地修改文档时，可以使用范围达到。但是目前来看，我还没有用到范围来操作文档内容，今后用到了再来翻阅。</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+      <div>
+        
+          <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">
+            -------------本文结束
+            <i class="fa fa-paw"></i>
+            感谢您的阅读-------------
+        </div>
+    
+</div>
+        
+      </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"><i class="fa fa-tag"></i> JavaScript</a>
+          
+            <a href="/tags/DOM/" rel="tag"><i class="fa fa-tag"></i> DOM</a>
+          
+            <a href="/tags/节点操作/" rel="tag"><i class="fa fa-tag"></i> 节点操作</a>
+          
+            <a href="/tags/浏览器兼容/" rel="tag"><i class="fa fa-tag"></i> 浏览器兼容</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/18/VScode快捷键/" rel="next" title="VScode常用快捷键">
+                <i class="fa fa-chevron-left"></i> VScode常用快捷键
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/my_files/photo.jpeg"
+                alt="wtLemoney" />
+            
+              <p class="site-author-name" itemprop="name">wtLemoney</p>
+              <p class="site-description motion-element" itemprop="description">越努力越幸运</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/wtLemoney" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:anne_wting@163.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://juejin.im/timeline" target="_blank" title="掘 金">
+                      
+                        <i class="fa fa-fw fa-book"></i>掘 金</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/u/3100327901" target="_blank" title="微 博">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>微 博</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">wtLemoney</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <div class="theme-info">
+      <div class="powered-by"></div>
+      <span class="post-count">博客全站共17.5k字</span>
+    </div>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+      <div class="powered-by">
+    <i class="fa fa-user-md"></i><span id="busuanzi_container_site_pv">
+      本站访客数:<span id="busuanzi_value_site_pv"></span>
+    </span>
+    </div>
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
