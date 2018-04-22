@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="wtLemoney">
 <meta property="og:description" content="&amp;emsp;&amp;emsp;最近自己写项目的时候，DOM操作稍多，但是发现自己不是很熟悉，以前看过的知识不常用就忘了，用的时候也是要经常去官网或网上查找。所以想把DOM的知识点重新回顾一下，以下知识点来自“JavaScript高级程序设计”第10、11、12章节。另外，想自己练习DOM操作相关的题，推荐百度前端技术学院的斌斌学院，上面有很多可操作的题，看的再多不如自己多思考多敲代码，这点我深有体会，可">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-22T04:32:49.428Z">
+<meta property="og:updated_time" content="2018-04-22T04:45:55.151Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DOM基础知识梳理">
 <meta name="twitter:description" content="&amp;emsp;&amp;emsp;最近自己写项目的时候，DOM操作稍多，但是发现自己不是很熟悉，以前看过的知识不常用就忘了，用的时候也是要经常去官网或网上查找。所以想把DOM的知识点重新回顾一下，以下知识点来自“JavaScript高级程序设计”第10、11、12章节。另外，想自己练习DOM操作相关的题，推荐百度前端技术学院的斌斌学院，上面有很多可操作的题，看的再多不如自己多思考多敲代码，这点我深有体会，可">
@@ -315,8 +315,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/DOM操作，选择器/" itemprop="url" rel="index">
-                    <span itemprop="name">DOM操作，选择器</span>
+                  <a href="/categories/DOM操作，DOM选择器/" itemprop="url" rel="index">
+                    <span itemprop="name">DOM操作，DOM选择器</span>
                   </a>
                 </span>
 
@@ -346,7 +346,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2,118
+                  2,143
                 </span>
               
 
@@ -384,6 +384,20 @@
 
       
         <p>&emsp;&emsp;最近自己写项目的时候，DOM操作稍多，但是发现自己不是很熟悉，以前看过的知识不常用就忘了，用的时候也是要经常去官网或网上查找。所以想把DOM的知识点重新回顾一下，以下知识点来自“JavaScript高级程序设计”第10、11、12章节。另外，想自己练习DOM操作相关的题，推荐<a href="http://ife.baidu.com/college/detail/id/10" target="_blank" rel="noopener">百度前端技术学院</a>的斌斌学院，上面有很多可操作的题，看的再多不如自己多思考多敲代码，这点我深有体会，可是吃了大亏的啊。</p>
+<!-- toc -->
+<ul>
+<li><a href="#1dom1">1.DOM1</a><ul>
+<li><a href="#11node类型">1.1Node类型</a></li>
+<li><a href="#12document类型">1.2Document类型</a></li>
+<li><a href="#13element类型">1.3Element类型</a></li>
+<li><a href="#14text类型">1.4Text类型</a></li>
+</ul>
+</li>
+<li><a href="#2dom扩展">2.DOM扩展</a></li>
+<li><a href="#3dom2和dom3">3.DOM2和DOM3</a></li>
+</ul>
+<!-- tocstop -->
+<a id="more"></a>
 <h3><span id="1dom1">1.DOM1</span></h3><p>1998年10月DOM1级规范成为W3C的推荐标准。</p>
 <h4><span id="11node类型">1.1Node类型</span></h4><ul>
 <li>除了IE，浏览器都可以访问这个类型</li>
@@ -414,43 +428,43 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> images = <span class="built_in">document</span>.getElementsByTagName(<span class="string">"img"</span>);</span><br><span class="line"><span class="keyword">var</span> myImage = images.namedItem(<span class="string">"myImage"</span>);<span class="comment">//方法1</span></span><br><span class="line"><span class="keyword">var</span> myImage = images[<span class="string">"myImage"</span>];<span class="comment">//方法2</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li><code>getElementsByName</code>返回指定name特性的所有元素，常被使用情况：单选按钮</li>
-<li>特殊集合<br>&emsp;document.anchors：包含文档中所有带name特性的<code>&lt;a&gt;</code>元素<br>&emsp;document.forms：所有<code>&lt;form&gt;</code>元素<br>&emsp;document.images：所有<code>&lt;img&gt;</code>元素<br>&emsp;document.links：所有带href特性的<code>&lt;a&gt;</code>元素</li>
-<li>文档写入：write()、writeln()、open()、close()<br>&emsp;write()会原样写入，writeln()会在字符串末尾添加一个换行符<br>&emsp;如果在文档结束后再调用document.write()，那么输出的内容将会重写整个页面</li>
-<li>DOM一致性检测<br>&emsp;<code>var hasXmlDom=document.implementation.hasFeature(&quot;XML&quot;,&quot;1.0&quot;)</code>如果浏览器支持给定名称和版本的功能，返回true。</li>
+<li><strong>特殊集合</strong><br>&emsp;document.anchors：包含文档中所有带name特性的<code>&lt;a&gt;</code>元素<br>&emsp;document.forms：所有<code>&lt;form&gt;</code>元素<br>&emsp;document.images：所有<code>&lt;img&gt;</code>元素<br>&emsp;document.links：所有带href特性的<code>&lt;a&gt;</code>元素</li>
+<li><strong>文档写入</strong>：write()、writeln()、open()、close()<br>&emsp;write()会原样写入，writeln()会在字符串末尾添加一个换行符<br>&emsp;如果在文档结束后再调用document.write()，那么输出的内容将会重写整个页面</li>
+<li><strong>DOM一致性检测</strong><br>&emsp;<code>var hasXmlDom=document.implementation.hasFeature(&quot;XML&quot;,&quot;1.0&quot;)</code>如果浏览器支持给定名称和版本的功能，返回true。</li>
 </ul>
 <h4><span id="13element类型">1.3Element类型</span></h4><ul>
-<li>操作特性：getAttribute()、setAttribute()、removeAttribute()<br>&emsp;特性的名称不区分大小写，即“ID”和“id”代表同一特性<br>&emsp;根据HTML5规范，自定义特性应该加上data-前缀以便验证</li>
-<li>attributes属性<br>取得元素的id属性，可以使用以下代码：</li>
+<li><strong> 操作特性</strong>：getAttribute()、setAttribute()、removeAttribute()<br>&emsp;特性的名称不区分大小写，即“ID”和“id”代表同一特性<br>&emsp;根据HTML5规范，自定义特性应该加上data-前缀以便验证</li>
+<li><strong>attributes属性</strong><br>取得元素的id属性，可以使用以下代码：</li>
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//取得元素的id属性</span></span><br><span class="line"><span class="keyword">var</span> id=element.attributes.getNamedItem(<span class="string">"id"</span>).nodeValue;<span class="comment">//方法1</span></span><br><span class="line"><span class="keyword">var</span> id=element.attributes[<span class="string">"id"</span>].nodeValue;<span class="comment">//方法2</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//设置id特性的值</span></span><br><span class="line">element.attributes[<span class="string">"id"</span>].nodeValue = <span class="string">"someOtherId"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//删除id特性,removeNamedItem()返回被删除特性的Attr节点，removeAttribute()彻底删除元素的特性</span></span><br><span class="line"><span class="keyword">var</span> oldAttr=element.attributes.removeNamedItem(<span class="string">"id"</span>);</span><br></pre></td></tr></table></figure>
 <ul>
-<li>创建元素</li>
+<li><strong>创建元素</strong></li>
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> div=<span class="built_in">document</span>.createElement(<span class="string">"div"</span>);</span><br><span class="line">div.id=<span class="string">"myNewDiv"</span>;</span><br><span class="line">div.className=<span class="string">"box"</span>;<span class="comment">//class为保留字，所以使用className</span></span><br><span class="line"><span class="built_in">document</span>.body.appendChild(div);<span class="comment">//新创建的元素添加到文档</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li>元素的子节点</li>
+<li><strong>元素的子节点</strong></li>
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul id=<span class="string">"myList"</span>&gt;</span><br><span class="line">    &lt;li&gt;Item <span class="number">1</span>&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">    &lt;li&gt;Item 2&lt;/</span>li&gt;</span><br><span class="line">    &lt;li&gt;Item <span class="number">3</span>&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">&lt;/u</span>l&gt;</span><br><span class="line"><span class="comment">//IE来解析，&lt;ul&gt;会有3个子节点&lt;li&gt;元素</span></span><br><span class="line"><span class="comment">//其他浏览器解析，&lt;ul&gt;会有7个子节点，3个&lt;li&gt;，4个文本节点（空白符）</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//遍历子节点</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>,len=element.childNodes.length;i&lt;len;i++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(element.nodeType==<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="comment">//do something</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//注意：如ul含有更多层次的后代li元素，都会返回</span></span><br><span class="line"><span class="keyword">var</span> ul=<span class="built_in">document</span>.getElementById(<span class="string">"myList"</span>);</span><br><span class="line"><span class="keyword">var</span> items=ul.getElementsByTagName(<span class="string">"li"</span>);</span><br></pre></td></tr></table></figure>
 <h4><span id="14text类型">1.4Text类型</span></h4><ul>
 <li>parentNode是一个Element，nodeValue和data的值都为节点所包含的文本</li>
-<li>操作节点的方法</li>
+<li><strong>操作节点的方法</strong></li>
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">appendDate(text):将text添加到节点的末尾</span><br><span class="line">deleteData(offset,count):从offset指定的位置开始删除count个字符</span><br><span class="line">insertData(offset,text):从offset指定的位置插入text</span><br><span class="line">replaceData(offset,count,text):用text替换从offset指定的位置开始到offset+count为止处的文本</span><br><span class="line">splitText(offset):从offset指定的位置将当前文本节点分成两个文本节点</span><br><span class="line">substringData(offset,sount):提取从offset指定的位置开始到offset+count为止处的字符串</span><br><span class="line">nodeValue.length==data.length:保存文本节点字符的数目</span><br><span class="line"></span><br><span class="line"><span class="comment">//修改文本节点的值</span></span><br><span class="line">div.firstChild.nodeValue=<span class="string">"....."</span>;<span class="comment">//div.childNodes[0].nodeValue="..."</span></span><br><span class="line"><span class="comment">//添加文本</span></span><br><span class="line">div.firstChild.appendData(<span class="string">"...."</span>);</span><br></pre></td></tr></table></figure>
 <ul>
-<li>创建文本节点creatTextNode()</li>
+<li><strong>创建文本节点creatTextNode()</strong></li>
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> element=<span class="built_in">document</span>.createElement(div);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> textNode=<span class="built_in">document</span>.createTextNode(<span class="string">"Hello"</span>);</span><br><span class="line">element.appendChild(textNode);</span><br><span class="line"></span><br><span class="line"><span class="built_in">document</span>.body.appendChild(element);</span><br></pre></td></tr></table></figure>
 <ul>
-<li>DoumentFragment类型<br>&emsp;创建文本片段：<code>document.createDocumentFragment()</code>方法。避免浏览器反复渲染，可以把要创建的项先添加到文本片段，然后再添加至文档中</li>
+<li><strong>DoumentFragment类型</strong><br>&emsp;创建文本片段：<code>document.createDocumentFragment()</code>方法。避免浏览器反复渲染，可以把要创建的项先添加到文本片段，然后再添加至文档中</li>
 </ul>
 <h3><span id="2dom扩展">2.DOM扩展</span></h3><p>对DOM的两个主要扩展是Selectors API和HTML5。</p>
 <ul>
-<li>选择符API:querySelector()和querySelectorAll()<br>&emsp;querySelector()返回与该模式匹配的第一个元素，document.querySelector()会在文档元素的范围内查找，element.querySelector()只会在该元素后代元素的范围内查找。<br>&emsp;querySelectorAll()返回的是所以匹配的元素</li>
-<li>元素遍历<br>利用这些属性不必担心空白文本节点，更方便查找DOM元素</li>
+<li><strong>选择符API</strong>:querySelector()和querySelectorAll()<br>&emsp;querySelector()返回与该模式匹配的第一个元素，document.querySelector()会在文档元素的范围内查找，element.querySelector()只会在该元素后代元素的范围内查找。<br>&emsp;querySelectorAll()返回的是所以匹配的元素</li>
+<li><strong>元素遍历</strong><br>利用这些属性不必担心空白文本节点，更方便查找DOM元素</li>
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">childElementCount:返回子元素（不包括文本节点和注释）的注释</span><br><span class="line">firstElementChild:指向第一个子元素；firstChild的元素版</span><br><span class="line">lastElementChild:指向最后一个子元素</span><br><span class="line">previousElementSibling:指向前一个同辈元素</span><br><span class="line">nextElementSibling:指向后一个同辈元素</span><br></pre></td></tr></table></figure>
 <ul>
-<li><p>HTML5</p>
+<li><p><strong>HTML5</strong></p>
 <ul>
 <li>getElementsByClassName()<br>&emsp;<code>document.getElementsByClassName(&quot;className1 className2&quot;)</code>取得所有类中包含“className1”和“className2”的元素</li>
 <li>classList属性<br>&emsp;方法：add(value),contains(value),remove(value),toggle(value)<br>&emsp;如<code>div.classList.remove(&quot;className&quot;)</code></li>
@@ -462,7 +476,7 @@
 </li>
 </ul>
 </li>
-<li><p>专业扩展</p>
+<li><p><strong>专业扩展</strong></p>
 <ul>
 <li>children属性，只包含元素节点，不考虑空白符<code>element.children[0]</code></li>
 <li>contains()判断某个节点是不是另一个节点的后代，如<code>document.documentElement.contains(document.body)</code>返回true</li>
@@ -472,26 +486,26 @@
 </ul>
 <h3><span id="3dom2和dom3">3.DOM2和DOM3</span></h3><p>&emsp;DOM1级主要定义的是HTML和XML文档的底层结构。DOM2和DOM3在于扩展DOM API，以满足操作XML的所有需求，同时提供更好的错误处理及特性检测能力。</p>
 <ul>
-<li>DOM变化<ul>
+<li><strong>DOM变化</strong><ul>
 <li>针对XML命名空间的变化<br>&emsp;有了XML命名空间，不同XML文档的元素就可以混合在一起。</li>
 <li>创建一个完整的HTML文档：<code>var htmldoc=document.implementation.createHTMLDocument(&quot;New Doc&quot;)</code>,只接受一个参数，为文档的标题。  </li>
 </ul>
 </li>
 </ul>
 <ul>
-<li><p>样式</p>
+<li><p><strong>样式</strong></p>
 <ul>
 <li>JS访问样式的属性必须转换为驼峰式，如background-image得写成backgroundImage</li>
 <li>float是JS保留字，访问float属性：cssFloat或styleFloat(IE)</li>
-<li>DOM2级样式属性和方法（常用）：<code>cssText</code>,<code>length</code>,<code>item(index)</code>,<code>removeProperty(propertyName)</code><br>有：<code>myDiv.style.style[i]==myDiv.style.item(i)</code></li>
-<li>偏移量：<code>offsetHeight</code>,<code>offsetWidth</code>,<code>offsetLeft</code>,<code>offsetTop</code><br><code>offsetHeight</code>,<code>offsetWidth</code>包括元素、滚动条、边框的高/宽<br>要想知道某个元素在页面上的偏移量，将这个元素的<code>offsetLeft</code>,<code>offsetTop</code>与其<code>offsetParent</code>的相同属性想加，如此循环直至根元素</li>
+<li>DOM2级样式属性和方法（常用）：<code>cssText</code>，<code>length</code>，<code>item(index)</code>，<code>removeProperty(propertyName)</code><br>有：<code>myDiv.style.style[i]==myDiv.style.item(i)</code></li>
+<li>偏移量：<code>offsetHeight</code>，<code>offsetWidth</code>，<code>offsetLeft</code>,<code>offsetTop</code><br><code>offsetHeight</code>，<code>offsetWidth</code>包括元素、滚动条、边框的高/宽<br>要想知道某个元素在页面上的偏移量，将这个元素的<code>offsetLeft</code>，<code>offsetTop</code>与其<code>offsetParent</code>的相同属性想加，如此循环直至根元素</li>
 <li>客户区大小：<code>clientWidth</code>和<code>clientHeight</code>（内容区+内边距）  </li>
 </ul>
 </li>
 </ul>
 <ul>
-<li>遍历<br>&emsp;完成顺序遍历DOM结构的类型：<code>NodeIterator</code>和<code>TreeWalker</code></li>
-<li>范围<br>&emsp;通过范围可以选择文档中的一个区域，而不必考虑节点的界限。在常规的DOM操作不能更效地修改文档时，可以使用范围达到。但是目前来看，我还没有用到范围来操作文档内容，今后用到了再来翻阅。</li>
+<li><strong>遍历</strong><br>&emsp;完成顺序遍历DOM结构的类型：<code>NodeIterator</code>和<code>TreeWalker</code></li>
+<li><strong>范围</strong><br>&emsp;通过范围可以选择文档中的一个区域，而不必考虑节点的界限。在常规的DOM操作不能更效地修改文档时，可以使用范围达到。但是目前来看，我还没有用到范围来操作文档内容，今后用到了再来翻阅。</li>
 </ul>
 
       
@@ -658,7 +672,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -753,7 +767,7 @@ var jiathis_config={
     </span>
     <div class="theme-info">
       <div class="powered-by"></div>
-      <span class="post-count">博客全站共17.5k字</span>
+      <span class="post-count">博客全站共17.6k字</span>
     </div>
 
   
