@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="JavaScript,Canvas,前端画图," />
 
 
 
@@ -79,16 +79,20 @@
 
 
 
-<meta name="description" content="越努力越幸运">
-<meta property="og:type" content="website">
-<meta property="og:title" content="wtLemoney">
-<meta property="og:url" content="https://wtlemoney.github.io/page/2/index.html">
+<meta name="description" content="1.绘制线条 2.线条样式 3.绘制曲线 4.绘制矩形及填充 5.绘制阴影 6.绘制渐变 7.填充背景 8.变换 9.其他相关API">
+<meta name="keywords" content="JavaScript,Canvas,前端画图">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Canvas常用API总结">
+<meta property="og:url" content="https://wtlemoney.github.io/2018/05/02/Canvas常用API/index.html">
 <meta property="og:site_name" content="wtLemoney">
-<meta property="og:description" content="越努力越幸运">
+<meta property="og:description" content="1.绘制线条 2.线条样式 3.绘制曲线 4.绘制矩形及填充 5.绘制阴影 6.绘制渐变 7.填充背景 8.变换 9.其他相关API">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://wtlemoney.github.io/2018/05/02/Canvas常用API/shadow.png">
+<meta property="og:updated_time" content="2018-05-02T15:00:04.752Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="wtLemoney">
-<meta name="twitter:description" content="越努力越幸运">
+<meta name="twitter:title" content="Canvas常用API总结">
+<meta name="twitter:description" content="1.绘制线条 2.线条样式 3.绘制曲线 4.绘制矩形及填充 5.绘制阴影 6.绘制渐变 7.填充背景 8.变换 9.其他相关API">
+<meta name="twitter:image" content="https://wtlemoney.github.io/2018/05/02/Canvas常用API/shadow.png">
 
 
 
@@ -118,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="https://wtlemoney.github.io/page/2/"/>
+  <link rel="canonical" href="https://wtlemoney.github.io/2018/05/02/Canvas常用API/"/>
 
 
 
 
 
-  <title>wtLemoney</title>
+  <title>Canvas常用API总结 | wtLemoney</title>
   
 
 
@@ -143,8 +147,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
     <a href="https://github.com/wtLemoney" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -247,9 +250,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -262,7 +265,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://wtlemoney.github.io/2018/03/29/变量提升/">
+    <link itemprop="mainEntityOfPage" href="https://wtlemoney.github.io/2018/05/02/Canvas常用API/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wtLemoney">
@@ -279,9 +282,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/29/变量提升/" itemprop="url">变量提升</a></h1>
+          <h1 class="post-title" itemprop="name headline">Canvas常用API总结</h1>
         
 
         <div class="post-meta">
@@ -293,8 +294,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-29T00:25:38+08:00">
-                2018-03-29
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-02T22:50:56+08:00">
+                2018-05-02
               </time>
             
 
@@ -316,8 +317,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/你不知道的JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">你不知道的JavaScript</span>
+                  <a href="/categories/Canvas画布，API/" itemprop="url" rel="index">
+                    <span itemprop="name">Canvas画布，API</span>
                   </a>
                 </span>
 
@@ -327,8 +328,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/你不知道的JavaScript/函数/" itemprop="url" rel="index">
-                    <span itemprop="name">函数</span>
+                  <a href="/categories/Canvas画布，API/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
                   </a>
                 </span>
 
@@ -358,194 +359,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  451
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  2
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <!-- toc -->
-<ul>
-<li><a href="#1-先有鸡还是先有蛋">1. 先有鸡还是先有蛋</a></li>
-<li><a href="#2-函数优先">2. 函数优先</a></li>
-</ul>
-<!-- tocstop -->
-<h4 id="1-先有鸡还是先有蛋"><a href="#1-先有鸡还是先有蛋" class="headerlink" title="1. 先有鸡还是先有蛋"></a>1. 先有鸡还是先有蛋</h4><p>&emsp;&emsp;来看下面两段代码<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="number">2</span>;</span><br><span class="line"><span class="keyword">var</span> a;</span><br><span class="line"><span class="built_in">console</span>.log(a);<span class="comment">//2</span></span><br></pre></td></tr></table></figure></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/03/29/变量提升/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-      <div>
-        
-      </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://wtlemoney.github.io/2018/03/27/this的指向/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wtLemoney">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/my_files/photo.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="wtLemoney">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/27/this的指向/" itemprop="url">this的指向问题</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-27T19:06:24+08:00">
-                2018-03-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/你不知道的JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">你不知道的JavaScript</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  747
+                  1,067
                 </span>
               
 
@@ -582,224 +396,112 @@
       
 
       
-        
-          <!-- toc -->
+        <!-- toc -->
 <ul>
-<li><a href="#1-this的绑定规则">1. this的绑定规则</a><ul>
-<li><a href="#11-默认绑定">1.1 默认绑定</a></li>
-<li><a href="#12-隐式绑定">1.2 隐式绑定</a><ul>
-<li><a href="#121-隐式丢失常见">1.2.1 隐式丢失（常见）</a></li>
-<li><a href="#122-隐式丢失传入回调函数时">1.2.2 隐式丢失（传入回调函数时）</a></li>
-</ul>
-</li>
-<li><a href="#13显示绑定">1.3显示绑定</a><ul>
-<li><a href="#131-硬绑定">1.3.1 硬绑定</a></li>
-<li><a href="#132-api调用的上下文">1.3.2 API调用的上下文</a></li>
-</ul>
-</li>
-<li><a href="#14-new绑定">1.4 new绑定</a></li>
-</ul>
-</li>
-<li><a href="#2-回调函数里的this常见">2. 回调函数里的this（常见）</a><ul>
-<li><a href="#21-箭头函数的另一个经典例子">2.1 箭头函数的另一个经典例子</a></li>
-</ul>
-</li>
+<li><a href="#1绘制线条">1.绘制线条</a></li>
+<li><a href="#2线条样式">2.线条样式</a></li>
+<li><a href="#3绘制曲线">3.绘制曲线</a></li>
+<li><a href="#4绘制矩形及填充">4.绘制矩形及填充</a></li>
+<li><a href="#5绘制阴影">5.绘制阴影</a></li>
+<li><a href="#6绘制渐变">6.绘制渐变</a></li>
+<li><a href="#7填充背景">7.填充背景</a></li>
+<li><a href="#8变换">8.变换</a></li>
+<li><a href="#9其他相关api">9.其他相关API</a></li>
 </ul>
 <!-- tocstop -->
-<h4 id="1-this的绑定规则"><a href="#1-this的绑定规则" class="headerlink" title="1. this的绑定规则"></a>1. this的绑定规则</h4><h5 id="1-1-默认绑定"><a href="#1-1-默认绑定" class="headerlink" title="1.1 默认绑定"></a>1.1 默认绑定</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.a);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a=<span class="number">2</span>;</span><br><span class="line">foo();<span class="comment">//2</span></span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/03/27/this的指向/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-      <div>
-        
-      </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://wtlemoney.github.io/2018/03/25/我为什么写博客/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wtLemoney">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/my_files/photo.jpeg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="wtLemoney">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/25/我为什么写博客/" itemprop="url">我为什么要写博客</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-25T23:21:10+08:00">
-                2018-03-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/碎碎念/" itemprop="url" rel="index">
-                    <span itemprop="name">碎碎念</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  598
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  2
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>&emsp;&emsp;首先，我是一个从零开始的前端自学者，断断续续学了几个月的时间，留下了3个要满的手写笔记本，几本重点画了又画的前端书籍，以及电脑上数不清的手敲代码的各类文件夹。通过很多网站看了很多前端知识，然而现在…几乎忘的差不多了。我发现一个事实，自己一直在“学”，没有好好的总结，更不用说“习”了。所以，为啥要搞博客这么高端大气上档次的东西咧，总结一下主要有下面几点原因：  </p>
-<ul>
-<li><strong>面试被血虐</strong> </li>
+<a id="more"></a>
+<p>绘画的时候canvas相当于画布，而context相当于画笔。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;canvas id=<span class="string">"drawing"</span> width=<span class="string">"200"</span> height=<span class="string">"200"</span>&gt;Your browser doesn<span class="string">'t support the canvas tag.&lt;/canvas&gt;</span></span><br><span class="line"><span class="string">//js</span></span><br><span class="line"><span class="string">var draw=document.getElementById("drawing");</span></span><br><span class="line"><span class="string">var context=draw.getContext("2d");</span></span><br></pre></td></tr></table></figure></p>
+<h4><span id="1绘制线条">1.绘制线条</span></h4><ul>
+<li><p>moveTo(x0,y0)：把当前画笔（draw）移动到（x0,y0）这个位置。</p>
+</li>
+<li><p>lineTo(x1,y1):从当前位置(x0,y0)处到（x1，y1）画一条直线。</p>
+</li>
+<li><p>beginPath()：开启一条路径或者重置当前路径。</p>
+</li>
+<li><p>closePath():从当前点回到路径起始点，也就是上一个beginPath的位置。</p>
+</li>
+<li><p>stroke():绘制。必须加了这个函数才会画图，所以这个一定要放在最后。</p>
+</li>
 </ul>
-<p>&emsp;&emsp;前两天的腾讯实习生面试加笔试，把我虐的一塌糊涂。尽管我知道我自己菜，但没想到面完之后感觉自己也太菜了吧。很多问题其实都是平时遇到过的，只不过自己没有独立思考过原理和本质，回答的太不顺利。所以想通过博客这一平台，总结自己学习的知识，来检验自己是否真的掌握了。<br></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/03/25/我为什么写博客/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+<p>注意：closePath()放在stroke函数后面，则不会绘制成一个闭合的线条，因为在闭合前，已经绘制了。beginPath()和closePath()可以不成对出现，closePath()是用来闭合终点和起始点画一条闭合路径的。</p>
+<h4><span id="2线条样式">2.线条样式</span></h4><ul>
+<li><p>lineCap：线条端点样式（butt，round，square）-(平头，圆头，方头)。</p>
+</li>
+<li><p>lineJoin：两线条相交时的拐点样式（round，bevel，mitr）-(圆交，斜交，斜接)。其中设置为miter时还可以通过miterLimet设置拐点交界处的最大长度。</p>
+</li>
+<li><p>lineWidth：线条宽度</p>
+</li>
+<li><p>strokeStyle： 线条颜色、渐变(定义好的渐变对象)、模式。 context.strokeStyle=”#333”;</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">context.beginPath();</span><br><span class="line">context.strokeStyle=<span class="string">"#0000ff"</span>;</span><br><span class="line">context.lineWidth=<span class="number">20</span>;</span><br><span class="line">context.lineCap=<span class="string">"round"</span>;</span><br><span class="line">context.moveTo(<span class="number">10</span>,<span class="number">10</span>);</span><br><span class="line">context.lineTo(<span class="number">80</span>,<span class="number">80</span>);</span><br><span class="line">context.stroke();</span><br></pre></td></tr></table></figure>
+<h4><span id="3绘制曲线">3.绘制曲线</span></h4><ul>
+<li>arc(x,y,radius,startAngle,endAngle,anticlockwise):绘制曲线。radius是曲线半径，startAngle,endAngle开始角度和结束角度，用的是弧度(Math.PI/180)*角度值，anticlockwise绘制方向（false为顺时针）；</li>
+</ul>
+<h4><span id="4绘制矩形及填充">4.绘制矩形及填充</span></h4><ul>
+<li><p>rect():创建矩形；</p>
+</li>
+<li><p>fillStyle:设置填充颜色，<code>context.fillStyle=&quot;#0000ff&quot;;</code></p>
+</li>
+<li><p>fillRect(x,y,width,height):绘制被填充的矩形，(x,y)起始点，width，height为矩形宽高</p>
+</li>
+<li><p>strokeRect()：绘制矩形线框</p>
+</li>
+<li><p>clearRect():清除掉矩形。</p>
+</li>
+</ul>
+<h4><span id="5绘制阴影">5.绘制阴影</span></h4><ul>
+<li><p>shadowColor：阴影颜色</p>
+</li>
+<li><p>shadowBlur:模糊级别</p>
+</li>
+<li><p>shadowOffsetX：阴影的水平距离</p>
+</li>
+<li><p>shadowOffsetY：阴影的垂直距离</p>
+</li>
+</ul>
+<p>注意：要先设置阴影再画矩形</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">context.shadowBlur=<span class="number">20</span>;</span><br><span class="line">context.shadowColor=<span class="string">"#456"</span>;</span><br><span class="line">context.shadowOffsetX=<span class="number">-10</span>;</span><br><span class="line">context.shadowOffsetY=<span class="number">30</span>;<span class="comment">//先设置阴影再画矩形</span></span><br><span class="line">context.fillStyle=<span class="string">"#108997"</span>;</span><br><span class="line">context.fillRect(<span class="number">20</span>,<span class="number">20</span>,<span class="number">100</span>,<span class="number">80</span>);</span><br><span class="line">context.stroke();</span><br></pre></td></tr></table></figure>
+<p><img src="/2018/05/02/Canvas常用API/shadow.png" alt="img"></p>
+<h4><span id="6绘制渐变">6.绘制渐变</span></h4><ul>
+<li><p>createLinearGradient(x1,y1,x2,y2):绘制线性渐变，(x1,y1)是渐变的起始点，（x2,y2）是渐变的终点，位置不同可以制作出垂直或者水平渐变。</p>
+</li>
+<li><p>createRadialGradient(x1,y1,r1,x2,y2,r2)：径向渐变，(x1,y1)是渐变的起始点圆心，r1是半径，（x2,y2）是渐变的终点，r2是结束点半径;</p>
+</li>
+<li><p>addColorStop(stop,color)来设置渐变过程，stop是0.0到1.0的值。（两种渐变都需要使用）</p>
+</li>
+</ul>
+<h4><span id="7填充背景">7.填充背景</span></h4><ul>
+<li>createPattern(image,”repeat|repeat-x|repeat-y|no-repeat”):image是一个图片对象，后面的参数是用来设定图片的重复方式。 </li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> image = <span class="built_in">document</span>.images[<span class="number">0</span>],</span><br><span class="line"><span class="keyword">var</span> pattern = context.createPattern(image, <span class="string">"repeat"</span>);</span><br><span class="line"></span><br><span class="line">context.fillStyle = pattern;</span><br><span class="line">context.fillRect(<span class="number">10</span>, <span class="number">10</span>, <span class="number">150</span>, <span class="number">150</span>);</span><br></pre></td></tr></table></figure>
+<h4><span id="8变换">8.变换</span></h4><ul>
+<li><p>rotate(angle):围绕原点旋转图像angle弧度</p>
+</li>
+<li><p>scale(scaleX,scaleY):缩放</p>
+</li>
+<li><p>translate(x,y）:将坐标原点移动到(x,y)</p>
+</li>
+</ul>
+<h4><span id="9其他相关api">9.其他相关API</span></h4><ul>
+<li><p>fill():填充当前路径。</p>
+</li>
+<li><p>clip():从画布中剪裁任意形状和尺寸的画布，之后所有的绘图都会被限制在剪裁的区域内。</p>
+</li>
+<li><p>isPointInPath():<code>context.isPointInPath(x,y)</code>判断这个点是否位于当前路径</p>
+</li>
+<li><p>清除画布方法：获取画布的宽高，<code>draw.height,draw.width</code>，然后使用clearRect();</p>
+</li>
+<li><p>修改画布的宽高：<code>draw.width=&#39;200&#39;，draw.width=&#39;300&#39;</code></p>
+</li>
+<li><p>globalAlpha:设置透明度，只能是0~1的数字，如果透明度不一样，在画第二幅之前重新设置即可。</p>
+</li>
+<li><p>toDataURL:<code>draw.toDataURL(type,encoderOptions)</code>，这个函数返回一个image的base64的URI，参数都是可选的，type可以设置图片类型如image/jpeg,image/webp，默认是image/png；encoderOptions是一个0~1的数字，用来设置image/jpeg,image/webp的图片质量，其他格式的type设置这个参数无效。</p>
+</li>
+<li><p>想操作外部的画布，使用save()函数保存。想要回到之前保存的设置，再使用restore()函数恢复，中间做的操作不会消失。可连续调用restore()，实现一级一级返回。</p>
+</li>
+</ul>
+
       
     </div>
     
@@ -814,18 +516,54 @@
 
       <div>
         
+          <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">
+            -------------本文结束
+            <i class="fa fa-paw"></i>
+            感谢您的阅读-------------
+        </div>
+    
+</div>
+        
       </div>
 
     <footer class="post-footer">
       
-
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"><i class="fa fa-tag"></i> JavaScript</a>
+          
+            <a href="/tags/Canvas/" rel="tag"><i class="fa fa-tag"></i> Canvas</a>
+          
+            <a href="/tags/前端画图/" rel="tag"><i class="fa fa-tag"></i> 前端画图</a>
+          
+        </div>
       
 
       
+      
+      
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/24/DOM事件/" rel="next" title="DOM事件">
+                <i class="fa fa-chevron-left"></i> DOM事件
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
       
-        <div class="post-eof"></div>
+
+      
       
     </footer>
   </div>
@@ -835,14 +573,35 @@
   </article>
 
 
-    
-  </section>
 
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-  </nav>
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
 
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
 
 
           </div>
@@ -850,6 +609,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -1121,6 +884,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
