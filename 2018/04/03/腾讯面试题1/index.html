@@ -427,7 +427,7 @@
 <!-- tocstop -->
 <h4><span id="1什么是盒子模型">1.什么是盒子模型？</span></h4><p><strong>两种</strong>：IE盒子模型、标准W3C盒子模型，包括content、padding、margin、border。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">IE8的width=border-left+padding-left+内容宽度+padding-right+border-right;  </span><br><span class="line">IE8的height=border-top+padding-top+内容高度+padding-bottom+border-bottom; </span><br><span class="line">w3c规定的width=内容宽度; </span><br><span class="line">w3c规定的height=内容高度;</span><br></pre></td></tr></table></figure></p>
 <p>这样有可能导致不同浏览器下获取的width或height的值不同,幸好jquery提供了另外两个方法:<a id="more"></a><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">innerWidth():padding-left+内容宽度+padding-right; </span><br><span class="line">outerWidth():border-left+padding-left+内容宽度+padding-right+border-right; </span><br><span class="line">outerWidth(<span class="literal">true</span>):margin-left+border-left+padding-left+内容宽度+padding-right+border-right+margin-right;</span><br></pre></td></tr></table></figure></p>
-<h4><span id="2简述一下src与href的区别">2.简述一下src与href的区别？</span></h4><p><strong>src</strong>指向外部资源的位置，指向的内容将会嵌入到文档中当前标签所在位置；在请求src资源时会将其指向的资源下载并应用到文档内，例如js脚本，img图片和frame等元素。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src =<span class="string">"js.js"</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<h4><span id="2简述一下src与href的区别">2.简述一下src与href的区别？</span></h4><p><strong>src</strong>指向外部资源的位置，指向的内容将会嵌入到文档中当前标签所在位置；在请求src资源时会将其指向的资源下载并应用到文档内，例如js脚本，img图片和frame等元素。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src =<span class="string">"js.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure></p>
 <p>当浏览器解析到该元素时，会暂停其他资源的下载和处理，直到将该资源加载、编译、执行完毕，图片和框架等元素也如此，类似于将所指向资源嵌入当前标签内。这也是为什么将js脚本放在底部而不是头部。<br><strong>href</strong>指向网络资源所在位置，建立和当前元素（锚点）或当前文档（链接）之间的链接，如果我们在文档中添加<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;link href=<span class="string">"common.css"</span> rel=<span class="string">"stylesheet"</span>/&gt;</span><br></pre></td></tr></table></figure></p>
 <p>那么浏览器会识别该文档为css文件，就会并行下载资源并且不会停止对当前文档的处理。这也是为什么建议使用link方式来加载css，而不是使用@import方式。</p>
 <h4><span id="3怎样添加-移除-移动-复制-创建和查找节点">3.怎样添加、移除、移动、复制、创建和查找节点？</span></h4><p>&emsp;1）创建新节点<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">createDocumentFragment() <span class="comment">//创建一个DOM片段</span></span><br><span class="line">createElement() <span class="comment">//创建一个具体的元素</span></span><br><span class="line">createTextNode() <span class="comment">//创建一个文本节点</span></span><br></pre></td></tr></table></figure></p>
@@ -621,7 +621,7 @@ var jiathis_config={
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -632,7 +632,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -643,7 +643,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -727,7 +727,7 @@ var jiathis_config={
     </span>
     <div class="theme-info">
       <div class="powered-by"></div>
-      <span class="post-count">博客全站共21.0k字</span>
+      <span class="post-count">博客全站共23.1k字</span>
     </div>
 
   
