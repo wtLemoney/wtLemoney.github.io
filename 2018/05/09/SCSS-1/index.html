@@ -82,17 +82,17 @@
 <meta name="description" content="1.Sass编译 1.1命令编译 1.2GUI编译和自动化编译   2.Sass调试 3.Sass基础 3.1声明变量 3.2嵌套 3.3混合宏 3.4继承 3.5占位符 3.6插值 3.7注释 3.8值列表   4.Sass运算 4.1加减乘除 4.2颜色运算 4.3字符运算">
 <meta name="keywords" content="CSS,SCSS,预处理器,编译,工具">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SCSS学习（一）">
+<meta property="og:title" content="SCSS基础学习（一）">
 <meta property="og:url" content="https://wtlemoney.github.io/2018/05/09/SCSS-1/index.html">
 <meta property="og:site_name" content="wtLemoney">
 <meta property="og:description" content="1.Sass编译 1.1命令编译 1.2GUI编译和自动化编译   2.Sass调试 3.Sass基础 3.1声明变量 3.2嵌套 3.3混合宏 3.4继承 3.5占位符 3.6插值 3.7注释 3.8值列表   4.Sass运算 4.1加减乘除 4.2颜色运算 4.3字符运算">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://wtlemoney.github.io/2018/05/09/SCSS-1/SCSS-1.scss.jpg">
-<meta property="og:updated_time" content="2018-05-09T16:32:01.187Z">
+<meta property="og:image" content="https://wtlemoney.github.io/2018/05/09/SCSS-1/scss.jpg">
+<meta property="og:updated_time" content="2018-05-12T05:13:52.828Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SCSS学习（一）">
+<meta name="twitter:title" content="SCSS基础学习（一）">
 <meta name="twitter:description" content="1.Sass编译 1.1命令编译 1.2GUI编译和自动化编译   2.Sass调试 3.Sass基础 3.1声明变量 3.2嵌套 3.3混合宏 3.4继承 3.5占位符 3.6插值 3.7注释 3.8值列表   4.Sass运算 4.1加减乘除 4.2颜色运算 4.3字符运算">
-<meta name="twitter:image" content="https://wtlemoney.github.io/2018/05/09/SCSS-1/SCSS-1.scss.jpg">
+<meta name="twitter:image" content="https://wtlemoney.github.io/2018/05/09/SCSS-1/scss.jpg">
 
 
 
@@ -128,7 +128,7 @@
 
 
 
-  <title>SCSS学习（一） | wtLemoney</title>
+  <title>SCSS基础学习（一） | wtLemoney</title>
   
 
 
@@ -282,7 +282,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">SCSS学习（一）</h1>
+          <h1 class="post-title" itemprop="name headline">SCSS基础学习（一）</h1>
         
 
         <div class="post-meta">
@@ -514,7 +514,7 @@
 <figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//SCSS</span></span><br><span class="line">	%mt5 &#123;</span><br><span class="line">	  <span class="attribute">margin-top</span>: <span class="number">5px</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="selector-class">.btn</span> &#123;</span><br><span class="line">	  @<span class="keyword">extend</span> %mt5;</span><br><span class="line">	&#125;</span><br><span class="line"><span class="comment">//CSS</span></span><br><span class="line">	<span class="selector-class">.btn</span> &#123;</span><br><span class="line">	  <span class="attribute">margin-top</span>: <span class="number">5px</span>;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
 <h4><span id="36插值">3.6插值</span></h4><p>比如说你想写更干净的、高效的和面向对象的 CSS。Sass 中的插值(Interpolation)就是重要的一部分。注意：使用 #{ }插值语句时，有引号字符串将被编译为无引号字符串</p>
 <figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//SCSS</span></span><br><span class="line">	<span class="variable">$properties</span>: (margin, padding);</span><br><span class="line">	@<span class="keyword">mixin</span> set-value(<span class="variable">$side</span>, <span class="variable">$value</span>) &#123;</span><br><span class="line">	    @<span class="keyword">each</span> <span class="variable">$prop</span> in <span class="variable">$properties</span> &#123;</span><br><span class="line">	        #&#123;<span class="variable">$prop</span>&#125;-#&#123;<span class="variable">$side</span>&#125;: <span class="variable">$value</span>;</span><br><span class="line">	    &#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="selector-class">.login-box</span> &#123;</span><br><span class="line">	    @<span class="keyword">include</span> set-value(top, 14px);</span><br><span class="line">	&#125;</span><br><span class="line"><span class="comment">//CSS</span></span><br><span class="line">	<span class="selector-class">.login-box</span> &#123;</span><br><span class="line">	    <span class="attribute">margin-top</span>: <span class="number">14px</span>;</span><br><span class="line">	    <span class="attribute">padding-top</span>: <span class="number">14px</span>;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="/2018/05/09/SCSS-1/SCSS-1.scss.jpg" alt=""></p>
+<p><img src="/2018/05/09/SCSS-1/scss.jpg" alt=""></p>
 <h4><span id="37注释">3.7注释</span></h4><p>1）类似 CSS 的注释方式，使用 ”/<em> ”开头，结属使用 ”</em>/ ”<br>2）类似 JavaScript 的注释方式，使用“//”<br>区别：前者会在编译出来的 CSS 显示，后者在编译出来的 CSS 中不会显示</p>
 <h4><span id="38值列表">3.8值列表</span></h4><p>1）值列表中可以再包含值列表，比如 1px 2px, 5px 6px 是包含 1px 2px 与 5px 6px 两个值列表的值列表。如果内外两层值列表使用相同的分隔方式，要用圆括号包裹内层，所以也可以写成 (1px 2px) (5px 6px)。<br>2）如果值列表中包含空的值列表或空值，编译时将清除空值，比如 1px 2px () 3px 或 1px 2px null 3px。<br>3）列表函数</p>
 <blockquote>
@@ -587,6 +587,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/05/12/SCSS-2/" rel="prev" title="SCSS进阶学习（二）">
+                SCSS进阶学习（二） <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -682,7 +686,7 @@ var jiathis_config={
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -704,7 +708,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -788,7 +792,7 @@ var jiathis_config={
     </span>
     <div class="theme-info">
       <div class="powered-by"></div>
-      <span class="post-count">博客全站共23.1k字</span>
+      <span class="post-count">博客全站共25.8k字</span>
     </div>
 
   
