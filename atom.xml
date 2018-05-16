@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wtlemoney.github.io/"/>
-  <updated>2018-05-12T05:17:41.173Z</updated>
+  <updated>2018-05-16T13:11:28.355Z</updated>
   <id>https://wtlemoney.github.io/</id>
   
   <author>
@@ -15,6 +15,52 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>跨域问题</title>
+    <link href="https://wtlemoney.github.io/2018/05/16/%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/"/>
+    <id>https://wtlemoney.github.io/2018/05/16/跨域问题/</id>
+    <published>2018-05-16T13:05:13.000Z</published>
+    <updated>2018-05-16T13:11:28.355Z</updated>
+    
+    <content type="html"><![CDATA[<!-- toc --><ul><li><a href="#1同源策略">1.同源策略</a></li><li><a href="#2跨域资源共享cors">2.跨域资源共享CORS</a></li><li><a href="#3jsonp">3.jsonp</a></li><li><a href="#4documentdomain">4.document.domain</a></li><li><a href="#5windowname">5.window.name</a></li></ul><!-- tocstop --><a id="more"></a><h4><span id="1同源策略">1.同源策略</span></h4><p>同源：协议、域名、端口都相同<br>目的：保证用户信息的安全，防止恶意的网站窃取数据。<br>受到同源限制：</p><ul><li>无法读取不同源的 Cookie、LocalStorage 和 IndexDB 。</li><li>无法获得不同源的DOM 。</li><li>不能向不同源的服务器发送ajax请求</li></ul><p>不受同源限制：</p><ul><li>在浏览器中，<code>&lt;script&gt;、&lt;img&gt;、&lt;iframe&gt;、&lt;link&gt;</code>等标签都可以跨域加载资源，而不受同源策略的限制。</li></ul><h4><span id="2跨域资源共享cors">2.跨域资源共享CORS</span></h4><p>CORS定义了在必须访问跨域资源时，浏览器与服务器应该如何沟通。基本思想就是，使用自定义的HTTP头部让浏览器与服务器进行沟通，从而决定请求或响应是应该成功还是失败。</p><p>CORS机制把跨域请求分为两类：简单请求和非简单请求。<br>浏览器对这两种请求的处理，是不一样的。凡是不同时满足下面两个条件，就属于非简单请求。</p><blockquote><p>1) 请求方法是以下三种方法之一：HEAD、GET、POST<br>2）HTTP的头信息不超出以下几种字段：<br>Accept<br>Accept-Language<br>Content-Language<br>Last-Event-ID<br>Content-Type：只限于三个值application/x-www-form-urlencoded、multipart/form-data、text/plain</p></blockquote><p><strong>简单请求</strong>：浏览器会带上Origin的请求头发送到服务器，服务器根据Origin判断是否许可。如果许可就会带上CORS相关想要头，如果不在许可范围内就不会带上CORS相关的响应头。浏览器再根据响应头中是否有相关的CORS响应头，来判断拦截响应body和抛出错误。<br><strong>非简单请求</strong>：非简单请求会在发真正的请求之前发送一个OPTIONS的带着Origin、Access-Control-Request-Method、Access-Control-Request-Headers等CORS相关的请求头的预检请求到服务器，服务器确认可以这样请求，就会返回带着Access-Control-Allow-Origin、Access-Control-Allow-Methods、Access-Control-Allow-Headers等CORS相关的响应头的响应，浏览器检查到相关的CORS响应头，说明通过预检可以继续发送真正的请求；服务器确认不可以，则不会返回这些相关响应头，浏览器没检查到CORS的响应头就会抛出错误。</p><p>整个CORS通信过程，都是浏览器自动完成，不需要用户参与。对于开发者来说，CORS通信与同源的AJAX通信没有差别，代码完全一样。浏览器一旦发现AJAX请求跨源，就会自动添加一些附加的头信息，有时还会多出一次附加的请求，但用户不会有感觉。<br>因此，实现CORS通信的关键是服务器。只要服务器实现了CORS接口，就可以跨源通信。<br>服务器要给接口的响应头设置：<code>Access-Control-Allow-Origin：＊</code></p><h4><span id="3jsonp">3.jsonp</span></h4><p>jsonp解决跨域问题的本质： <code>&lt;script&gt;</code> 标签可以请求不同域名下的资源，即 <code>&lt;script&gt;</code>请求不受浏览器同源策略影响。<br>缺点：只能处理get请求<br>首先给body动态添加一个 <code>&lt;script&gt;</code><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> script = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>);</span><br><span class="line">script.setAttribute(<span class="string">"type"</span>,<span class="string">"text/javascript"</span>);</span><br><span class="line">script.src = <span class="string">'http://example.com/ip?callback=foo'</span>;</span><br><span class="line"><span class="built_in">document</span>.body.appendChild(script);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Your public IP address is: '</span> + data.ip);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p><p>上面的script会向 <code>http://example.com/</code> 服务器发送请求，这个请求的url后面带了个callback参数，是用来告诉服务器回调方法的方法名的。因为服务器收到请求后，会把相应数据写进foo的参数位置，也就是说服务器会返回的脚本如下:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">foo(&#123;</span><br><span class="line">    <span class="string">"ip"</span>: <span class="string">"8.8.8.8"</span></span><br><span class="line"> &#125;);</span><br></pre></td></tr></table></figure></p><p>这样浏览器通过<code>&lt;script&gt;</code>下载的资源就是上面的脚本了，<code>&lt;script&gt;</code>下载完成就会立即执行，也就是说<code>http://example.com/ip?callback=foo</code>这个请求返回后就会立即执行上面的脚本代码，而这个脚本代码就是调用回调方法和拿到json数据了。</p><h4><span id="4documentdomain">4.document.domain</span></h4><p><strong>场景1</strong>：你的<code>http://www.damonare.cn/a.html</code>页面里使用<code>&lt;iframe&gt;</code>调用另一个<code>http://damonare.cn/b.html</code>页面。这时候你想在a页面里获取b页面里的dom，然后进行操作。然后你会发现你不能获得b的dom。</p><p><strong>解决方案</strong>：这时候你只需要在a页面里和b页面里把<code>document.domain</code>设置成相同的值就可以在两个页面里操作Dom了。</p><p><strong>场景2</strong>：你在<code>http://www.damonare.cn/a.html</code>页面里写入了<code>document.cookie = &quot;test1=hello&quot;;</code>你在<code>http://damonare.cn/b.html</code>页面是拿不到这个cookie的。</p><p><strong>解决方案</strong>：Cookie 是服务器写入浏览器的一小段信息，只有同源的网页才能共享。但是，两个网页一级域名相同，只是二级域名不同，浏览器允许通过设置document.domain共享 Cookie。另外，服务器也可以在设置Cookie的时候，指定Cookie的所属域名为一级域名。这样的话，二级域名和三级域名不用做任何设置，都可以读取这个Cookie。</p><p><strong>注意</strong>：<br><code>document.domain</code>限制：虽然可读写，但只能设置成自身或者是高一级的父域且主域必须相同。所以只能解决一级域名相同二级域名不同的跨域问题。<br><code>document.domain</code>只适用于 Cookie 和 iframe 窗口，LocalStorage 和 IndexDB 无法通过这种方法跨域。</p><h4><span id="5windowname">5.window.name</span></h4><p><strong>场景1</strong>：现在浏览器的一个标签页里打开<code>http://www.damonare.cn/a.html</code>页面，你通过<code>location.href=http://baidu.com/b.html</code>，在同一个浏览器标签页里打开了不同域名下的页面。这时候这两个页面你可以使用window.name来传递参数。因为window.name指的是浏览器窗口的名字，只要浏览器窗口相同，那么无论在哪个网页里访问值都是一样的。</p><p><strong>场景2</strong>：你的<code>http://www.damonare.cn/a.html</code>页面里使用<code>&lt;iframe&gt;</code>调用另一个<code>http://baidu.com/b.html</code>页面。这时候你想在a页面里获取b页面里的dom，然后进行操作。然后你会发现你不能获得b的dom。同样会因为不同源而报错，和上面提到的不同之处就是两个页面的一级域名也不相同。这时候document.domain就解决不了了。</p><p><strong>解决方案</strong>：浏览器窗口有window.name属性。这个属性的最大特点是，无论是否同源，只要在同一个窗口里，前一个网页设置了这个属性，后一个网页可以读取它。。比如你在b页面里设定<code>window.name=&quot;hello&quot;</code>，你再返回到a页面，在a页面里访问window.name，可以得到hello。</p><p>这种方法的优点是，window.name容量很大，可以放置非常长的字符串；缺点是必须监听子窗口window.name属性的变化，影响网页性能。</p><p>参考博文：<br><a href="https://www.jianshu.com/p/438183ddcea8" target="_blank" rel="noopener">浏览器同源策略与ajax跨域方法汇总</a><br><a href="http://blog.damonare.cn/2016/12/01/%E5%89%8D%E7%AB%AF%E8%B7%A8%E5%9F%9F%E6%95%B4%E7%90%86/" target="_blank" rel="noopener">前端跨域整理</a><br><a href="https://segmentfault.com/a/1190000012158485" target="_blank" rel="noopener">跨域问题汇总</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;!-- toc --&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#1同源策略&quot;&gt;1.同源策略&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#2跨域资源共享cors&quot;&gt;2.跨域资源共享CORS&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#3jsonp&quot;&gt;3.jsonp&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#4documentdomain&quot;&gt;4.document.domain&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#5windowname&quot;&gt;5.window.name&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- tocstop --&gt;
+    
+    </summary>
+    
+      <category term="同源策略" scheme="https://wtlemoney.github.io/categories/%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5/"/>
+    
+      <category term="跨域" scheme="https://wtlemoney.github.io/categories/%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5/%E8%B7%A8%E5%9F%9F/"/>
+    
+      <category term="CORS" scheme="https://wtlemoney.github.io/categories/%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5/%E8%B7%A8%E5%9F%9F/CORS/"/>
+    
+      <category term="jsonp" scheme="https://wtlemoney.github.io/categories/%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5/%E8%B7%A8%E5%9F%9F/CORS/jsonp/"/>
+    
+      <category term="ajax" scheme="https://wtlemoney.github.io/categories/%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5/%E8%B7%A8%E5%9F%9F/CORS/jsonp/ajax/"/>
+    
+    
+      <category term="ajax" scheme="https://wtlemoney.github.io/tags/ajax/"/>
+    
+      <category term="同源策略" scheme="https://wtlemoney.github.io/tags/%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5/"/>
+    
+      <category term="跨域" scheme="https://wtlemoney.github.io/tags/%E8%B7%A8%E5%9F%9F/"/>
+    
+      <category term="CORS" scheme="https://wtlemoney.github.io/tags/CORS/"/>
+    
+      <category term="jsonp" scheme="https://wtlemoney.github.io/tags/jsonp/"/>
+    
+  </entry>
   
   <entry>
     <title>SCSS进阶学习（二）</title>
