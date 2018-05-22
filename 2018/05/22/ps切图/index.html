@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="工具,PS,切图,UI," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="1.界面设置 2.PS参考线及其辅助 3.快捷操作 4.选择工具操作 5.简单工具操作 6.实战笔记 7.切图">
+<meta name="keywords" content="工具,PS,切图,UI">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ps切图">
+<meta property="og:url" content="https://wtlemoney.github.io/2018/05/22/ps切图/index.html">
+<meta property="og:site_name" content="wtLemoney">
+<meta property="og:description" content="1.界面设置 2.PS参考线及其辅助 3.快捷操作 4.选择工具操作 5.简单工具操作 6.实战笔记 7.切图">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-05-22T03:51:38.055Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ps切图">
+<meta name="twitter:description" content="1.界面设置 2.PS参考线及其辅助 3.快捷操作 4.选择工具操作 5.简单工具操作 6.实战笔记 7.切图">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":true,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://wtlemoney.github.io/2018/05/22/ps切图/"/>
+
+
+
+
+
+  <title>ps切图 | wtLemoney</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/wtLemoney" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">wtLemoney</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">To be a happy&lovely programmer...</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://wtlemoney.github.io/2018/05/22/ps切图/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wtLemoney">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/my_files/photo.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wtLemoney">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">ps切图</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-22T11:46:17+08:00">
+                2018-05-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PS/" itemprop="url" rel="index">
+                    <span itemprop="name">PS</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PS/切图/" itemprop="url" rel="index">
+                    <span itemprop="name">切图</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PS/切图/UI/" itemprop="url" rel="index">
+                    <span itemprop="name">UI</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PS/切图/UI/工具/" itemprop="url" rel="index">
+                    <span itemprop="name">工具</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2,052
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  7
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <!-- toc -->
+<ul>
+<li><a href="#1界面设置">1.界面设置</a></li>
+<li><a href="#2ps参考线及其辅助">2.PS参考线及其辅助</a></li>
+<li><a href="#3快捷操作">3.快捷操作</a></li>
+<li><a href="#4选择工具操作">4.选择工具操作</a></li>
+<li><a href="#5简单工具操作">5.简单工具操作</a></li>
+<li><a href="#6实战笔记">6.实战笔记</a></li>
+<li><a href="#7切图">7.切图</a></li>
+</ul>
+<!-- tocstop -->
+<a id="more"></a>
+<p>切图这种事情，不一定要UI来做啦，因为UI有时候切的前端童鞋可能不满意呢，来来回回有这沟通的时间还不如自己做了呢…</p>
+<h3><span id="1界面设置">1.界面设置</span></h3><p>为啥先要把界面设置一下？原因就是网页设计需要重新定义ps界面，这样有利于工作的展开。</p>
+<p>新建：文件-&gt;新建-&gt;Web（像素1920*2000，高度不定，分辨率72，背景透明）<br>设置：视图-&gt;勾选标尺，视图-&gt;显示-&gt;勾选智能参考线，编辑-&gt;首选项-&gt;单位与标尺-&gt;单位改为像素<br>切图四大面板窗口（右侧）：信息、字符，图层、历史记录（点击窗口菜单进行勾选）<br>信息面板右上角点击-面板选项，颜色信息都使用rgb颜色，标尺单位使用像素，文档大小和文档尺寸勾上<br>保存工作区：窗口-&gt;工作区-&gt;新建工作区</p>
+<h3><span id="2ps参考线及其辅助">2.PS参考线及其辅助</span></h3><p>Ctrl + R :标尺快捷键<br>Alt + V + E :新建参考线<br>Alt + V + E + H :新建水平参考线<br>Alt + V + E + V :新建垂直参考线<br>Ctrl + ; :关闭/开启参考线显示；<br>移动参考线的同时可使用 Alt 键改变方向<br>删除参考线将其拖回到标尺位置即可</p>
+<h3><span id="3快捷操作">3.快捷操作</span></h3><p>自动选中当前点击的图层：按住Ctrl键，鼠标点击psd上的图层选中（左键单击），即可实现自动选择功能<br>形成选区：Ctrl + 鼠标左键点击右下角图层，可以在信息中获取到宽高等信息，字符中可以获取到字体大小等信息<br>H+鼠标左键快速锁定放大某一块区域：放大镜状态下，H+鼠标左键 显示框出现，选择区域，松开会显示框住的图的大图<br>Alt+Delete：前景色填充<br>Ctrl+Delete：背景色填充 </p>
+<h3><span id="4选择工具操作">4.选择工具操作</span></h3><p>选区工具：快捷键 M<br>Shift + M 在扩展中轮流切换图形<br>Shift键 ：添加选区<br>Alt键 ：减少选区<br>按shift键：画正圆（方）<br>按Shift+Alt：以当前像素点为圆心画正圆（方）</p>
+<p>套索工具：快捷键 L<br>不规则形状选区<br>Shift键 + 鼠标左键 增加选择区域<br>Alt键 + 鼠标左键 删除规则的选区区域<br>多边形套索工具(双击鼠标左键选区自动闭合)<br>磁性套索工具(会根据颜色进行判断，是和获取不规则图形)</p>
+<p>快速选择工具：快捷键 W<br>尽量选择闭合的图像<br>调整工具的大小 快捷键：中括号 花括号<br>删除选区：快捷键 Ctrl + D</p>
+<p>裁剪工具：快捷键 C<br>裁剪需要的一部分，图片边际会出现可调整的按钮<br>先建立选区再点裁剪工具，可以直接裁剪当前选区内的内容，裁剪比较精确<br>属性栏中的对钩：只留下裁剪区域，其他地方被裁掉<br>小技巧：按住Ctrl单击需要的图片，按住Ctrl单击右下角的图层，会自动出现选区，这时选择左侧工具栏的裁剪，会默认选区，按回车键完成裁剪 单击对钩或者回车就裁剪好了<br>用套索工具选择好不规则图形后点击裁剪，会以最小范围裁剪出图形，按住Alt键单击右下角图层前的眼睛，会把背景变为透明，获取到图层</p>
+<h3><span id="5简单工具操作">5.简单工具操作</span></h3><p>污点修复画笔工具：快捷键 J,从点击周围来取素材再做一个融合<br>修复画笔工具:Alt+鼠标左键取素材，放开Alt,点击左键移动鼠标，复用某个地方的素材<br>修补工具：将修补区域圈起来，按住鼠标左键拖动，放开后，放开区域会和圈的区域融合可以盖掉涂抹工具</p>
+<p>画笔工具（B）：可以通过左上的属性面板调节硬度来实现画出来的轮廓的模糊程度<br>铅笔工具：画出的效果带毛边，硬度调到最小，画出的依然比较生硬<br>仿制图章工具（S）：Alt+鼠标左键取素材，放开Alt,点击左键移动鼠标。取到的素材，什么样子画出来就是什么样子；与修复画笔不同的是，修复画笔松开左键会羽化图片边缘<br>图案图章工具：ps库中存在的图案</p>
+<p>历史记录画笔工具(Y)：打开历史记录面板，将历史记录画笔放在前面的方框内，点回原图，这时，画笔就带有历史记录，可以在原图上进行局部处理。</p>
+<p>橡皮擦工具（E）：设置背景颜色后，使用橡皮擦，擦过的地方会被背景颜色填充。<br>背景橡皮擦工具：会将图片直接擦掉，露出背景图层。<br>魔术橡皮擦工具:颜色相同区域，会被全部直接擦掉，露出背景图层。</p>
+<p>渐变工具（G）：设置前景色和背景色后，在图层上拉动，会出现渐变效果，属性面板上有各种渐变方式。</p>
+<p>锐化工具：内容会变得干燥<br>涂抹工具：类似画板上画完画，用手抹一下,比如加长睫毛<br>画笔工具：可调整画笔硬度和大小<br>铅笔工具：线条细且硬，也可调整画笔硬度和大小<br>减淡工具（O）：使脸部皮肤变白</p>
+<p>钢笔工具：第一次确定一个点，第二次点击的时候按住shift可以调节直线的弧度，松开后按住alt键可以调节弧度。<br>路径（钢笔工具）+文字（文字工具）=按路径排列的文字</p>
+<h3><span id="6实战笔记">6.实战笔记</span></h3><p>画圆选区：<br>椭圆选区-&gt;Shift+左键（先放开鼠标再放开shift键），alt+delete填充颜色<br>切换为选区工具-&gt;右键-&gt;变换选区-&gt;Alt+Shift+鼠标左键：同圆心缩小-&gt;确定-&gt;Delete（删掉小圆内部颜色 ）<br>Ctrl+T：自由变换<br>移动工具-&gt;Alt+拖动：复制并且自动新建图层<br>CTRL+在图层缩览图中单击：选中图层选区，然后可以用吸管工具对这一选区填充颜色<br>按住Ctrl键，然后点击图片区域，会自动选中该图层，对该图层进行操作<br>裁剪：按住Alt键，会以图像为中心建立裁剪区域<br>五环相连：CTRL+在图层缩览图中单击蓝色环，再选中黄色环图层，矩形选框-&gt;按住Alt减去黄色环要保留的部分，最后delete,可以去掉黄色部分被选中的小块</p>
+<h3><span id="7切图">7.切图</span></h3><p>裁剪-&gt;切片工具：灰色代表被动切片，蓝色代表主动切片<br>裁剪图片-&gt;建立参考线-&gt;基于参考线的切片<br>导出切片：文件-&gt;存储为web所用格式-&gt;PNG-24-&gt;存储</p>
+<p>自动切图：<br>文件-&gt;脚本-&gt;将图层导出为文件-&gt;PNG-24-&gt;透明区域、交错、裁剪图层-&gt;运行：自动切图，且文件命名即为存储前缀+图层名，图片阴影也会切出，有多少图层切出多少张图<br>优点：自动把每个图层剪切为适当大小，图像名后缀为图层名。<br>缺点：运行慢，对配置要求较高，对图层较少的图片较方便。</p>
+<p>图片自动导出生成：</p>
+<ul>
+<li>编辑-&gt;首选项-&gt;增效工具-&gt;勾选启用生成器</li>
+<li>文件-&gt;生成-&gt;勾选图像资源</li>
+<li>随后重命名图层/组为xxx.png名称，将会自动生成相应图片到assets文件夹中</li>
+</ul>
+<p>其他类型导出：</p>
+<ul>
+<li>将图层/组重命名为.jpg、.png，删除切图：还原图层名称</li>
+<li>retina导出：重命名为200% xxx @2x.jpg</li>
+</ul>
+<p>导出SVG格式：</p>
+<ul>
+<li>选择对应的图层或图层文件夹 </li>
+<li>选择 文件-&gt;抽出资源，然后选择SVG格式</li>
+</ul>
+<p>复制CSS：</p>
+<ul>
+<li>选择对应的图层</li>
+<li>选择 图层-&gt;复制CSS</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+      <div>
+        
+          <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">
+            -------------本文结束
+            <i class="fa fa-paw"></i>
+            感谢您的阅读-------------
+        </div>
+    
+</div>
+        
+      </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/工具/" rel="tag"><i class="fa fa-tag"></i> 工具</a>
+          
+            <a href="/tags/PS/" rel="tag"><i class="fa fa-tag"></i> PS</a>
+          
+            <a href="/tags/切图/" rel="tag"><i class="fa fa-tag"></i> 切图</a>
+          
+            <a href="/tags/UI/" rel="tag"><i class="fa fa-tag"></i> UI</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/16/跨域问题/" rel="next" title="跨域问题">
+                <i class="fa fa-chevron-left"></i> 跨域问题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/my_files/photo.jpeg"
+                alt="wtLemoney" />
+            
+              <p class="site-author-name" itemprop="name">wtLemoney</p>
+              <p class="site-description motion-element" itemprop="description">越努力越幸运</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/wtLemoney" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:anne_wting@163.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://juejin.im/timeline" target="_blank" title="掘 金">
+                      
+                        <i class="fa fa-fw fa-book"></i>掘 金</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/u/3100327901" target="_blank" title="微 博">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>微 博</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">wtLemoney</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <div class="theme-info">
+      <div class="powered-by"></div>
+      <span class="post-count">博客全站共29.7k字</span>
+    </div>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+      <div class="powered-by">
+    <i class="fa fa-user-md"></i><span id="busuanzi_container_site_pv">
+      本站访客数:<span id="busuanzi_value_site_pv"></span>
+    </span>
+    </div>
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
