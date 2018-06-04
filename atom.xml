@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wtlemoney.github.io/"/>
-  <updated>2018-06-02T15:55:06.731Z</updated>
+  <updated>2018-06-04T14:57:29.651Z</updated>
   <id>https://wtlemoney.github.io/</id>
   
   <author>
@@ -15,6 +15,42 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>弹性布局下的flex属性值</title>
+    <link href="https://wtlemoney.github.io/2018/06/04/flex%E5%B1%9E%E6%80%A7%E5%80%BC/"/>
+    <id>https://wtlemoney.github.io/2018/06/04/flex属性值/</id>
+    <published>2018-06-04T14:35:42.000Z</published>
+    <updated>2018-06-04T14:57:29.651Z</updated>
+    
+    <content type="html"><![CDATA[<!-- toc --><ul><li><a href="#1flex属性介绍">1.flex属性介绍</a></li><li><a href="#2flex值的情况">2.flex值的情况</a></li><li><a href="#3举例说明">3.举例说明</a></li></ul><!-- tocstop --><a id="more"></a><h3><span id="1flex属性介绍">1.flex属性介绍</span></h3><p>首先明确一点是， flex 是 flex-grow、flex-shrink、flex-basis的缩写。</p><ul><li>flex-grow属性定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大。<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">  <span class="attribute">flex-grow</span>: &lt;number&gt;; <span class="comment">/* default 0 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ul><p>如果所有项目的flex-grow属性都为1，则它们将等分剩余空间（如果有的话）。如果一个项目的flex-grow属性为2，其他项目都为1，则前者占据的剩余空间将比其他项多一倍。</p><ul><li>flex-shrink属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">  <span class="attribute">flex-shrink</span>: &lt;number&gt;; <span class="comment">/* default 1 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ul><p>如果所有项目的flex-shrink属性都为1，当空间不足时，都将等比例缩小。如果一个项目的flex-shrink属性为0，其他项目都为1，则空间不足时，前者不缩小。<br>负值对该属性无效。</p><ul><li>flex-basis属性定义了在分配多余空间之前，项目占据的主轴空间（main size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小。<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">  <span class="attribute">flex-basis</span>: &lt;length&gt; | auto; <span class="comment">/* default auto */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ul><p>它可以设为跟width或height属性一样的值（比如350px），则项目将占据固定空间。</p><h3><span id="2flex值的情况">2.flex值的情况</span></h3><ul><li>当 flex 取值为 none，则计算值为 0 0 auto</li><li>当 flex 取值为 auto，则计算值为 1 1 auto</li><li>当 flex 取值为一个非负数字，则计算值为 1 1 0%</li><li>当 flex 取值为一个长度或百分比，则计算值为 1 1 长度或百分比</li><li>当 flex 取值为两个非负数字，则分别视为 flex-grow 和 flex-shrink 的值，flex-basis 取 0%</li><li>当 flex 取值为一个非负数字和一个长度或百分比，则分别视为 flex-grow 和 flex-basis 的值，flex-shrink 取 1</li></ul><h3><span id="3举例说明">3.举例说明</span></h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"parent"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item-1"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item-2"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item-3"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css">    <span class="selector-class">.parent</span> &#123;</span></span><br><span class="line"><span class="undefined">        display: flex;</span></span><br><span class="line"><span class="undefined">        width: 600px;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.parent</span> &gt; <span class="selector-tag">div</span> &#123;</span></span><br><span class="line"><span class="undefined">        height: 100px;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.item-1</span> &#123;</span></span><br><span class="line"><span class="undefined">        width: 140px;</span></span><br><span class="line"><span class="undefined">        flex: 2 1 0%;</span></span><br><span class="line"><span class="undefined">        background: blue;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.item-2</span> &#123;</span></span><br><span class="line"><span class="undefined">        width: 100px;</span></span><br><span class="line"><span class="undefined">        flex: 2 1 auto;</span></span><br><span class="line"><span class="undefined">        background: darkblue;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.item-3</span> &#123;</span></span><br><span class="line"><span class="undefined">        flex: 1 1 200px;</span></span><br><span class="line"><span class="undefined">        background: lightblue;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure><ul><li>主轴上父容器总尺寸为 600px</li><li><p>子元素的总基准值是：0% + auto + 200px = 300px，其中</p><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0</span>% 即 <span class="number">0</span> 宽度</span><br><span class="line">auto 对应取主尺寸即 <span class="number">100</span>px</span><br></pre></td></tr></table></figure></li><li><p>故剩余空间为 600px - 300px = 300px</p></li><li>伸缩放大系数之和为： 2 + 2 + 1 = 5</li><li><p>剩余空间分配如下：</p><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">item<span class="number">-1</span> 和 item<span class="number">-2</span> 各分配 <span class="number">2</span>/<span class="number">5</span>，各得 <span class="number">120</span>px</span><br><span class="line">item<span class="number">-3</span> 分配 <span class="number">1</span>/<span class="number">5</span>，得 <span class="number">60</span>px</span><br></pre></td></tr></table></figure></li><li><p>各项目最终宽度为：</p><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">item<span class="number">-1</span> = <span class="number">0</span>% + <span class="number">120</span>px = <span class="number">120</span>px</span><br><span class="line">item<span class="number">-2</span> = auto + <span class="number">120</span>px = <span class="number">220</span>px</span><br><span class="line">item<span class="number">-3</span> = <span class="number">200</span>px + <span class="number">60</span>px = <span class="number">260</span>px</span><br></pre></td></tr></table></figure></li></ul><p><br></p><p>参考博文：<br><a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html?^%$" target="_blank" rel="noopener">Flex 布局教程</a><br><a href="https://www.w3.org/html/ig/zh/css-flex-1/" target="_blank" rel="noopener">CSS 伸缩盒布局模组</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;!-- toc --&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#1flex属性介绍&quot;&gt;1.flex属性介绍&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#2flex值的情况&quot;&gt;2.flex值的情况&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#3举例说明&quot;&gt;3.举例说明&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- tocstop --&gt;
+    
+    </summary>
+    
+      <category term="CSS" scheme="https://wtlemoney.github.io/categories/CSS/"/>
+    
+      <category term="弹性盒子" scheme="https://wtlemoney.github.io/categories/CSS/%E5%BC%B9%E6%80%A7%E7%9B%92%E5%AD%90/"/>
+    
+      <category term="flex布局" scheme="https://wtlemoney.github.io/categories/CSS/%E5%BC%B9%E6%80%A7%E7%9B%92%E5%AD%90/flex%E5%B8%83%E5%B1%80/"/>
+    
+    
+      <category term="CSS" scheme="https://wtlemoney.github.io/tags/CSS/"/>
+    
+      <category term="弹性盒子" scheme="https://wtlemoney.github.io/tags/%E5%BC%B9%E6%80%A7%E7%9B%92%E5%AD%90/"/>
+    
+      <category term="flex布局" scheme="https://wtlemoney.github.io/tags/flex%E5%B8%83%E5%B1%80/"/>
+    
+  </entry>
   
   <entry>
     <title>mockjs前后端分离</title>
@@ -864,34 +900,6 @@
       <category term="JavaScript" scheme="https://wtlemoney.github.io/tags/JavaScript/"/>
     
       <category term="blogs" scheme="https://wtlemoney.github.io/tags/blogs/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>我为什么要写博客</title>
-    <link href="https://wtlemoney.github.io/2018/03/25/%E6%88%91%E4%B8%BA%E4%BB%80%E4%B9%88%E5%86%99%E5%8D%9A%E5%AE%A2/"/>
-    <id>https://wtlemoney.github.io/2018/03/25/我为什么写博客/</id>
-    <published>2018-03-25T15:21:10.000Z</published>
-    <updated>2018-04-16T01:43:42.340Z</updated>
-    
-    <content type="html"><![CDATA[<p>&emsp;&emsp;首先，我是一个从零开始的前端自学者，断断续续学了几个月的时间，留下了3个要满的手写笔记本，几本重点画了又画的前端书籍，以及电脑上数不清的手敲代码的各类文件夹。通过很多网站看了很多前端知识，然而现在…几乎忘的差不多了。我发现一个事实，自己一直在“学”，没有好好的总结，更不用说“习”了。所以，为啥要搞博客这么高端大气上档次的东西咧，总结一下主要有下面几点原因：  </p><ul><li><strong>面试被血虐</strong> </li></ul><p>&emsp;&emsp;前两天的腾讯实习生面试加笔试，把我虐的一塌糊涂。尽管我知道我自己菜，但没想到面完之后感觉自己也太菜了吧。很多问题其实都是平时遇到过的，只不过自己没有独立思考过原理和本质，回答的太不顺利。所以想通过博客这一平台，总结自己学习的知识，来检验自己是否真的掌握了。<br><a id="more"></a></p><ul><li><strong>语言逻辑差</strong></li></ul><p>&emsp;&emsp; 很多以为自己懂了的知识点，其实在面试官面前说出来就变味道了。语言没有任何逻辑性。这样很不好啊，听的人很累的呀，希望能多提高一下语言表达能力。 </p><ul><li><strong>梳理总结知识</strong></li></ul><p>&emsp;&emsp;记了那么多的笔记，翻起来还是相当以及极其之困难的，基本上也没翻过，都是百度。所以趁机好好整理我的宝贝笔记，把精华全部放到我的博客上。可以方便自己“习”，能帮到其他学习前端的同学就再好不过了。  </p><ul><li><strong>提高写作能力</strong></li></ul><p>&emsp;&emsp;微信读书看过不少书，特别欣赏能写出一首好文章的人。我写作能力高中就菜，希望通过自己坚持写博客，提高一下自己的写作水平，毕竟妹子还是搞点文艺犯比较招人喜欢的吧。</p><p>&emsp;&emsp;我的心路历程就是这样子滴。你看吧，说话真的没啥逻辑可言。<br>&emsp;&emsp;希望自己多多总结，找个好工作！<br>&emsp;&emsp;送给自己一些字符串：  </p><p><center><font color="blue" size="3">“越努力越幸运”</font></center></p><p><center><font color="blue" size="3">“远离舒适区”</font></center></p><p><center><font color="blue" size="3">“不能丧”</font></center><br>&emsp;&emsp;此处应附上我的美丽自拍和心灵鸡汤：</p><div align="center"><br>    <img src="/2018/03/25/我为什么写博客/beauty.jpg" width="180" height="180" alt="我的自拍"><br></div>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&amp;emsp;&amp;emsp;首先，我是一个从零开始的前端自学者，断断续续学了几个月的时间，留下了3个要满的手写笔记本，几本重点画了又画的前端书籍，以及电脑上数不清的手敲代码的各类文件夹。通过很多网站看了很多前端知识，然而现在…几乎忘的差不多了。我发现一个事实，自己一直在“学”，没有好好的总结，更不用说“习”了。所以，为啥要搞博客这么高端大气上档次的东西咧，总结一下主要有下面几点原因：  &lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;面试被血虐&lt;/strong&gt; &lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&amp;emsp;&amp;emsp;前两天的腾讯实习生面试加笔试，把我虐的一塌糊涂。尽管我知道我自己菜，但没想到面完之后感觉自己也太菜了吧。很多问题其实都是平时遇到过的，只不过自己没有独立思考过原理和本质，回答的太不顺利。所以想通过博客这一平台，总结自己学习的知识，来检验自己是否真的掌握了。&lt;br&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="碎碎念" scheme="https://wtlemoney.github.io/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
-    
-    
-      <category term="blogs" scheme="https://wtlemoney.github.io/tags/blogs/"/>
-    
-      <category term="碎碎念" scheme="https://wtlemoney.github.io/tags/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
     
   </entry>
   
