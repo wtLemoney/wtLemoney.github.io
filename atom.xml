@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wtlemoney.github.io/"/>
-  <updated>2018-06-04T14:36:25.420Z</updated>
+  <updated>2018-06-02T15:55:06.731Z</updated>
   <id>https://wtlemoney.github.io/</id>
   
   <author>
@@ -15,42 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>flex属性值</title>
-    <link href="https://wtlemoney.github.io/2018/06/04/flex%E5%B1%9E%E6%80%A7%E5%80%BC/"/>
-    <id>https://wtlemoney.github.io/2018/06/04/flex属性值/</id>
-    <published>2018-06-04T14:35:42.000Z</published>
-    <updated>2018-06-04T14:36:25.420Z</updated>
-    
-    <content type="html"><![CDATA[<!-- toc --><ul><li><a href="#1flex属性介绍">1.flex属性介绍</a></li><li><a href="#2flex值的情况">2.flex值的情况</a></li><li><a href="#3举例说明">3.举例说明</a></li></ul><!-- tocstop --><a id="more"></a><h3><span id="1flex属性介绍">1.flex属性介绍</span></h3><p>首先明确一点是， flex 是 flex-grow、flex-shrink、flex-basis的缩写。</p><ul><li>flex-grow属性定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大。<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">  <span class="attribute">flex-grow</span>: &lt;number&gt;; <span class="comment">/* default 0 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ul><p>如果所有项目的flex-grow属性都为1，则它们将等分剩余空间（如果有的话）。如果一个项目的flex-grow属性为2，其他项目都为1，则前者占据的剩余空间将比其他项多一倍。</p><ul><li>flex-shrink属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">  <span class="attribute">flex-shrink</span>: &lt;number&gt;; <span class="comment">/* default 1 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ul><p>如果所有项目的flex-shrink属性都为1，当空间不足时，都将等比例缩小。如果一个项目的flex-shrink属性为0，其他项目都为1，则空间不足时，前者不缩小。<br>负值对该属性无效。</p><ul><li>flex-basis属性定义了在分配多余空间之前，项目占据的主轴空间（main size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小。<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">  <span class="attribute">flex-basis</span>: &lt;length&gt; | auto; <span class="comment">/* default auto */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ul><p>它可以设为跟width或height属性一样的值（比如350px），则项目将占据固定空间。</p><h3><span id="2flex值的情况">2.flex值的情况</span></h3><ul><li>当 flex 取值为 none，则计算值为 0 0 auto</li><li>当 flex 取值为 auto，则计算值为 1 1 auto</li><li>当 flex 取值为一个非负数字，则计算值为 1 1 0%</li><li>当 flex 取值为一个长度或百分比，则计算值为 1 1 长度或百分比</li><li>当 flex 取值为两个非负数字，则分别视为 flex-grow 和 flex-shrink 的值，flex-basis 取 0%</li><li>当 flex 取值为一个非负数字和一个长度或百分比，则分别视为 flex-grow 和 flex-basis 的值，flex-shrink 取 1</li></ul><h3><span id="3举例说明">3.举例说明</span></h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"parent"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item-1"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item-2"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item-3"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css">    <span class="selector-class">.parent</span> &#123;</span></span><br><span class="line"><span class="undefined">        display: flex;</span></span><br><span class="line"><span class="undefined">        width: 600px;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.parent</span> &gt; <span class="selector-tag">div</span> &#123;</span></span><br><span class="line"><span class="undefined">        height: 100px;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.item-1</span> &#123;</span></span><br><span class="line"><span class="undefined">        width: 140px;</span></span><br><span class="line"><span class="undefined">        flex: 2 1 0%;</span></span><br><span class="line"><span class="undefined">        background: blue;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.item-2</span> &#123;</span></span><br><span class="line"><span class="undefined">        width: 100px;</span></span><br><span class="line"><span class="undefined">        flex: 2 1 auto;</span></span><br><span class="line"><span class="undefined">        background: darkblue;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.item-3</span> &#123;</span></span><br><span class="line"><span class="undefined">        flex: 1 1 200px;</span></span><br><span class="line"><span class="undefined">        background: lightblue;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure><ul><li>主轴上父容器总尺寸为 600px</li><li><p>子元素的总基准值是：0% + auto + 200px = 300px，其中</p><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0</span>% 即 <span class="number">0</span> 宽度</span><br><span class="line">auto 对应取主尺寸即 <span class="number">100</span>px</span><br></pre></td></tr></table></figure></li><li><p>故剩余空间为 600px - 300px = 300px</p></li><li>伸缩放大系数之和为： 2 + 2 + 1 = 5</li><li><p>剩余空间分配如下：</p><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">item<span class="number">-1</span> 和 item<span class="number">-2</span> 各分配 <span class="number">2</span>/<span class="number">5</span>，各得 <span class="number">120</span>px</span><br><span class="line">item<span class="number">-3</span> 分配 <span class="number">1</span>/<span class="number">5</span>，得 <span class="number">60</span>px</span><br></pre></td></tr></table></figure></li><li><p>各项目最终宽度为：</p><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">item<span class="number">-1</span> = <span class="number">0</span>% + <span class="number">120</span>px = <span class="number">120</span>px</span><br><span class="line">item<span class="number">-2</span> = auto + <span class="number">120</span>px = <span class="number">220</span>px</span><br><span class="line">item<span class="number">-3</span> = <span class="number">200</span>px + <span class="number">60</span>px = <span class="number">260</span>px</span><br></pre></td></tr></table></figure></li></ul><p><br></p><p>参考博文：<br><a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html?^%$" target="_blank" rel="noopener">Flex 布局教程</a><br><a href="https://www.w3.org/html/ig/zh/css-flex-1/" target="_blank" rel="noopener">CSS 伸缩盒布局模组</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;!-- toc --&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#1flex属性介绍&quot;&gt;1.flex属性介绍&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#2flex值的情况&quot;&gt;2.flex值的情况&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#3举例说明&quot;&gt;3.举例说明&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;!-- tocstop --&gt;
-    
-    </summary>
-    
-      <category term="CSS" scheme="https://wtlemoney.github.io/categories/CSS/"/>
-    
-      <category term="弹性盒子" scheme="https://wtlemoney.github.io/categories/CSS/%E5%BC%B9%E6%80%A7%E7%9B%92%E5%AD%90/"/>
-    
-      <category term="flex布局" scheme="https://wtlemoney.github.io/categories/CSS/%E5%BC%B9%E6%80%A7%E7%9B%92%E5%AD%90/flex%E5%B8%83%E5%B1%80/"/>
-    
-    
-      <category term="CSS" scheme="https://wtlemoney.github.io/tags/CSS/"/>
-    
-      <category term="弹性盒子" scheme="https://wtlemoney.github.io/tags/%E5%BC%B9%E6%80%A7%E7%9B%92%E5%AD%90/"/>
-    
-      <category term="flex布局" scheme="https://wtlemoney.github.io/tags/flex%E5%B8%83%E5%B1%80/"/>
-    
-  </entry>
   
   <entry>
     <title>mockjs前后端分离</title>
@@ -84,15 +48,50 @@
       <category term="前后端交互，数据模拟" scheme="https://wtlemoney.github.io/categories/mock-js/easy-mock/ajax/JSON/%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92%EF%BC%8C%E6%95%B0%E6%8D%AE%E6%A8%A1%E6%8B%9F/"/>
     
     
-      <category term="mock.js" scheme="https://wtlemoney.github.io/tags/mock-js/"/>
-    
-      <category term="easy mock" scheme="https://wtlemoney.github.io/tags/easy-mock/"/>
-    
       <category term="ajax" scheme="https://wtlemoney.github.io/tags/ajax/"/>
     
       <category term="JSON" scheme="https://wtlemoney.github.io/tags/JSON/"/>
     
+      <category term="mock.js" scheme="https://wtlemoney.github.io/tags/mock-js/"/>
+    
+      <category term="easy mock" scheme="https://wtlemoney.github.io/tags/easy-mock/"/>
+    
       <category term="前后端交互，数据模拟" scheme="https://wtlemoney.github.io/tags/%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92%EF%BC%8C%E6%95%B0%E6%8D%AE%E6%A8%A1%E6%8B%9F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何在VScode中添加代码片段</title>
+    <link href="https://wtlemoney.github.io/2018/05/26/vs-snippet/"/>
+    <id>https://wtlemoney.github.io/2018/05/26/vs-snippet/</id>
+    <published>2018-05-26T14:42:29.000Z</published>
+    <updated>2018-06-04T14:47:47.212Z</updated>
+    
+    <content type="html"><![CDATA[<!-- toc --><ul><li><a href="#1snippet-配置">1.snippet 配置</a></li><li><a href="#2代码片段">2.代码片段</a></li></ul><!-- tocstop --><a id="more"></a><p>最近在敲vue项目的代码，想对新建的.vue文件初始化代码片段，不然每次都需要重复敲那一段效率太感人了。所以拿vue举例，新建vue文件，输入前缀，出现代码片段。一些snippet语法结构见<a href="https://blog.csdn.net/maokelong95/article/details/54379046" target="_blank" rel="noopener">这里</a></p><h3><span id="1snippet-配置">1.snippet 配置</span></h3><ul><li>进入 snippet 设置文件，这里提供了三种方法： <ul><li>通过快捷键「Ctrl + Shift + P」打开命令窗口（All Command Window），输入「snippet」，点选「首选项：配置用户代码段片段」；</li><li>点击界面最左侧竖栏（也即活动栏）最下方的齿轮按钮，在弹出来的菜单中点选「用户代码片段」；</li><li>按下「Alt」键切换菜单栏，通过文件 &gt; 首选项 &gt; 用户代码片段；</li></ul></li><li>vue.json文件中，填写 snippets</li></ul><h3><span id="2代码片段">2.代码片段</span></h3><p>vue.json初始文件代码定义了一个名为「Print to console」的 snippet，其功能为：在输入 log 并确认后，可将原文本替换为<code>console.log(&#39;&#39;);</code>。<br><figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"> // Place your snippets <span class="keyword">for</span> C here. Each snippet <span class="built_in">is</span> defined under a snippet name <span class="keyword">and</span> has a <span class="built_in">prefix</span>, body <span class="keyword">and</span> </span><br><span class="line"> // description. The <span class="built_in">prefix</span> <span class="built_in">is</span> what <span class="built_in">is</span> used to trigger the snippet <span class="keyword">and</span> the body will be expanded <span class="keyword">and</span> inserted. Possible variables are:</span><br><span class="line"> // $<span class="number">1</span>, $<span class="number">2</span> <span class="keyword">for</span> <span class="built_in">tab</span> stops, $<span class="number">0</span> <span class="keyword">for</span> the final cursor <span class="built_in">position</span>, <span class="keyword">and</span> $&#123;<span class="number">1</span>:<span class="built_in">label</span>&#125;, $&#123;<span class="number">2</span>:another&#125; <span class="keyword">for</span> placeholders. Placeholders with the </span><br><span class="line"> // same ids are connected.</span><br><span class="line"> // Example:</span><br><span class="line"> <span class="string">"Print to console"</span>: &#123;</span><br><span class="line">    <span class="string">"prefix"</span>: <span class="string">"log"</span>,</span><br><span class="line">    <span class="string">"body"</span>: [</span><br><span class="line">        <span class="string">"console.log('$1');"</span>,</span><br><span class="line">        <span class="string">"$2"</span></span><br><span class="line">    ],</span><br><span class="line">    <span class="string">"description"</span>: <span class="string">"Log output to console"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>prefix ： 在 Intellisense 中选择代码片段时将使用的前缀。</p><p>$1          :这个为光标的所在位置.<br>$2          :使用这个参数后会光标的下一位置将会另起一行,按tab键可进行快速切换,还可以有$3,$4,$5…..</p><p>body：代码片段的内容。使用“$1”和“${1:defaultText}”定义光标位置，使用“$0”定义最终光标位置。使用“${varName}”和“${varName:defaultText}”插入变量值，例如“这是文件：$TM_FILENAME”。字符串间换行的话使用\r\n换行符隔开。注意如果值里包含特殊字符需要进行转义。</p><p>description：代码片段描述。</p><p>3.自定义.vue文件代码片段<br>在vue.json文件中添加下面代码，新建.vue文件-&gt;输入vue -&gt;按tab即可创建vue模板。</p><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"Print to .vue"</span>: &#123;</span><br><span class="line">        <span class="attr">"prefix"</span>: <span class="string">"vue"</span>,</span><br><span class="line">        <span class="attr">"body"</span>: [</span><br><span class="line">            <span class="string">"&lt;template&gt;"</span>,</span><br><span class="line">            <span class="string">" &lt;div&gt;\n"</span>,</span><br><span class="line">            <span class="string">" &lt;/div&gt;"</span>,</span><br><span class="line">            <span class="string">"&lt;/template&gt;\n"</span>,</span><br><span class="line">            <span class="string">"&lt;script&gt;"</span>,</span><br><span class="line">            <span class="string">" export default &#123;"</span>,</span><br><span class="line">            <span class="string">"   data () &#123;"</span>,</span><br><span class="line">            <span class="string">"     return &#123;\n"</span>,</span><br><span class="line">            <span class="string">"     &#125;"</span>,</span><br><span class="line">            <span class="string">"   &#125;,"</span>,</span><br><span class="line">            <span class="string">"   components: &#123;\n"</span>,</span><br><span class="line">            <span class="string">"   &#125;"</span>,</span><br><span class="line">            <span class="string">" &#125;"</span>,</span><br><span class="line">            <span class="string">"&lt;/script&gt;\n"</span>,</span><br><span class="line">            <span class="string">"&lt;style&gt;\n"</span>,</span><br><span class="line">            <span class="string">" "</span>,</span><br><span class="line">            <span class="string">"&lt;/style&gt;"</span>,</span><br><span class="line">            <span class="string">"$2"</span></span><br><span class="line">        ],</span><br><span class="line">        <span class="attr">"description"</span>: <span class="string">"Log output to console"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>创建的vue模板为：</p><div align="center"><br>    <img src="/2018/05/26/vs-snippet/vue.jpg" alt="easy mock网站输入界面"><br></div><p>参考博文：<a href="https://blog.csdn.net/maokelong95/article/details/54379046" target="_blank" rel="noopener">跟我一起在Visual Studio Code 添加自定义snippet</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;!-- toc --&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;#1snippet-配置&quot;&gt;1.snippet 配置&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#2代码片段&quot;&gt;2.代码片段&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- tocstop --&gt;
+    
+    </summary>
+    
+      <category term="VScode" scheme="https://wtlemoney.github.io/categories/VScode/"/>
+    
+      <category term="Vue" scheme="https://wtlemoney.github.io/categories/VScode/Vue/"/>
+    
+      <category term="代码段" scheme="https://wtlemoney.github.io/categories/VScode/Vue/%E4%BB%A3%E7%A0%81%E6%AE%B5/"/>
+    
+    
+      <category term="VScode" scheme="https://wtlemoney.github.io/tags/VScode/"/>
+    
+      <category term="Vue" scheme="https://wtlemoney.github.io/tags/Vue/"/>
+    
+      <category term="代码段" scheme="https://wtlemoney.github.io/tags/%E4%BB%A3%E7%A0%81%E6%AE%B5/"/>
     
   </entry>
   
@@ -130,13 +129,13 @@
       <category term="工具" scheme="https://wtlemoney.github.io/categories/PS/%E5%88%87%E5%9B%BE/UI/%E5%B7%A5%E5%85%B7/"/>
     
     
+      <category term="工具" scheme="https://wtlemoney.github.io/tags/%E5%B7%A5%E5%85%B7/"/>
+    
       <category term="PS" scheme="https://wtlemoney.github.io/tags/PS/"/>
     
       <category term="切图" scheme="https://wtlemoney.github.io/tags/%E5%88%87%E5%9B%BE/"/>
     
       <category term="UI" scheme="https://wtlemoney.github.io/tags/UI/"/>
-    
-      <category term="工具" scheme="https://wtlemoney.github.io/tags/%E5%B7%A5%E5%85%B7/"/>
     
   </entry>
   
@@ -524,9 +523,9 @@
       <category term="VScode编辑器" scheme="https://wtlemoney.github.io/categories/VScode%E7%BC%96%E8%BE%91%E5%99%A8/"/>
     
     
-      <category term="工具" scheme="https://wtlemoney.github.io/tags/%E5%B7%A5%E5%85%B7/"/>
-    
       <category term="VScode" scheme="https://wtlemoney.github.io/tags/VScode/"/>
+    
+      <category term="工具" scheme="https://wtlemoney.github.io/tags/%E5%B7%A5%E5%85%B7/"/>
     
       <category term="编辑器" scheme="https://wtlemoney.github.io/tags/%E7%BC%96%E8%BE%91%E5%99%A8/"/>
     
