@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="1.flex属性介绍 2.flex值的情况 3.举例说明">
+<meta name="description" content="1.flex属性介绍 2.flex值的情况 3.实例说明">
 <meta name="keywords" content="CSS,弹性盒子,flex布局">
 <meta property="og:type" content="article">
 <meta property="og:title" content="弹性布局下的flex属性值">
 <meta property="og:url" content="https://wtlemoney.github.io/2018/06/04/flex属性值/index.html">
 <meta property="og:site_name" content="wtLemoney">
-<meta property="og:description" content="1.flex属性介绍 2.flex值的情况 3.举例说明">
+<meta property="og:description" content="1.flex属性介绍 2.flex值的情况 3.实例说明">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-04T14:57:29.651Z">
+<meta property="og:updated_time" content="2018-06-04T15:03:08.961Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="弹性布局下的flex属性值">
-<meta name="twitter:description" content="1.flex属性介绍 2.flex值的情况 3.举例说明">
+<meta name="twitter:description" content="1.flex属性介绍 2.flex值的情况 3.实例说明">
 
 
 
@@ -409,7 +409,7 @@
 <ul>
 <li><a href="#1flex属性介绍">1.flex属性介绍</a></li>
 <li><a href="#2flex值的情况">2.flex值的情况</a></li>
-<li><a href="#3举例说明">3.举例说明</a></li>
+<li><a href="#3实例说明">3.实例说明</a></li>
 </ul>
 <!-- tocstop -->
 <a id="more"></a>
@@ -437,7 +437,7 @@
 <li>当 flex 取值为两个非负数字，则分别视为 flex-grow 和 flex-shrink 的值，flex-basis 取 0%</li>
 <li>当 flex 取值为一个非负数字和一个长度或百分比，则分别视为 flex-grow 和 flex-basis 的值，flex-shrink 取 1</li>
 </ul>
-<h3><span id="3举例说明">3.举例说明</span></h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"parent"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item-1"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item-2"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item-3"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css">    <span class="selector-class">.parent</span> &#123;</span></span><br><span class="line"><span class="undefined">        display: flex;</span></span><br><span class="line"><span class="undefined">        width: 600px;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.parent</span> &gt; <span class="selector-tag">div</span> &#123;</span></span><br><span class="line"><span class="undefined">        height: 100px;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.item-1</span> &#123;</span></span><br><span class="line"><span class="undefined">        width: 140px;</span></span><br><span class="line"><span class="undefined">        flex: 2 1 0%;</span></span><br><span class="line"><span class="undefined">        background: blue;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.item-2</span> &#123;</span></span><br><span class="line"><span class="undefined">        width: 100px;</span></span><br><span class="line"><span class="undefined">        flex: 2 1 auto;</span></span><br><span class="line"><span class="undefined">        background: darkblue;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.item-3</span> &#123;</span></span><br><span class="line"><span class="undefined">        flex: 1 1 200px;</span></span><br><span class="line"><span class="undefined">        background: lightblue;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3><span id="3实例说明">3.实例说明</span></h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"parent"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item-1"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item-2"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item-3"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css">    <span class="selector-class">.parent</span> &#123;</span></span><br><span class="line"><span class="undefined">        display: flex;</span></span><br><span class="line"><span class="undefined">        width: 600px;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.parent</span> &gt; <span class="selector-tag">div</span> &#123;</span></span><br><span class="line"><span class="undefined">        height: 100px;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.item-1</span> &#123;</span></span><br><span class="line"><span class="undefined">        width: 140px;</span></span><br><span class="line"><span class="undefined">        flex: 2 1 0%;</span></span><br><span class="line"><span class="undefined">        background: blue;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.item-2</span> &#123;</span></span><br><span class="line"><span class="undefined">        width: 100px;</span></span><br><span class="line"><span class="undefined">        flex: 2 1 auto;</span></span><br><span class="line"><span class="undefined">        background: darkblue;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.item-3</span> &#123;</span></span><br><span class="line"><span class="undefined">        flex: 1 1 200px;</span></span><br><span class="line"><span class="undefined">        background: lightblue;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>主轴上父容器总尺寸为 600px</li>
 <li><p>子元素的总基准值是：0% + auto + 200px = 300px，其中</p>
@@ -512,6 +512,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/06/10/vue路由/" rel="prev" title="vue1.x和vue2.x中的路由">
+                vue1.x和vue2.x中的路由 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -607,7 +611,7 @@ var jiathis_config={
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -618,7 +622,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">51</span>
+                  <span class="site-state-item-count">54</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -629,7 +633,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-count">45</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -713,7 +717,7 @@ var jiathis_config={
     </span>
     <div class="theme-info">
       <div class="powered-by"></div>
-      <span class="post-count">博客全站共32.2k字</span>
+      <span class="post-count">博客全站共33.5k字</span>
     </div>
 
   
