@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Vue,stylus,transition," />
+  <meta name="keywords" content="vue,饿了么项目," />
 
 
 
@@ -80,7 +80,7 @@
 
 
 <meta name="description" content="1.关于过渡的说明 2.购物车小球动画实现">
-<meta name="keywords" content="Vue,stylus,transition">
+<meta name="keywords" content="vue,饿了么项目">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue2.0中transition过渡效果">
 <meta property="og:url" content="https://wtlemoney.github.io/2018/06/13/vue过渡/index.html">
@@ -88,7 +88,7 @@
 <meta property="og:description" content="1.关于过渡的说明 2.购物车小球动画实现">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://wtlemoney.github.io/2018/06/13/vue过渡/ball.gif">
-<meta property="og:updated_time" content="2018-06-13T15:42:05.416Z">
+<meta property="og:updated_time" content="2018-06-14T15:43:02.570Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue2.0中transition过渡效果">
 <meta name="twitter:description" content="1.关于过渡的说明 2.购物车小球动画实现">
@@ -317,8 +317,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Vue/" itemprop="url" rel="index">
-                    <span itemprop="name">Vue</span>
+                  <a href="/categories/vue/" itemprop="url" rel="index">
+                    <span itemprop="name">vue</span>
                   </a>
                 </span>
 
@@ -328,7 +328,7 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Vue/stylus/" itemprop="url" rel="index">
+                  <a href="/categories/vue/stylus/" itemprop="url" rel="index">
                     <span itemprop="name">stylus</span>
                   </a>
                 </span>
@@ -339,7 +339,7 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Vue/stylus/transition/" itemprop="url" rel="index">
+                  <a href="/categories/vue/stylus/transition/" itemprop="url" rel="index">
                     <span itemprop="name">transition</span>
                   </a>
                 </span>
@@ -435,7 +435,7 @@
 
 <ul>
 <li><p>html结构<br>其中，小球是一个字体图标，通过在i标签中添加相应的class实现的。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">transition-group</span> <span class="attr">name</span>=<span class="string">'move'</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">key</span>=<span class="string">"out"</span> <span class="attr">class</span>=<span class="string">"cart-decrease"</span> @<span class="attr">click.stop.prevent</span>=<span class="string">"decreaseCart"</span> <span class="attr">v-show</span>=<span class="string">"food.count&gt;0"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">key</span>=<span class="string">"in"</span> <span class="attr">class</span>=<span class="string">"inner icon-remove_circle_outline"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">transition-group</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="attribute">transition</span>-group name=<span class="string">'move'</span>&gt;</span><br><span class="line">    &lt;<span class="selector-tag">div</span> key=<span class="string">"out"</span> class=<span class="string">"cart-decrease"</span> @click<span class="selector-class">.stop</span><span class="selector-class">.prevent</span>=<span class="string">"decreaseCart"</span> v-show=<span class="string">"food.count&gt;0"</span>&gt;</span><br><span class="line">        &lt;<span class="selector-tag">span</span> key=<span class="string">"in"</span> class=<span class="string">"inner icon-remove_circle_outline"</span>&gt;&lt;/span&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/<span class="attribute">transition</span>-group&gt;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>动画思路<br>在整体cart－decrease上实现：<br><code>transform3d（24px,0,0）—&gt; transform3d（0,0,0）</code><br><code>opacity：0 —&gt; opacity: 1</code><br>在.inner标签上实现：<br><code>rotate(180deg) —&gt; rotate(0)</code></p>
 </li>
@@ -478,11 +478,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Vue/" rel="tag"><i class="fa fa-tag"></i> Vue</a>
+            <a href="/tags/vue/" rel="tag"><i class="fa fa-tag"></i> vue</a>
           
-            <a href="/tags/stylus/" rel="tag"><i class="fa fa-tag"></i> stylus</a>
-          
-            <a href="/tags/transition/" rel="tag"><i class="fa fa-tag"></i> transition</a>
+            <a href="/tags/饿了么项目/" rel="tag"><i class="fa fa-tag"></i> 饿了么项目</a>
           
         </div>
       
@@ -504,6 +502,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/06/14/vue抛物线动画/" rel="prev" title="vue动画-小球抛物线进购物车">
+                vue动画-小球抛物线进购物车 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -599,7 +601,7 @@ var jiathis_config={
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -610,7 +612,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">56</span>
+                  <span class="site-state-item-count">61</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -621,7 +623,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">47</span>
+                  <span class="site-state-item-count">44</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -705,7 +707,7 @@ var jiathis_config={
     </span>
     <div class="theme-info">
       <div class="powered-by"></div>
-      <span class="post-count">博客全站共34.3k字</span>
+      <span class="post-count">博客全站共35.6k字</span>
     </div>
 
   

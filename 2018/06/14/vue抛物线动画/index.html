@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="vue,饿了么项目," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="思路及过程：  cartcontrol组件为添加购物车组件，点击该组件内的‘+’号小球，即把小球的位置传给父组件goods,this.$emit(&amp;#39;cart-add&amp;#39;,event.target);event.target为传递的参数，即点击的目标节点。   在父组件goods的&amp;lt;cartcontrol&amp;gt;中v-on:cart-add=&amp;quot;cartAdd&amp;quot;">
+<meta name="keywords" content="vue,饿了么项目">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue动画-小球抛物线进购物车">
+<meta property="og:url" content="https://wtlemoney.github.io/2018/06/14/vue抛物线动画/index.html">
+<meta property="og:site_name" content="wtLemoney">
+<meta property="og:description" content="思路及过程：  cartcontrol组件为添加购物车组件，点击该组件内的‘+’号小球，即把小球的位置传给父组件goods,this.$emit(&amp;#39;cart-add&amp;#39;,event.target);event.target为传递的参数，即点击的目标节点。   在父组件goods的&amp;lt;cartcontrol&amp;gt;中v-on:cart-add=&amp;quot;cartAdd&amp;quot;">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-06-14T15:42:54.521Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vue动画-小球抛物线进购物车">
+<meta name="twitter:description" content="思路及过程：  cartcontrol组件为添加购物车组件，点击该组件内的‘+’号小球，即把小球的位置传给父组件goods,this.$emit(&amp;#39;cart-add&amp;#39;,event.target);event.target为传递的参数，即点击的目标节点。   在父组件goods的&amp;lt;cartcontrol&amp;gt;中v-on:cart-add=&amp;quot;cartAdd&amp;quot;">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":true,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://wtlemoney.github.io/2018/06/14/vue抛物线动画/"/>
+
+
+
+
+
+  <title>vue动画-小球抛物线进购物车 | wtLemoney</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/wtLemoney" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">wtLemoney</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">To be a happy&lovely programmer...</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://wtlemoney.github.io/2018/06/14/vue抛物线动画/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wtLemoney">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/my_files/photo.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wtLemoney">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">vue动画-小球抛物线进购物车</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-14T23:37:55+08:00">
+                2018-06-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/vue/" itemprop="url" rel="index">
+                    <span itemprop="name">vue</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/vue/transition/" itemprop="url" rel="index">
+                    <span itemprop="name">transition</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/vue/transition/钩子函数/" itemprop="url" rel="index">
+                    <span itemprop="name">钩子函数</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/vue/transition/钩子函数/贝塞尔曲线/" itemprop="url" rel="index">
+                    <span itemprop="name">贝塞尔曲线</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/vue/transition/钩子函数/贝塞尔曲线/组件通信/" itemprop="url" rel="index">
+                    <span itemprop="name">组件通信</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/vue/transition/钩子函数/贝塞尔曲线/组件通信/网页性能/" itemprop="url" rel="index">
+                    <span itemprop="name">网页性能</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,264
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  6
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>思路及过程</strong>：</p>
+<ul>
+<li>cartcontrol组件为添加购物车组件，点击该组件内的‘+’号小球，即把小球的位置传给父组件goods,<code>this.$emit(&#39;cart-add&#39;,event.target);</code>event.target为传递的参数，即点击的目标节点。</li>
+</ul>
+<ul>
+<li>在父组件goods的<code>&lt;cartcontrol&gt;</code>中<code>v-on:cart-add=&quot;cartAdd&quot;&gt;</code>监听到cart-add，cartAdd()方法调用，访问子组件shopcart，调用其drop方法，<code>this.$refs.shopcart.drop(el);</code>。</li>
+</ul>
+<ul>
+<li>子组件shopcart为小球抛物线的终点位置，在该组件中定义运动的小球，并定义小球的动画函数。</li>
+</ul>
+<a id="more"></a>
+<p><strong>说明</strong>：</p>
+<ul>
+<li>动画的内容分别是外层和内层,外层控制动画小球的轨道和方向,内层控制动画小球的运行状态</li>
+</ul>
+<ul>
+<li>因为小球动画只有一个方向(只执行单方向从上到下滚落),所以只用了before-enter,enter,after-enter</li>
+</ul>
+<ul>
+<li>设置balls数组来代表五个小球,设置dropBalls数组表示正在运行的小球</li>
+</ul>
+<ul>
+<li>除了用CSS过渡的动画来实现vue的组件过渡，还可以用JavaScript的钩子函数来实现，在钩子函数中直接操作DOM。</li>
+</ul>
+<ul>
+<li>抛物线放在外层就是为了控制内层的元素的轨道和方向的。</li>
+</ul>
+<ul>
+<li>关于getBoundingClientRect(位移的计算是从左上角开始)<ul>
+<li>使用getBoundingClientRect获取到当前元素的坐标,然后需要位移的left减去元素的宽获取真正的最终位移x坐标</li>
+<li>使用getBoundingClientRect获取到当前元素的坐标,然后需要当前屏幕的高度减去元素的top再减去元素本身的高度获取到真正的最终位移y坐标,并且这个是负数,因为是从左上角往下的方向</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>关于html重绘<ul>
+<li>因为浏览器对于重绘是有要求并且是有队列完成的,这是主要为了性能,虽然动画隐藏了小球display none,但没有触发html重绘,或者说没有立即触发html重绘,所以需要手动</li>
+<li>let rf = el.offsetHeight; 这是一个手动触发html重绘的方法</li>
+<li><a href="http://www.ruanyifeng.com/blog/2015/09/web-page-performance-in-depth.html" target="_blank" rel="noopener">网页性能管理详解</a><br><a href="http://www.cnblogs.com/zichi/p/4720000.html" target="_blank" rel="noopener">高性能JavaScript 重排与重绘</a></li>
+</ul>
+</li>
+</ul>
+<p><strong>shopcart组件</strong>：<br><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">div</span> class=<span class="string">"ball-container"</span>&gt;</span><br><span class="line">      &lt;<span class="keyword">div</span> v-<span class="keyword">for</span>=<span class="string">"(ball,index) in balls"</span> :key=<span class="string">"index"</span>&gt;</span><br><span class="line">          &lt;transition name=<span class="string">"drop"</span> @<span class="keyword">before</span>-enter=<span class="string">"beforeEnter"</span> @enter=<span class="string">"enter"</span> @<span class="keyword">after</span>-enter=<span class="string">"afterEnter"</span>&gt;</span><br><span class="line">              &lt;<span class="keyword">div</span> v-show=<span class="string">"ball.show"</span> class=<span class="string">"ball"</span>&gt;</span><br><span class="line">                  &lt;<span class="keyword">div</span> class=<span class="string">"inner inner-hook"</span>&gt;&lt;/<span class="keyword">div</span>&gt;<span class="comment"> // 使用inner-hook类来单纯被js操作</span></span><br><span class="line">              &lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">          &lt;/transition&gt;</span><br><span class="line">      &lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">  &lt;/<span class="keyword">div</span>&gt;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight qml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">data () &#123;</span><br><span class="line">     <span class="keyword">return</span> &#123;</span><br><span class="line">         <span class="attribute">balls</span>: [</span><br><span class="line">                &#123;<span class="attribute">show</span>: <span class="literal">false</span>&#125;,&#123;<span class="attribute">show</span>: <span class="literal">false</span>&#125;,&#123;<span class="attribute">show</span>: <span class="literal">false</span>&#125;,&#123;<span class="attribute">show</span>: <span class="literal">false</span>&#125;,&#123;<span class="attribute">show</span>: <span class="literal">false</span>&#125;</span><br><span class="line">            ],</span><br><span class="line">        <span class="attribute">dropBalls</span>: [],</span><br><span class="line">     &#125;;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="attribute">methods</span>: &#123;</span><br><span class="line">       drop(el) &#123;</span><br><span class="line">           <span class="comment">//    console.log(el);</span></span><br><span class="line">           <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>; i&lt;<span class="keyword">this</span>.balls.length;i++)&#123;</span><br><span class="line">               <span class="keyword">let</span> ball = <span class="keyword">this</span>.balls[i];</span><br><span class="line">               <span class="keyword">if</span>(!ball.show)&#123;</span><br><span class="line">                   ball.show = <span class="literal">true</span>;</span><br><span class="line">                   ball.el = el;</span><br><span class="line">                   <span class="keyword">this</span>.dropBalls.push(ball);</span><br><span class="line">                   <span class="keyword">return</span> ;</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;,</span><br><span class="line"></span><br><span class="line"> 		beforeEnter(el) &#123;</span><br><span class="line">           <span class="keyword">let</span> count=<span class="keyword">this</span>.balls.length;</span><br><span class="line">           <span class="keyword">while</span>(count--) &#123;</span><br><span class="line">               <span class="keyword">let</span> ball = <span class="keyword">this</span>.balls[count];</span><br><span class="line">               <span class="keyword">if</span>(ball.show)&#123;</span><br><span class="line">                   <span class="keyword">let</span> <span class="built_in">rect</span> = ball.el.getBoundingClientRect();获取某个元素相对于视窗的位置集合。集合中有top, right, bottom, left等属性。</span><br><span class="line">                   <span class="comment">// console.log(rect);</span></span><br><span class="line">                   <span class="keyword">let</span> x = <span class="built_in">rect</span>.left - <span class="number">32</span>; <span class="comment">// 小球动画的起止位置差</span></span><br><span class="line">                   <span class="keyword">let</span> y = -(<span class="built_in">window</span>.innerHeight-<span class="built_in">rect</span>.top<span class="number">-22</span>);</span><br><span class="line">                   el.style.display = <span class="string">""</span>;</span><br><span class="line">                   el.style.webKitTransform=<span class="string">`translate3d(0,<span class="subst">$&#123;y&#125;</span>px,0)`</span>;</span><br><span class="line">                   el.style.transform=<span class="string">`translate3d(0,<span class="subst">$&#123;y&#125;</span>px,0)`</span>;</span><br><span class="line">                   <span class="keyword">let</span> inner = el.getElementsByClassName(<span class="string">'inner-hook'</span>)[<span class="number">0</span>];</span><br><span class="line">                   inner.style.webkitTransform = <span class="string">`translate3d(<span class="subst">$&#123;x&#125;</span>px,0,0)`</span>;</span><br><span class="line">                   inner.style.transform=<span class="string">`translate3d(<span class="subst">$&#123;x&#125;</span>px,0,0)`</span>;</span><br><span class="line">               &#125; </span><br><span class="line">           &#125;</span><br><span class="line">       &#125;,</span><br><span class="line">       enter(el) &#123;</span><br><span class="line">           <span class="comment">/* eslint-disable no-unused-vars */</span></span><br><span class="line">           <span class="keyword">let</span> rf = el.offsetHeight;<span class="comment">//手动触发浏览器重绘</span></span><br><span class="line">           <span class="keyword">this</span>.$nextTick(()=&gt;&#123; <span class="comment">// 让动画效果异步执行,提高性能</span></span><br><span class="line">               el.style.webKitTransform=<span class="string">'translate3d(0,0,0)'</span>;</span><br><span class="line">               el.style.transform=<span class="string">'translate3d(0,0,0)'</span>;</span><br><span class="line">               <span class="keyword">let</span> inner = el.getElementsByClassName(<span class="string">'inner-hook'</span>)[<span class="number">0</span>];</span><br><span class="line">               inner.style.webkitTransform = <span class="string">'translate3d(0,0,0)'</span>;</span><br><span class="line">               inner.style.transform=<span class="string">'translate3d(0,0,0)'</span>;</span><br><span class="line">           &#125;);</span><br><span class="line">       &#125;,</span><br><span class="line">       afterEnter(el) &#123;</span><br><span class="line">           <span class="keyword">let</span> ball = <span class="keyword">this</span>.dropBalls.shift(); <span class="comment">// 完成一次动画就删除一个dropBalls的小球</span></span><br><span class="line">           <span class="keyword">if</span>(ball)&#123;</span><br><span class="line">               ball.show = <span class="literal">false</span>;</span><br><span class="line">               el.style.display =<span class="string">'none'</span>;<span class="comment">// 隐藏小球</span></span><br><span class="line">           &#125;</span><br><span class="line">       </span><br><span class="line">       &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p><strong>goods组件</strong>：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;cartcontrol :food=<span class="string">"food"</span> v-on:cart-add=<span class="string">"cartAdd"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">cartcontrol</span>&gt;</span></span></span><br><span class="line">&lt;shopcart ref=<span class="string">'shopcart'</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">shopcart</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">cartAdd(el) &#123;</span><br><span class="line">   <span class="keyword">this</span>.$nextTick(<span class="function"><span class="params">()</span>=&gt;</span>&#123;<span class="comment">//体验优化，异步执行下落动画</span></span><br><span class="line">       <span class="keyword">this</span>.$refs.shopcart.drop(el);<span class="comment">//访问子组件的drop方法</span></span><br><span class="line">   &#125;);</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></p>
+<p><strong>cartcontrol组件</strong>：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">	&lt;template&gt;</span><br><span class="line">    &lt;<span class="selector-tag">div</span> class=<span class="string">"cartcontrol"</span>&gt;</span><br><span class="line">        &lt;<span class="attribute">transition</span>-group name=<span class="string">'move'</span>&gt;</span><br><span class="line">            &lt;<span class="selector-tag">div</span> key=<span class="string">"out"</span> class=<span class="string">"cart-decrease"</span> @click<span class="selector-class">.stop</span><span class="selector-class">.prevent</span>=<span class="string">"decreaseCart"</span> v-show=<span class="string">"food.count&gt;0"</span>&gt;</span><br><span class="line">                &lt;<span class="selector-tag">span</span> key=<span class="string">"in"</span> class=<span class="string">"inner icon-remove_circle_outline"</span>&gt;&lt;/span&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        &lt;/<span class="attribute">transition</span>-group&gt;</span><br><span class="line">        &lt;<span class="selector-tag">div</span> class=<span class="string">"cart-count"</span> v-show=<span class="string">"food.count&gt;0"</span>&gt;&#123;&#123;food.count&#125;&#125;&lt;/div&gt;</span><br><span class="line">        &lt;<span class="selector-tag">div</span> class=<span class="string">"cart-add icon-add_circle"</span> @click<span class="selector-class">.stop</span><span class="selector-class">.prevent</span>=<span class="string">"addCart"</span>&gt;&lt;/div&gt;</span><br><span class="line">        </span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue from <span class="string">'vue'</span>;<span class="comment">//可使用Vue.set()</span></span><br><span class="line"> export <span class="keyword">default</span> &#123;</span><br><span class="line">    props: &#123;</span><br><span class="line">        food: &#123;</span><br><span class="line">            type: Object</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods: &#123;</span><br><span class="line">        addCart(event) &#123;</span><br><span class="line">            <span class="keyword">if</span>(!event._constructed)&#123;<span class="comment">//减少网页点击时的每次双击</span></span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(!<span class="keyword">this</span>.food.count)&#123;</span><br><span class="line">                <span class="comment">// this.food.count =1;</span></span><br><span class="line">                Vue.<span class="keyword">set</span>(<span class="keyword">this</span>.food,<span class="string">'count'</span>,<span class="number">1</span>);</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">this</span>.food.count++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// this.$dispatch('cart.add',event.target);//vue1.0,把该目标节点传给父组件</span></span><br><span class="line">            <span class="keyword">this</span>.$emit(<span class="string">'cart-add'</span>,event.target);</span><br><span class="line">        &#125;,</span><br><span class="line">        decreaseCart() &#123;</span><br><span class="line">            <span class="keyword">if</span>(<span class="keyword">this</span>.food.count)&#123;</span><br><span class="line">                <span class="keyword">this</span>.food.count--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>shopcart组件中小球的样式和贝塞尔曲线：<br>可调整参数来定制曲线，前往网站：<a href="https://www.jianshu.com/p/c5e4b49b4f2d" target="_blank" rel="noopener">贝塞尔曲线</a><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">.ball-container</span><br><span class="line">    .ball</span><br><span class="line">        <span class="attribute">position</span> fixed</span><br><span class="line">        <span class="attribute">left</span> <span class="number">32px</span></span><br><span class="line">        <span class="attribute">bottom</span> <span class="number">22px</span></span><br><span class="line">        <span class="attribute">z-index</span> <span class="number">200</span></span><br><span class="line">        <span class="attribute">transition</span> all <span class="number">0.4s</span> cubic-bezier(<span class="number">0.49</span>,-<span class="number">0.29</span>,<span class="number">0.75</span>,<span class="number">0.41</span>)</span><br><span class="line">        .inner</span><br><span class="line">            <span class="attribute">width</span> <span class="number">16px</span></span><br><span class="line">            <span class="attribute">height</span> <span class="number">16px</span></span><br><span class="line">            <span class="attribute">border-radius</span> <span class="number">50%</span></span><br><span class="line">            <span class="attribute">background</span> rgb(<span class="number">0</span>,<span class="number">160</span>,<span class="number">220</span>)</span><br><span class="line">            <span class="attribute">transition</span> all <span class="number">0.4s</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+      <div>
+        
+          <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">
+            -------------本文结束
+            <i class="fa fa-paw"></i>
+            感谢您的阅读-------------
+        </div>
+    
+</div>
+        
+      </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/vue/" rel="tag"><i class="fa fa-tag"></i> vue</a>
+          
+            <a href="/tags/饿了么项目/" rel="tag"><i class="fa fa-tag"></i> 饿了么项目</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/13/vue过渡/" rel="next" title="vue2.0中transition过渡效果">
+                <i class="fa fa-chevron-left"></i> vue2.0中transition过渡效果
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/my_files/photo.jpeg"
+                alt="wtLemoney" />
+            
+              <p class="site-author-name" itemprop="name">wtLemoney</p>
+              <p class="site-description motion-element" itemprop="description">越努力越幸运</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">61</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/wtLemoney" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:anne_wting@163.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://juejin.im/timeline" target="_blank" title="掘 金">
+                      
+                        <i class="fa fa-fw fa-book"></i>掘 金</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/u/3100327901" target="_blank" title="微 博">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>微 博</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">wtLemoney</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <div class="theme-info">
+      <div class="powered-by"></div>
+      <span class="post-count">博客全站共35.6k字</span>
+    </div>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+      <div class="powered-by">
+    <i class="fa fa-user-md"></i><span id="busuanzi_container_site_pv">
+      本站访客数:<span id="busuanzi_value_site_pv"></span>
+    </span>
+    </div>
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
