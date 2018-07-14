@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="项目中经常需要将时间表示为yyyy-MM-dd hh:mm:ss的形式，如2018-06-15 12:00:00。 new Date();//Fri Jun 15 2018 19:34:20 GMT+0800 (中国标准时间) new Date(1469271264000);//Sat Jul 23 2016 18:54:24 GMT+0800 (中国标准时间) 如上，无论是取得当前的时间，还是通">
+<meta name="description" content="项目中经常需要将时间表示为yyyy-MM-dd hh:mm:ss的形式，如2018-06-15 12:00:00。">
 <meta name="keywords" content="vue,过滤器,filters,Date">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Date-格式化时间戳">
 <meta property="og:url" content="https://wtlemoney.github.io/2018/06/16/time格式化/index.html">
 <meta property="og:site_name" content="wtLemoney">
-<meta property="og:description" content="项目中经常需要将时间表示为yyyy-MM-dd hh:mm:ss的形式，如2018-06-15 12:00:00。 new Date();//Fri Jun 15 2018 19:34:20 GMT+0800 (中国标准时间) new Date(1469271264000);//Sat Jul 23 2016 18:54:24 GMT+0800 (中国标准时间) 如上，无论是取得当前的时间，还是通">
+<meta property="og:description" content="项目中经常需要将时间表示为yyyy-MM-dd hh:mm:ss的形式，如2018-06-15 12:00:00。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-16T01:55:48.193Z">
+<meta property="og:updated_time" content="2018-07-14T02:37:53.090Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Date-格式化时间戳">
-<meta name="twitter:description" content="项目中经常需要将时间表示为yyyy-MM-dd hh:mm:ss的形式，如2018-06-15 12:00:00。 new Date();//Fri Jun 15 2018 19:34:20 GMT+0800 (中国标准时间) new Date(1469271264000);//Sat Jul 23 2016 18:54:24 GMT+0800 (中国标准时间) 如上，无论是取得当前的时间，还是通">
+<meta name="twitter:description" content="项目中经常需要将时间表示为yyyy-MM-dd hh:mm:ss的形式，如2018-06-15 12:00:00。">
 
 
 
@@ -326,8 +326,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/vue/饿了么项目/" itemprop="url" rel="index">
-                    <span itemprop="name">饿了么项目</span>
+                  <a href="/categories/vue/Date/" itemprop="url" rel="index">
+                    <span itemprop="name">Date</span>
                   </a>
                 </span>
 
@@ -337,8 +337,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/vue/饿了么项目/Date/" itemprop="url" rel="index">
-                    <span itemprop="name">Date</span>
+                  <a href="/categories/vue/Date/移动点餐项目/" itemprop="url" rel="index">
+                    <span itemprop="name">移动点餐项目</span>
                   </a>
                 </span>
 
@@ -368,7 +368,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  880
+                  881
                 </span>
               
 
@@ -405,11 +405,11 @@
       
 
       
-        <p>项目中经常需要将时间表示为<code>yyyy-MM-dd hh:mm:ss</code>的形式，如2018-06-15 12:00:00。</p>
+        <p>项目中经常需要将时间表示为<code>yyyy-MM-dd hh:mm:ss</code>的形式，如2018-06-15 12:00:00。<a id="more"></a></p>
 <p><code>new Date();//Fri Jun 15 2018 19:34:20 GMT+0800 (中国标准时间)</code></p>
 <p><code>new Date(1469271264000);//Sat Jul 23 2016 18:54:24 GMT+0800 (中国标准时间)</code></p>
-<p>如上，无论是取得当前的时间，还是通过后台传来的毫秒数进行计算，都不是我们项目想要的时间格式。<br><a id="more"></a></p>
-<p>因此，总结下最近用vue实现饿了么项目中格式化时间戳的方法，好用无比。</p>
+<p>如上，无论是取得当前的时间，还是通过后台传来的毫秒数进行计算，都不是我们项目想要的时间格式。</p>
+<p>因此，总结下最近用vue实现移动点餐项目中格式化时间戳的方法，好用无比。</p>
 <h4><span id="1拿到后台的ratetime它是毫秒数的形式">1.拿到后台的rateTime，它是毫秒数的形式。</span></h4><p><code>&lt;div class=&quot;time&quot;&gt;{ rating.rateTime | formatDate }&lt;/div&gt;</code><br>以上<code>{A|B}</code>为vue.js中的过滤器，常用于格式化文本。表示A是过滤器B函数的参数。</p>
 <p>注意，这里<code>{...}</code>中的大括号其实应该为双花大括号。只是若写成双花大括号，hexo中会报<code>Template render error:...</code>的错误。</p>
 <p>其中，过滤器可以在两种场景中使用： 双花括号插值 和 v-bind表达式 。详情戳：<a href="https://vuefe.cn/v2/guide/filters.html" target="_blank" rel="noopener">过滤器</a></p>
@@ -590,7 +590,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -601,7 +601,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">62</span>
+                  <span class="site-state-item-count">63</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

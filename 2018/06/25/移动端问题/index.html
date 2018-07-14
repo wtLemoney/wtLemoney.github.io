@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="vue,fastClick,better-scroll,饿了么项目," />
+  <meta name="keywords" content="vue,fastClick,better-scroll,移动点餐项目," />
 
 
 
@@ -80,14 +80,14 @@
 
 
 <meta name="description" content="1.部分手机第三方输入法会将页面往上挤的问题 2.实现真正的1像素border 3.手机端扫码查看app页面 4.better-scroll点击事件 5.fastClick：处理移动端click事件300ms延迟 6.CSS3弹性布局文字超出部分省略号代替不起作用">
-<meta name="keywords" content="vue,fastClick,better-scroll,饿了么项目">
+<meta name="keywords" content="vue,fastClick,better-scroll,移动点餐项目">
 <meta property="og:type" content="article">
 <meta property="og:title" content="移动端项目开发中遇到的问题及解决方案">
 <meta property="og:url" content="https://wtlemoney.github.io/2018/06/25/移动端问题/index.html">
 <meta property="og:site_name" content="wtLemoney">
 <meta property="og:description" content="1.部分手机第三方输入法会将页面往上挤的问题 2.实现真正的1像素border 3.手机端扫码查看app页面 4.better-scroll点击事件 5.fastClick：处理移动端click事件300ms延迟 6.CSS3弹性布局文字超出部分省略号代替不起作用">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-14T02:29:00.334Z">
+<meta property="og:updated_time" content="2018-07-14T02:34:51.257Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="移动端项目开发中遇到的问题及解决方案">
 <meta name="twitter:description" content="1.部分手机第三方输入法会将页面往上挤的问题 2.实现真正的1像素border 3.手机端扫码查看app页面 4.better-scroll点击事件 5.fastClick：处理移动端click事件300ms延迟 6.CSS3弹性布局文字超出部分省略号代替不起作用">
@@ -407,7 +407,7 @@
 <h3><span id="4better-scroll点击事件">4.better-scroll点击事件</span></h3><p>问题：PC页面时,点击不会被 better-scroll 阻止事件,初始化,给 better-scroll 派发事件,使移动端拥有点击事件,因此切换到PC端时,点击事件会被执行两次</p>
 <p>方法：在点击时,传 event 变量, Better-scroll 插件中的 event 事件和原生 js 的 event 有属性上得区别, Better-scroll 插件派发的事件时 event_constructed 为true,原生点击事件是没有这个属性的<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">selectMenu(index,<span class="keyword">event</span>)&#123;</span><br><span class="line">    <span class="keyword">if</span>(!<span class="keyword">event</span>._constructed)&#123;<span class="comment">//如果不存在这个属性,则不执行下面的函数</span></span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h3><span id="5fastclick处理移动端click事件300ms延迟">5.fastClick：处理移动端click事件300ms延迟</span></h3><p>先执行安装fastclick: <code>npm install fastclick --save</code></p>
-<p>然后在main.js中引入，并绑定到body:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> FastClick <span class="keyword">from</span> <span class="string">'fastclick'</span></span><br><span class="line"></span><br><span class="line">FastClick.attach(<span class="built_in">document</span>.body);</span><br></pre></td></tr></table></figure></p>
+<p>然后在main.js中引入，并绑定到body:<br><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> FastClick <span class="keyword">from</span> <span class="string">'fastclick'</span></span><br><span class="line"></span><br><span class="line">FastClick.attach(<span class="built_in">document</span>.body);</span><br></pre></td></tr></table></figure></p>
 <p>不应用fastclick的场景：<br>1）桌面浏览器<br>2）若视口元标签<code>&lt;meta&gt;</code>中设置了<code>width=device-width</code>，Android上的Chrome 32+会禁用300ms延时</p>
 <h3><span id="6css3弹性布局文字超出部分省略号代替不起作用">6.CSS3弹性布局文字超出部分省略号代替不起作用</span></h3><p>父元素设置为<code>flex：1</code>时，当子元素文字长度超出宽度时，省略符号不显示，即<code>text-overflow: ellipsis;</code>不起作用。<br>解决办法：在父元素初设置min-width属性或width属性。</p>
 <figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">div</span> <span class="built_in">class</span>=<span class="string">"parent"</span>&gt;</span><br><span class="line">    &lt;<span class="keyword">div</span> <span class="built_in">class</span>=<span class="string">"children"</span>&gt;</span><br><span class="line">        &lt;<span class="keyword">div</span> <span class="built_in">class</span>=<span class="string">"text"</span>&gt;</span><br><span class="line">            这是一个有效果的文字超出用省略号代替的例子，这是一个有效果的文字超出用省略号代替的例子</span><br><span class="line">        &lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">    &lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">&lt;/<span class="keyword">div</span>&gt;</span><br></pre></td></tr></table></figure>
@@ -449,7 +449,7 @@
           
             <a href="/tags/better-scroll/" rel="tag"><i class="fa fa-tag"></i> better-scroll</a>
           
-            <a href="/tags/饿了么项目/" rel="tag"><i class="fa fa-tag"></i> 饿了么项目</a>
+            <a href="/tags/移动点餐项目/" rel="tag"><i class="fa fa-tag"></i> 移动点餐项目</a>
           
         </div>
       
@@ -577,7 +577,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -588,7 +588,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">62</span>
+                  <span class="site-state-item-count">63</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
