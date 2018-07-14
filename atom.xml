@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wtlemoney.github.io/"/>
-  <updated>2018-06-28T15:11:04.620Z</updated>
+  <updated>2018-07-14T02:29:00.334Z</updated>
   <id>https://wtlemoney.github.io/</id>
   
   <author>
@@ -18,10 +18,10 @@
   
   <entry>
     <title>移动端项目开发中遇到的问题及解决方案</title>
-    <link href="https://wtlemoney.github.io/2018/06/22/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%97%AE%E9%A2%98/"/>
-    <id>https://wtlemoney.github.io/2018/06/22/移动端问题/</id>
-    <published>2018-06-22T15:05:40.000Z</published>
-    <updated>2018-06-28T15:11:04.620Z</updated>
+    <link href="https://wtlemoney.github.io/2018/06/25/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%97%AE%E9%A2%98/"/>
+    <id>https://wtlemoney.github.io/2018/06/25/移动端问题/</id>
+    <published>2018-06-25T15:05:40.000Z</published>
+    <updated>2018-07-14T02:29:00.334Z</updated>
     
     <content type="html"><![CDATA[<!-- toc --><ul><li><a href="#1部分手机第三方输入法会将页面往上挤的问题">1.部分手机第三方输入法会将页面往上挤的问题</a></li><li><a href="#2实现真正的1像素border">2.实现真正的1像素border</a></li><li><a href="#3手机端扫码查看app页面">3.手机端扫码查看app页面</a></li><li><a href="#4better-scroll点击事件">4.better-scroll点击事件</a></li><li><a href="#5fastclick处理移动端click事件300ms延迟">5.fastClick：处理移动端click事件300ms延迟</a></li><li><a href="#6css3弹性布局文字超出部分省略号代替不起作用">6.CSS3弹性布局文字超出部分省略号代替不起作用</a></li></ul><!-- tocstop --><a id="more"></a><h3><span id="1部分手机第三方输入法会将页面往上挤的问题">1.部分手机第三方输入法会将页面往上挤的问题</span></h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//特定需求页面，比如评论页面，输入框在底部之类的</span></span><br><span class="line"><span class="keyword">const</span> interval=setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="built_in">document</span>.body.scrollTop = <span class="number">0</span>;</span><br><span class="line">&#125;,<span class="number">100</span>);</span><br><span class="line"><span class="comment">//注意关闭页面或者销毁组件的时候记得清空定时器</span></span><br><span class="line">clearInterval(interval);</span><br></pre></td></tr></table></figure><h3><span id="2实现真正的1像素border">2.实现真正的1像素border</span></h3><p>设备像素比知识：张鑫旭大神的<a href="http://www.zhangxinxu.com/wordpress/2012/08/window-devicepixelratio/" target="_blank" rel="noopener">设备像素比devicePixelRatio简单介绍</a>，这篇也不错：<a href="https://juejin.im/entry/56ce78eac24aa800545af276" target="_blank" rel="noopener">移动端高清、多屏适配方案</a></p><p>由于设备像素比存在的原因，我们在处理设计图的一些边框时，对于1px的border，如果在代码里将其写死，可能在不同设备像素比的设备中，粗细不一样，尤其是在目前大多数设备像素比为2的设备中，过粗。</p><p>利用媒体查询和<code>min-device-pixel-ratio</code>就可以轻松的搞定，实现货真价实的1px border。<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//stylus代码</span></span><br><span class="line"><span class="attribute">border</span>-<span class="number">1px</span>(<span class="variable">$color</span>)</span><br><span class="line">  <span class="attribute">position</span>: relative</span><br><span class="line">  &amp;::after</span><br><span class="line">    <span class="attribute">display</span>: block</span><br><span class="line">    <span class="attribute">position</span>: absolute</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">0</span></span><br><span class="line">    <span class="attribute">bottom</span>: <span class="number">0</span> //这里距离底部border,若是顶部，这里改为top :<span class="number">0</span></span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span></span><br><span class="line">    <span class="attribute">border-top</span>: <span class="number">1px</span> solid <span class="variable">$color</span>  //顶部，改为border-bottom</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">' '</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 1px border问题解决,缩放处理</span></span><br><span class="line">@media (-webkit-min-device-pixel-ratio: <span class="number">1.5</span>),(min-device-pixel-ratio: <span class="number">1.5</span>)</span><br><span class="line">  .<span class="attribute">border</span>-<span class="number">1px</span></span><br><span class="line">    &amp;::after</span><br><span class="line">      -webkit-<span class="attribute">transform</span>: scaleY(<span class="number">0.7</span>)</span><br><span class="line">      <span class="attribute">transform</span>: scaleY(<span class="number">0.7</span>)</span><br><span class="line"></span><br><span class="line">@media (-webkit-min-device-pixel-ratio: <span class="number">2</span>),(min-device-pixel-ratio: <span class="number">2</span>)</span><br><span class="line">  .<span class="attribute">border</span>-<span class="number">1px</span></span><br><span class="line">    &amp;::after</span><br><span class="line">      -webkit-<span class="attribute">transform</span>: scaleY(<span class="number">0.5</span>)</span><br><span class="line">      <span class="attribute">transform</span>: scaleY(<span class="number">0.5</span>)</span><br></pre></td></tr></table></figure></p><h3><span id="3手机端扫码查看app页面">3.手机端扫码查看app页面</span></h3><ul><li>不能用localhost：xxx的地址，要把localhost改为本机ip地址,即 本机ip:xxx</li><li>复制 本机ip:xxx 到 <a href="https://cli.im/" target="_blank" rel="noopener">草料二维码</a> 网站，生成相应二维码</li><li>手机可以看到相应的页面</li></ul><p>注意：手机跟电脑需要同一个局域网</p><h3><span id="4better-scroll点击事件">4.better-scroll点击事件</span></h3><p>问题：PC页面时,点击不会被 better-scroll 阻止事件,初始化,给 better-scroll 派发事件,使移动端拥有点击事件,因此切换到PC端时,点击事件会被执行两次</p><p>方法：在点击时,传 event 变量, Better-scroll 插件中的 event 事件和原生 js 的 event 有属性上得区别, Better-scroll 插件派发的事件时 event_constructed 为true,原生点击事件是没有这个属性的<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">selectMenu(index,<span class="keyword">event</span>)&#123;</span><br><span class="line">    <span class="keyword">if</span>(!<span class="keyword">event</span>._constructed)&#123;<span class="comment">//如果不存在这个属性,则不执行下面的函数</span></span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><h3><span id="5fastclick处理移动端click事件300ms延迟">5.fastClick：处理移动端click事件300ms延迟</span></h3><p>先执行安装fastclick: <code>npm install fastclick --save</code></p><p>然后在main.js中引入，并绑定到body:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> FastClick <span class="keyword">from</span> <span class="string">'fastclick'</span></span><br><span class="line"></span><br><span class="line">FastClick.attach(<span class="built_in">document</span>.body);</span><br></pre></td></tr></table></figure></p><p>不应用fastclick的场景：<br>1）桌面浏览器<br>2）若视口元标签<code>&lt;meta&gt;</code>中设置了<code>width=device-width</code>，Android上的Chrome 32+会禁用300ms延时</p><h3><span id="6css3弹性布局文字超出部分省略号代替不起作用">6.CSS3弹性布局文字超出部分省略号代替不起作用</span></h3><p>父元素设置为<code>flex：1</code>时，当子元素文字长度超出宽度时，省略符号不显示，即<code>text-overflow: ellipsis;</code>不起作用。<br>解决办法：在父元素初设置min-width属性或width属性。</p><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">div</span> <span class="built_in">class</span>=<span class="string">"parent"</span>&gt;</span><br><span class="line">    &lt;<span class="keyword">div</span> <span class="built_in">class</span>=<span class="string">"children"</span>&gt;</span><br><span class="line">        &lt;<span class="keyword">div</span> <span class="built_in">class</span>=<span class="string">"text"</span>&gt;</span><br><span class="line">            这是一个有效果的文字超出用省略号代替的例子，这是一个有效果的文字超出用省略号代替的例子</span><br><span class="line">        &lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">    &lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">&lt;/<span class="keyword">div</span>&gt;</span><br></pre></td></tr></table></figure><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span>&#123;</span><br><span class="line">       <span class="attribute">display</span>: flex;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="selector-class">.children</span>&#123;</span><br><span class="line">       <span class="attribute">flex</span>: <span class="number">1</span>;</span><br><span class="line">       <span class="comment">/*min-width: 0;*/</span></span><br><span class="line">   &#125;</span><br><span class="line">   <span class="selector-class">.text-deal</span>&#123;</span><br><span class="line">       <span class="attribute">white-space</span>: nowrap;</span><br><span class="line">       <span class="attribute">overflow</span>: hidden;</span><br><span class="line">       <span class="attribute">text-overflow</span>: ellipsis;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>]]></content>
     
@@ -40,16 +40,16 @@
     
     </summary>
     
-      <category term="vue" scheme="https://wtlemoney.github.io/categories/vue/"/>
-    
-      <category term="fastClick" scheme="https://wtlemoney.github.io/categories/vue/fastClick/"/>
-    
-      <category term="better-scroll" scheme="https://wtlemoney.github.io/categories/vue/fastClick/better-scroll/"/>
-    
-      <category term="饿了么项目" scheme="https://wtlemoney.github.io/categories/vue/fastClick/better-scroll/%E9%A5%BF%E4%BA%86%E4%B9%88%E9%A1%B9%E7%9B%AE/"/>
+      <category term="移动端问题" scheme="https://wtlemoney.github.io/categories/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%97%AE%E9%A2%98/"/>
     
     
-      <category term="问题&amp;解决" scheme="https://wtlemoney.github.io/tags/%E9%97%AE%E9%A2%98-%E8%A7%A3%E5%86%B3/"/>
+      <category term="vue" scheme="https://wtlemoney.github.io/tags/vue/"/>
+    
+      <category term="fastClick" scheme="https://wtlemoney.github.io/tags/fastClick/"/>
+    
+      <category term="better-scroll" scheme="https://wtlemoney.github.io/tags/better-scroll/"/>
+    
+      <category term="饿了么项目" scheme="https://wtlemoney.github.io/tags/%E9%A5%BF%E4%BA%86%E4%B9%88%E9%A1%B9%E7%9B%AE/"/>
     
   </entry>
   
@@ -259,13 +259,13 @@
       <category term="ajax" scheme="https://wtlemoney.github.io/categories/%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92/ajax/"/>
     
     
-      <category term="ajax" scheme="https://wtlemoney.github.io/tags/ajax/"/>
-    
-      <category term="JSON" scheme="https://wtlemoney.github.io/tags/JSON/"/>
-    
       <category term="mock.js" scheme="https://wtlemoney.github.io/tags/mock-js/"/>
     
       <category term="easy mock" scheme="https://wtlemoney.github.io/tags/easy-mock/"/>
+    
+      <category term="ajax" scheme="https://wtlemoney.github.io/tags/ajax/"/>
+    
+      <category term="JSON" scheme="https://wtlemoney.github.io/tags/JSON/"/>
     
       <category term="前后端交互，数据模拟" scheme="https://wtlemoney.github.io/tags/%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92%EF%BC%8C%E6%95%B0%E6%8D%AE%E6%A8%A1%E6%8B%9F/"/>
     
@@ -294,9 +294,9 @@
       <category term="VScode" scheme="https://wtlemoney.github.io/categories/VScode/"/>
     
     
-      <category term="vue" scheme="https://wtlemoney.github.io/tags/vue/"/>
-    
       <category term="VScode" scheme="https://wtlemoney.github.io/tags/VScode/"/>
+    
+      <category term="vue" scheme="https://wtlemoney.github.io/tags/vue/"/>
     
       <category term="代码段" scheme="https://wtlemoney.github.io/tags/%E4%BB%A3%E7%A0%81%E6%AE%B5/"/>
     
@@ -421,6 +421,8 @@
       <category term="SCSS" scheme="https://wtlemoney.github.io/categories/CSS/%E9%A2%84%E5%A4%84%E7%90%86%E5%99%A8/SCSS/"/>
     
     
+      <category term="工具" scheme="https://wtlemoney.github.io/tags/%E5%B7%A5%E5%85%B7/"/>
+    
       <category term="CSS" scheme="https://wtlemoney.github.io/tags/CSS/"/>
     
       <category term="SCSS" scheme="https://wtlemoney.github.io/tags/SCSS/"/>
@@ -428,8 +430,6 @@
       <category term="预处理器" scheme="https://wtlemoney.github.io/tags/%E9%A2%84%E5%A4%84%E7%90%86%E5%99%A8/"/>
     
       <category term="编译" scheme="https://wtlemoney.github.io/tags/%E7%BC%96%E8%AF%91/"/>
-    
-      <category term="工具" scheme="https://wtlemoney.github.io/tags/%E5%B7%A5%E5%85%B7/"/>
     
       <category term="函数" scheme="https://wtlemoney.github.io/tags/%E5%87%BD%E6%95%B0/"/>
     
@@ -483,6 +483,8 @@
       <category term="SCSS" scheme="https://wtlemoney.github.io/categories/CSS/%E9%A2%84%E5%A4%84%E7%90%86%E5%99%A8/SCSS/"/>
     
     
+      <category term="工具" scheme="https://wtlemoney.github.io/tags/%E5%B7%A5%E5%85%B7/"/>
+    
       <category term="CSS" scheme="https://wtlemoney.github.io/tags/CSS/"/>
     
       <category term="SCSS" scheme="https://wtlemoney.github.io/tags/SCSS/"/>
@@ -490,8 +492,6 @@
       <category term="预处理器" scheme="https://wtlemoney.github.io/tags/%E9%A2%84%E5%A4%84%E7%90%86%E5%99%A8/"/>
     
       <category term="编译" scheme="https://wtlemoney.github.io/tags/%E7%BC%96%E8%AF%91/"/>
-    
-      <category term="工具" scheme="https://wtlemoney.github.io/tags/%E5%B7%A5%E5%85%B7/"/>
     
   </entry>
   
@@ -710,9 +710,9 @@
       <category term="VScode" scheme="https://wtlemoney.github.io/categories/VScode/"/>
     
     
-      <category term="工具" scheme="https://wtlemoney.github.io/tags/%E5%B7%A5%E5%85%B7/"/>
-    
       <category term="VScode" scheme="https://wtlemoney.github.io/tags/VScode/"/>
+    
+      <category term="工具" scheme="https://wtlemoney.github.io/tags/%E5%B7%A5%E5%85%B7/"/>
     
       <category term="编辑器" scheme="https://wtlemoney.github.io/tags/%E7%BC%96%E8%BE%91%E5%99%A8/"/>
     
