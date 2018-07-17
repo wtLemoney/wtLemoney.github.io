@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="碎碎念," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="1.ASCII码、Unicode码和UTF-8 2.Generator函数 3.Web Worker 4.Fiddler 5.模块化 6.浏览器数据库IndexedDB 7.SQL和NoSQL 8.DDOS攻击 9.常用命令行 10.vim程序编辑器简单操作">
+<meta name="keywords" content="碎碎念">
+<meta property="og:type" content="article">
+<meta property="og:title" content="本周学习杂记（一）">
+<meta property="og:url" content="https://wtlemoney.github.io/2018/06/24/杂记1/index.html">
+<meta property="og:site_name" content="wtLemoney">
+<meta property="og:description" content="1.ASCII码、Unicode码和UTF-8 2.Generator函数 3.Web Worker 4.Fiddler 5.模块化 6.浏览器数据库IndexedDB 7.SQL和NoSQL 8.DDOS攻击 9.常用命令行 10.vim程序编辑器简单操作">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://s1.ax1x.com/2018/07/15/PMjYa6.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/07/14/PMGuU1.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2018/07/14/PMJnsg.jpg">
+<meta property="og:updated_time" content="2018-07-17T14:53:09.411Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="本周学习杂记（一）">
+<meta name="twitter:description" content="1.ASCII码、Unicode码和UTF-8 2.Generator函数 3.Web Worker 4.Fiddler 5.模块化 6.浏览器数据库IndexedDB 7.SQL和NoSQL 8.DDOS攻击 9.常用命令行 10.vim程序编辑器简单操作">
+<meta name="twitter:image" content="https://s1.ax1x.com/2018/07/15/PMjYa6.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":true,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://wtlemoney.github.io/2018/06/24/杂记1/"/>
+
+
+
+
+
+  <title>本周学习杂记（一） | wtLemoney</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/wtLemoney" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">wtLemoney</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">To be a happy&lovely programmer...</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://wtlemoney.github.io/2018/06/24/杂记1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wtLemoney">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/my_files/photo.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wtLemoney">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">本周学习杂记（一）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-24T22:50:05+08:00">
+                2018-06-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习杂记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习杂记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,445
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <!-- toc -->
+<ul>
+<li><a href="#1ascii码-unicode码和utf-8">1.ASCII码、Unicode码和UTF-8</a></li>
+<li><a href="#2generator函数">2.Generator函数</a></li>
+<li><a href="#3web-worker">3.Web Worker</a></li>
+<li><a href="#4fiddler">4.Fiddler</a></li>
+<li><a href="#5模块化">5.模块化</a></li>
+<li><a href="#6浏览器数据库indexeddb">6.浏览器数据库IndexedDB</a></li>
+<li><a href="#7sql和nosql">7.SQL和NoSQL</a></li>
+<li><a href="#8ddos攻击">8.DDOS攻击</a></li>
+<li><a href="#9常用命令行">9.常用命令行</a></li>
+<li><a href="#10vim程序编辑器简单操作">10.vim程序编辑器简单操作</a></li>
+</ul>
+<!-- tocstop -->
+<a id="more"></a>
+<h3><span id="1ascii码-unicode码和utf-8">1.ASCII码、Unicode码和UTF-8</span></h3><p>要想打开一个文本文件，得先知道它的编码方式，否则用错误的编码方式解读就会出现乱码。</p>
+<p>ASCII码：英文字符与二进制之间做的统一规定，只支持英文字符。<br>Unicode码：解决ASCII码只支持英文字符的问题，把所有语言都统一到一套编码里，乱码问题迎刃而解。<br>UTF-8：一种Unicode的实现方式。若文本全是英文，用Unicode编码比ASCII码需要多一倍的存储空间，传输上也不划算，因而出现了UTF-8,即‘可变长编码’。</p>
+<p>简体中文常见的编码方式是GB2312。</p>
+<p><a href="http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html" target="_blank" rel="noopener">详细的介绍 Unicode与UTF-8的转换&gt;&gt;</a></p>
+<h3><span id="2generator函数">2.Generator函数</span></h3><p>ES6提供的一种异步编程解决方案。</p>
+<p>执行该函数会返回一个遍历器对象。通过调用遍历器对象的next方法，使指针移向下一个对象。每次调用next方法，会返回有value和done两个属性的对象。next方法的参数表示上一条yield语句的返回值。</p>
+<p>与正常函数的区别：可以返回一系列的值，因为可以有任意多条yield语句。</p>
+<p>意义：将异步操作同步化表达，改写回调函数。</p>
+<h3><span id="3web-worker">3.Web Worker</span></h3><p>为JavaScript创造多线程环境，允许主线程创建Worker线程，并分配任务让其运行。</p>
+<p>实例：Worker线程可以完成轮询（有时，浏览器需要轮询服务器状态，以便第一时间得知状态改变，这个工作可以防止Worker里面）</p>
+<p><a href="http://www.ruanyifeng.com/blog/2018/07/web-worker.html" target="_blank" rel="noopener">详情&gt;&gt;</a></p>
+<h3><span id="4fiddler">4.Fiddler</span></h3><p>一个http协议调试代理工具，能够监听所有来往数据。<a href="https://www.cnblogs.com/shijingxiang/articles/4452624.html" target="_blank" rel="noopener">使用&gt;&gt;</a></p>
+<p>对前端开发者来说，Fiddler可以用反向代理的身份帮助调试线上的网站，移动端网页也可以。通过fiddler,可以用本地的css,js，图片甚至是html替代网上的资源，能够轻松解决跨域问题。</p>
+<p>针对Windows系统。<br>ios系统请使用Charles。</p>
+<h3><span id="5模块化">5.模块化</span></h3><p>意义：解耦，可并行开发</p>
+<p>模块化方案有：AMD、CMD、CommonJS、ES6。经常使用CommonJS+webpack</p>
+<p>模块加载实质：CommonJS模块输出的是一个值的拷贝，一旦输出一个值，模块内部的变化就影响不到这个值。ES6模块输出的是值的引用，模块里面的变量绑定其所在的模块，导入的模块是只读的，可以对其添加属性，但是对它重新赋值会报错。</p>
+<p>CommonJS运行时加载，ES6编译时加载。</p>
+<h3><span id="6浏览器数据库indexeddb">6.浏览器数据库IndexedDB</span></h3><p>浏览器提供的本地数据库，允许存储大量数据。可以被网页脚本创建和操作。</p>
+<p>不属于SQL,更接近NoSQL。</p>
+<p>主要特点：<br>1）键值对储存。<br>2）同源限制。<br>3）异步。<br>4）支持二进制存储。<br>5）储存空间大。</p>
+<p>IndexedDB的一些简单操作见戳 <a href="http://www.ruanyifeng.com/blog/2018/07/indexeddb.html" target="_blank" rel="noopener">这里&gt;&gt;</a></p>
+<h3><span id="7sql和nosql">7.SQL和NoSQL</span></h3><p>SQL：Structured Query Language，指关系型数据库。主要代表有SQL Server，Oracle，MySQL<br>NoSQL：Not Only SQL，泛指非关系型数据库。主要代表有MongoDB，Redis，CouchDB</p>
+<p>区别：SQL数据存储在特定结构的表中，通常是以数据库形式存储数据；NoSQL更加灵活和可扩展，存储方式可以是JSON文档、哈希表或其他方式。</p>
+<h3><span id="8ddos攻击">8.DDOS攻击</span></h3><p>DDoS:Distributed Denial of Service，分布式拒绝服务攻击。<br>什么是DDOS攻击？在短时间内发起大量合法的请求，耗尽服务器的资源，无法响应正常的访问的一类攻击。</p>
+<p>前不久阮一峰老师的个人网站就遭受了DDOS攻击的一种：cc攻击。就是简单粗暴地送来大量正常的请求，超出服务器的最大承受量，导致宕机。针对这种cc攻击，阮一峰老师专门写了一篇博文针对该类攻击的防范教程，<a href="http://www.ruanyifeng.com/blog/2018/06/ddos.html" target="_blank" rel="noopener">详情戳&gt;&gt;</a></p>
+<p>针对防范这类cc攻击，我这里就简单总结一下软老师的博客。<br>1）备份网站：有一个临时的备份网站或静态的临时主页。<br>2）<strong>HTTP请求拦截</strong>：对付有特征的恶意请求。<br>3）带宽扩容：由于真正的DDOS攻击是没有特征的，可以考虑这个耗money的方法。<br>4）<strong>CDN</strong>：带宽扩容的一种，指将网站的静态内容分发到多个服务器，用户就近访问，提高速度。网站内容存放在源服务器，CDN 上面是内容的缓存。用户只允许访问 CDN，如果内容不在 CDN 上，CDN 再向源服务器发出请求。</p>
+<h3><span id="9常用命令行">9.常用命令行</span></h3><p><img src="https://s1.ax1x.com/2018/07/15/PMjYa6.png" width="855" height="588"></p>
+<h3><span id="10vim程序编辑器简单操作">10.vim程序编辑器简单操作</span></h3><p><img src="https://s1.ax1x.com/2018/07/14/PMGuU1.jpg" width="620" height="400"></p>
+<p>【一般模式切换到编辑模式按钮说明】<br>i：在光标前插入<br>I：在行首插入<br>a：在光标后插入<br>A：在行末插入<br>s：删除光标所在的字符再插入<br>S：删除光标所在行再插入<br>o：在当前行之下新建行<br>O：在当前行之前新建行</p>
+<p>【一般模式切换到命令行模式按钮说明】<br>:q：离开vi<br>:q!：若曾修改过文件，又不想存储，使用 ！为强制离开不保存<br>:wq：回车后离开，若为 “:wq!”则为强制保存后离开<br>ZZ：若文件没有改动，则不保存离开，若文件已经被更改过，则保存后离开<br>:w[filename]：将编辑的数据保存成另一个文件，类似于另存文件</p>
+<p>vim移动光标大全见： <a href="https://blog.csdn.net/lin20044140410/article/details/50111865" target="_blank" rel="noopener">命令大全&gt;&gt;</a></p>
+<p><img src="https://s1.ax1x.com/2018/07/14/PMJnsg.jpg" width="620" height="400"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+      <div>
+        
+          <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">
+            -------------本文结束
+            <i class="fa fa-paw"></i>
+            感谢您的阅读-------------
+        </div>
+    
+</div>
+        
+      </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/碎碎念/" rel="tag"><i class="fa fa-tag"></i> 碎碎念</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/06/16/time格式化/" rel="next" title="Date-格式化时间戳">
+                <i class="fa fa-chevron-left"></i> Date-格式化时间戳
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/01/移动端问题/" rel="prev" title="移动端项目开发中遇到的问题及解决方案">
+                移动端项目开发中遇到的问题及解决方案 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/my_files/photo.jpeg"
+                alt="wtLemoney" />
+            
+              <p class="site-author-name" itemprop="name">wtLemoney</p>
+              <p class="site-description motion-element" itemprop="description">越努力越幸运</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">61</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/wtLemoney" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:anne_wting@163.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://juejin.im/timeline" target="_blank" title="掘 金">
+                      
+                        <i class="fa fa-fw fa-book"></i>掘 金</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/u/3100327901" target="_blank" title="微 博">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>微 博</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">wtLemoney</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <div class="theme-info">
+      <div class="powered-by"></div>
+      <span class="post-count">博客全站共38.9k字</span>
+    </div>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+      <div class="powered-by">
+    <i class="fa fa-user-md"></i><span id="busuanzi_container_site_pv">
+      本站访客数:<span id="busuanzi_value_site_pv"></span>
+    </span>
+    </div>
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
