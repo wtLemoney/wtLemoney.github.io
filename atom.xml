@@ -52,8 +52,8 @@
     <title>本周学习杂记（二）</title>
     <link href="https://wtlemoney.github.io/2018/07/08/%E6%9D%82%E8%AE%B02/"/>
     <id>https://wtlemoney.github.io/2018/07/08/杂记2/</id>
-    <published>2018-07-08T10:03:43.000Z</published>
-    <updated>2018-07-26T15:36:29.454Z</updated>
+    <published>2018-07-08T10:13:43.000Z</published>
+    <updated>2018-07-27T14:34:16.967Z</updated>
     
     <content type="html"><![CDATA[<!-- toc --><ul><li><a href="#1comet和web-sockets-sse">1.Comet和Web Sockets、SSE</a></li><li><a href="#2video视频倍速播放实现">2.video视频倍速播放实现</a></li><li><a href="#3flutter">3.Flutter</a></li><li><a href="#4typescript">4.TypeScript</a></li><li><a href="#5高并发流量控制">5.高并发流量控制</a></li><li><a href="#6sql注入">6.SQL注入</a></li><li><a href="#7ipv4和ipv6">7.IPv4和IPv6</a></li><li><a href="#8nginx反向代理解决跨域问题">8.nginx反向代理解决跨域问题</a></li><li><a href="#9提高cookie安全性的几种方式">9.提高cookie安全性的几种方式</a></li></ul><!-- tocstop --><a id="more"></a><h3><span id="1comet和web-sockets-sse">1.Comet和Web Sockets、SSE</span></h3><p>一种服务器向页面推送数据的技术。实现方式：长轮询和流。</p><p>长轮询：页面发起一个到服务器的请求，然后服务器一直保持连接打开，直到有数据可发送。发送完数据后，浏览器关闭连接，随即又发起一个到服务器的新请求。这一过程在页面打开期间一直持续不断。<br>短轮询：浏览器每隔一段时间向浏览器发送http请求，服务器端在收到请求后，不论是否有数据更新，都直接进行响应。缺点是不断建立http连接，严重浪费了服务器端和客户端的资源。</p><p>HTTP流：浏览器向服务器发送一个请求，而服务器保持打开，然后周期性的向浏览器发送数据。</p><p>Web Sockets：Html5定义的一个新协议。在一个单独的持久连接上提供全双工、双向通信。好处：能够在客户端和服务器之间发送非常少量的数据，而不必担心HTTTP那样字节级的开销，非常适合移动应用。缺点：制定协议的时间比制定js API的时间还要长。</p><p>首先需要http简历一个连接，连接一旦建立，客户端和服务器端就处于平等的地位，可以相互发送数据，不存在请求和响应的区别。</p><p>SSE：是HTML5新增的功能，全称为Server-Sent Events。它可以允许服务推送数据到客户端。SSE在本质上就与之前的长轮询、短轮询不同，虽然都是基于http协议的，但是轮询需要客户端先发送请求。而SSE最大的特点就是不需要客户端发送请求，可以实现只要服务器端数据有更新，就可以马上发送到客户端。</p><p>它不需要建立或保持大量的客户端发往服务器端的请求，节约了很多资源，提升应用性能。</p><h3><span id="2video视频倍速播放实现">2.video视频倍速播放实现</span></h3><p>实现：使用playbackRate属性控制。playbackRate属性是个可读写的控制音视频播放速率的属性。</p><p>倍速播放是HTML5 video视频播放天然支持功能。<br>代码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> select = <span class="built_in">document</span>.querySelector(<span class="string">'select'</span>);</span><br><span class="line"><span class="keyword">var</span> button = <span class="built_in">document</span>.querySelector(<span class="string">'button'</span>);</span><br><span class="line"><span class="comment">// 视频元素</span></span><br><span class="line"><span class="keyword">var</span> video = <span class="built_in">document</span>.querySelector(<span class="string">'video'</span>);</span><br><span class="line"><span class="comment">// 改变播放速率</span></span><br><span class="line">select.addEventListener(<span class="string">'change'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    video.playbackRate = <span class="keyword">this</span>.value;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 点击播放按钮</span></span><br><span class="line">button.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    video.play();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p><h3><span id="3flutter">3.Flutter</span></h3><p>Flutter是Google的移动UI框架，用以帮助开发者在IOS和Android两个平台开发高质量原生应用的全新移动UI框架。<br>闲鱼是国内最早使用 Flutter 的 App 之一。</p><p><a href="https://juejin.im/post/5ad6b8db6fb9a028c42eb90a" target="_blank" rel="noopener">Flutter简介 &gt;&gt;</a></p><h3><span id="4typescript">4.TypeScript</span></h3><p>由微软开发的自由和开源的编程语言，它是JavaScript的一个超集，扩展了JavaScript的语法。使我们能够实现目前版本的JavaScript不能直接使用的特性，并且之后还能转换为JavaScript文件使浏览器可以识别；</p><p>语法特性：</p><blockquote><p>类 Classes<br>接口 Interfaces<br>模块 Modules<br>类型注解 Type annotations<br>编译时类型检查 Compile time type checking<br>Arrow 函数</p></blockquote><h3><span id="5高并发流量控制">5.高并发流量控制</span></h3><p>应对大流量的常见手段</p><p>缓存：减少DB访问。<br>降级：指不是核心链路，那么就把这个服务降级掉。<br>限流：尽可能提升系统的吞吐量。</p><p>限流的常用方式：计数器、滑动窗口、漏桶、令牌桶。</p><p>计数器：在一段时间内，进行计数，与阀值进行比较，到了时间临界点，将计数器清0。<br>滑动窗口：把固定时间片，进行划分，并且随着时间的流逝，进行移动，这样就巧妙的避开了计数器的临界点问题。<br>漏桶：有一个固定的桶，进水的速率是不确定的，但是出水的速率是恒定的，当水满的时候是会溢出的。—意味着如果瞬时大流量的话，将有大部分请求被丢弃掉（也就是所谓的溢出）。<br>令牌桶：生成令牌的速度是恒定的，而请求去拿令牌是没有速度限制的。这意味，面对瞬时大流量，该算法可以在短时间内请求拿到大量令牌，而且拿令牌的过程并不是消耗很大的事情。</p><h3><span id="6sql注入">6.SQL注入</span></h3><p>SQL是一种告诉数据库需要做什么的特殊的语言。</p><p>SQL注入是一种将SQL代码添加到输入参数中，传递到服务器解析并执行的一种攻击手法。</p><p>发生原因：一个查询（一系列的指令）会有多个参数（数据）插入其中，而这些参数被当做指令执行从而导致异常。因此，一个恶意的用户可以利用这样的漏洞来让数据库返回所有的用户的信息。</p><p>如何避免：<br>1）严格检查输入变量的类型和格式<br>2）过滤和转义特殊字符<br>3）利用mysql的预编译机制。即把指令和数据用一种数据库（机器人）容易区分的方式分开。 通常我们会将数据和指令分开发送。</p><p>攻击场景：表单输入数据提交时，若没有进行特殊字符过滤就把用户提交过来的数据直接拿去执行，很容易造成SQL注入。</p><h3><span id="7ipv4和ipv6">7.IPv4和IPv6</span></h3><p>4和6表示协议的版本号。</p><p>IPv4：地址位数为32位，也就是最多有2的32次方的电脑可以联到Internet上。</p><p>IPv6：采用128位地址长度，几乎可以不受限制地提供地址。</p><p>区别：<br><img src="https://s1.ax1x.com/2018/07/26/PNZPEj.jpg" width="883" height="663"></p><h3><span id="8nginx反向代理解决跨域问题">8.nginx反向代理解决跨域问题</span></h3><p>nginx是一个高性能的web服务器，特点是并发数高，一般在大型项目中都有应用，用来进行负载均衡的实现。</p><p>反向代理：是指以代理服务器来接受Internet上的连接请求，然后将请求转发给内部网络上的服务器；并将从服务器上得到的结果返回给Internet上请求连接的客户端，此时代理服务器对外就表现为一个服务器。</p><p>利用nginx反向代理测试解决跨域等问题，前端就可以自己模拟数据请求，然后渲染数据，对开发效率有很大帮助。</p><p>使用nginx配置步骤 <a href="https://blog.csdn.net/cjd6568358/article/details/51871039" target="_blank" rel="noopener">详情&gt;&gt;</a></p><h3><span id="9提高cookie安全性的几种方式">9.提高cookie安全性的几种方式</span></h3><p><strong>1.对保存到cookie里面的敏感信息加密</strong></p><p><strong>2.设置HttpOnly为true</strong></p><p>该属性值的作用就是防止Cookie值被页面脚本读取。HttpOnly属性只是增加了攻击者的难度，Cookie盗窃的威胁并没有彻底消除，因为cookie还是有可能传递的过程中被监听捕获后信息泄漏。</p><p><strong>3.设置Secure为true</strong></p><p>给Cookie设置该属性时，只有在https协议下访问的时候，浏览器才会发送该Cookie。</p><p>把cookie设置为secure，只保证cookie与WEB服务器之间的数据传输过程加密，而保存在本地的cookie文件并不加密。如果想让本地cookie也加密，得自己加密数据。</p><p><strong>4.给Cookie设置有效期</strong></p><p>如果不设置有效期，万一用户获取到用户的Cookie后，就可以一直使用用户身份登录。</p><p>在设置Cookie认证的时候，需要加入两个时间，一个是“即使一直在活动，也要失效”的时间，一个是“长时间不活动的失效时间”，并在Web应用中，首先判断两个时间是否已超时，再执行其他操作。</p>]]></content>
     
@@ -256,9 +256,9 @@
     
       <category term="vue" scheme="https://wtlemoney.github.io/tags/vue/"/>
     
-      <category term="stylus" scheme="https://wtlemoney.github.io/tags/stylus/"/>
-    
       <category term="transition" scheme="https://wtlemoney.github.io/tags/transition/"/>
+    
+      <category term="stylus" scheme="https://wtlemoney.github.io/tags/stylus/"/>
     
   </entry>
   
@@ -357,13 +357,13 @@
       <category term="ajax" scheme="https://wtlemoney.github.io/categories/%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92/ajax/"/>
     
     
-      <category term="mock.js" scheme="https://wtlemoney.github.io/tags/mock-js/"/>
-    
-      <category term="easy mock" scheme="https://wtlemoney.github.io/tags/easy-mock/"/>
-    
       <category term="ajax" scheme="https://wtlemoney.github.io/tags/ajax/"/>
     
       <category term="JSON" scheme="https://wtlemoney.github.io/tags/JSON/"/>
+    
+      <category term="mock.js" scheme="https://wtlemoney.github.io/tags/mock-js/"/>
+    
+      <category term="easy mock" scheme="https://wtlemoney.github.io/tags/easy-mock/"/>
     
       <category term="前后端交互" scheme="https://wtlemoney.github.io/tags/%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92/"/>
     
@@ -521,8 +521,6 @@
       <category term="SCSS" scheme="https://wtlemoney.github.io/categories/CSS/%E9%A2%84%E5%A4%84%E7%90%86%E5%99%A8/SCSS/"/>
     
     
-      <category term="工具" scheme="https://wtlemoney.github.io/tags/%E5%B7%A5%E5%85%B7/"/>
-    
       <category term="CSS" scheme="https://wtlemoney.github.io/tags/CSS/"/>
     
       <category term="SCSS" scheme="https://wtlemoney.github.io/tags/SCSS/"/>
@@ -530,6 +528,8 @@
       <category term="预处理器" scheme="https://wtlemoney.github.io/tags/%E9%A2%84%E5%A4%84%E7%90%86%E5%99%A8/"/>
     
       <category term="编译" scheme="https://wtlemoney.github.io/tags/%E7%BC%96%E8%AF%91/"/>
+    
+      <category term="工具" scheme="https://wtlemoney.github.io/tags/%E5%B7%A5%E5%85%B7/"/>
     
       <category term="函数" scheme="https://wtlemoney.github.io/tags/%E5%87%BD%E6%95%B0/"/>
     
@@ -583,8 +583,6 @@
       <category term="SCSS" scheme="https://wtlemoney.github.io/categories/CSS/%E9%A2%84%E5%A4%84%E7%90%86%E5%99%A8/SCSS/"/>
     
     
-      <category term="工具" scheme="https://wtlemoney.github.io/tags/%E5%B7%A5%E5%85%B7/"/>
-    
       <category term="CSS" scheme="https://wtlemoney.github.io/tags/CSS/"/>
     
       <category term="SCSS" scheme="https://wtlemoney.github.io/tags/SCSS/"/>
@@ -592,6 +590,8 @@
       <category term="预处理器" scheme="https://wtlemoney.github.io/tags/%E9%A2%84%E5%A4%84%E7%90%86%E5%99%A8/"/>
     
       <category term="编译" scheme="https://wtlemoney.github.io/tags/%E7%BC%96%E8%AF%91/"/>
+    
+      <category term="工具" scheme="https://wtlemoney.github.io/tags/%E5%B7%A5%E5%85%B7/"/>
     
   </entry>
   
@@ -810,9 +810,9 @@
       <category term="VScode" scheme="https://wtlemoney.github.io/categories/VScode/"/>
     
     
-      <category term="VScode" scheme="https://wtlemoney.github.io/tags/VScode/"/>
-    
       <category term="工具" scheme="https://wtlemoney.github.io/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="VScode" scheme="https://wtlemoney.github.io/tags/VScode/"/>
     
       <category term="编辑器" scheme="https://wtlemoney.github.io/tags/%E7%BC%96%E8%BE%91%E5%99%A8/"/>
     
